@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/favorite_menu_total"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <ImageView
+        android:id="@+id/iv_item"
+        android:layout_width="match_parent"
+        android:layout_height="129dp"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_favmenu"
+        android:text="아워떡볶이"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/iv_item"
+        app:layout_constraintTop_toBottomOf="@+id/iv_item"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_fav_time"
+        android:textSize="12sp"
+        android:text="30분"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/iv_item"
+        app:layout_constraintTop_toBottomOf="@+id/iv_item"/>
+
+    <ImageView
+        android:id="@+id/star"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_favmenu"
+        app:layout_constraintTop_toBottomOf="@+id/tv_favmenu"
+        android:src="@drawable/img_star" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_fav_review"
+        android:textSize="12sp"
+        android:text="4.9"
+        android:textStyle="bold"
+        android:layout_marginStart="1dp"
+        app:layout_constraintStart_toEndOf="@+id/star"
+        app:layout_constraintTop_toBottomOf="@+id/tv_favmenu"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_fav_count"
+        android:textSize="12sp"
+        android:text="(3,839)"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_fav_review"
+        app:layout_constraintTop_toBottomOf="@+id/tv_favmenu"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
