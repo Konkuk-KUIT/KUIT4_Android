@@ -10,4 +10,7 @@
     <string name="korean_food">한식</string>
     <string name="chicken">치킨</string>
     <string name="snack_food">분식</string>
+    <string name="our_snacks">아워떡볶이</string>
+    <string name="minutes_30">30분</string>
+    <string name="recently_viewed_place">최근 본 맛집</string>
 </resources>
