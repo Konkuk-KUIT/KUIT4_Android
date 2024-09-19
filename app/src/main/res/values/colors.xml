@@ -3,4 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="nav_unselected">#939DA9</color>
+    <color name="suggest_color">#98A0AB</color>
+    <color name="box">#0C2F65</color>
+    <color name="box2">#FEFFFF</color>
+    <color name="button">#0C2F65</color>
 </resources>
