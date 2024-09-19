@@ -2,4 +2,18 @@
     <string name="app_name">Kuit4AndroidPrivate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="suggest">차수현님, 요아정 어때요?</string>
+    <string name="pork_cutlet">돈가스</string>
+    <string name="chicken">치킨</string>
+    <string name="japanese_food">일식</string>
+    <string name="korean_food">한식</string>
+    <string name="snack_food">분식</string>
+    <string name="wow">와우회원은 횟수 제한없이</string>
+    <string name="free">매 주문 무료배달</string>
+    <string name="order">주문하러 가기</string>
+    <string name="recent">최근 본 맛집</string>
+    <string name="name">아워떡볶이</string>
+    <string name="minute">30분</string>
+    <string name="score">4.9(3,849)</string>
 </resources>
