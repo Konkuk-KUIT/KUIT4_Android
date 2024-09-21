@@ -2,4 +2,15 @@
     <string name="app_name">Kuit4AndroidPrivate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="address">경기도 남양주시</string>
+    <string name="suggest">김소희님, 요아정 어때요 ?</string>
+    <string name="pork_cutlet">돈까스</string>
+    <string name="japanese">일식</string>
+    <string name="korean">한식</string>
+    <string name="chicken">치킨</string>
+    <string name="snack_food">분식</string>
+    <string name="ad_sub">와우회원은 횟수 제한없이</string>
+    <string name="ad_main">매 주문 무료배달</string>
+    <string name="button">주문하러 가기</string>
+    <string name="store_name">아워떡볶이</string>
 </resources>
