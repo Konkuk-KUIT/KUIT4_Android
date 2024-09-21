@@ -74,5 +74,437 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/iv_home_marker"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="62dp"
+        android:src="@drawable/ic_home_marker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_home_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="63dp"
+        android:text="서울시 송파구 잠실동"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/iv_home_marker"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@id/iv_home_bell"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="27dp"
+        android:src="@drawable/ic_home_bell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_home_down"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="66dp"
+        android:src="@drawable/ic_home_down"
+        app:layout_constraintStart_toEndOf="@+id/tv_home_address"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_home_search"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/ic_home_search"
+        app:layout_constraintStart_toStartOf="@id/iv_home_marker"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
+
+    <TextView
+        android:id="@+id/tv_home_suggest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/suggest"
+        android:textColor="@color/suggest_color"
+        app:layout_constraintStart_toEndOf="@id/iv_home_search"
+        app:layout_constraintTop_toTopOf="@id/iv_home_search" />
+
+    <LinearLayout
+        android:id="@+id/ll_home_center_images"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_search">
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/img_pork_cutlet" />
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/img_japanese_food" />
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/img_korean_food" />
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/img_chicken" />
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:src="@drawable/img_snack_food" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_home_center_texts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_home_center_images">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:text="@string/pork_cutlet"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="45dp"
+            android:text="@string/japanese_food"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="45dp"
+            android:text="@string/korean_food"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="42dp"
+            android:text="@string/chicken"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/snack_food"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_home_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_home_center_texts">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_home_pork_cutlet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp">
+
+            <ImageView
+                android:id="@+id/iv_menu_pork"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/img_pork_cutlet"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/pork_cutlet"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_menu_pork" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp">
+
+            <ImageView
+                android:id="@+id/iv_menu_japanese_food"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/img_japanese_food"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/japanese_food"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_menu_japanese_food" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp">
+
+            <ImageView
+                android:id="@+id/iv_menu_korean_food"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/img_korean_food"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/korean_food"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/iv_menu_korean_food"
+                app:layout_constraintTop_toBottomOf="@id/iv_menu_korean_food" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp">
+
+            <ImageView
+                android:id="@+id/iv_menu_chicken"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/img_chicken"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/chicken"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_menu_chicken" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_menu_snack_food"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:src="@drawable/img_snack_food"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/snack_food"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/iv_menu_snack_food"
+                app:layout_constraintTop_toBottomOf="@id/iv_menu_snack_food" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_main_sample"
+        android:layout_width="306dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="14dp"
+        android:background="#0C2F65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_home_menu"
+        app:shapeAppearanceOverlay="@style/corner_size_8" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_main_sample2"
+        android:layout_width="84dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="12dp"
+        android:background="#FEFFFF"
+        app:layout_constraintEnd_toEndOf="@id/siv_main_sample"
+        app:layout_constraintTop_toTopOf="@id/siv_main_sample"
+        app:shapeAppearanceOverlay="@style/corner_size_4" />
+
+    <TextView
+        android:id="@+id/tv_home_wow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="21dp"
+        android:text="@string/wow"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@+id/siv_main_sample"
+        app:layout_constraintTop_toTopOf="@+id/siv_main_sample" />
+
+    <TextView
+        android:id="@+id/tv_home_free"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="38dp"
+        android:text="@string/free"
+        android:textColor="@color/white"
+        android:textFontWeight="700"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/siv_main_sample"
+        app:layout_constraintTop_toTopOf="@+id/siv_main_sample" />
+
+    <TextView
+        android:id="@+id/tv_home_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/order"
+        android:textColor="#0C2F65"
+        android:textFontWeight="700"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@+id/siv_main_sample2"
+        app:layout_constraintTop_toTopOf="@+id/siv_main_sample2" />
+
+    <TextView
+        android:id="@+id/tv_home_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/recent"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/siv_main_sample" />
+
+    <ImageView
+        android:id="@+id/iv_home_recent"
+        android:layout_width="230dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/img_recent"
+        app:layout_constraintStart_toStartOf="@id/tv_home_recent"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_recent" />
+
+    <TextView
+        android:id="@+id/tv_tteokbokki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/name"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/iv_home_recent"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_recent" />
+
+    <TextView
+        android:id="@+id/tv_home_minute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minute"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/iv_home_recent"
+        app:layout_constraintTop_toTopOf="@id/tv_tteokbokki" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/tv_tteokbokki"
+        app:layout_constraintTop_toBottomOf="@id/tv_tteokbokki">
+
+        <ImageView
+            android:id="@+id/iv_bookmark"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/img_bookmark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_home_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/score"
+            android:textColor="@color/score_color"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/iv_bookmark"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

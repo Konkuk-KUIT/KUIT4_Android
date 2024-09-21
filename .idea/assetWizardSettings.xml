@@ -3,6 +3,11 @@
   <component name="WizardSettings">
     <option name="children">
       <map>
+        <entry key="imageWizard">
+          <value>
+            <PersistentState />
+          </value>
+        </entry>
         <entry key="vectorWizard">
           <value>
             <PersistentState>
@@ -14,8 +19,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_left" />
-                            <entry key="sourceFile" value="C:\Users\iksun\Downloads\ic_left.svg" />
+                            <entry key="outputName" value="rectangle_1441" />
+                            <entry key="sourceFile" value="C:\Users\LG Gram16\Downloads\Rectangle 1441.svg" />
                           </map>
                         </option>
                       </PersistentState>

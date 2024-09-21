@@ -3,4 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="nav_unselected">#939DA9</color>
+    <color name="suggest_color">#98A0AB</color>
+    <color name="score_color">#575252</color>
 </resources>
