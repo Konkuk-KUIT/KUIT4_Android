@@ -74,5 +74,464 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/iv_home_marker"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="87dp"
+        android:src="@drawable/ic_home_marker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_home_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="90dp"
+        android:text="@string/address"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/iv_home_marker"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_home_accordion_view_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="91dp"
+        android:src="@drawable/ic_home_accordion_view_button"
+        app:layout_constraintStart_toEndOf="@id/tv_home_address"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_home_bell"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="27dp"
+        android:src="@drawable/ic_home_bell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_home_search"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/ic_home_search"
+        app:layout_constraintStart_toStartOf="@id/iv_home_marker"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
+
+    <TextView
+        android:id="@+id/tv_home_suggest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:text="@string/suggest"
+        android:textColor="@color/suggest_color"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/iv_home_search"
+        app:layout_constraintTop_toTopOf="@id/iv_home_search" />
+
+    <LinearLayout
+        android:id="@+id/menu_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_search">
+
+        <LinearLayout
+            android:id="@+id/first_menubar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_pork_cutlet"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_pork_cutlet"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pork"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_pork_cutlet" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp">
+
+                <ImageView
+                    android:id="@+id/img_japanese_food"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_japanese_food"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/japanese"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_japanese_food" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp">
+
+                <ImageView
+                    android:id="@+id/img_korean_food"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_korean_food"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/korean"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_korean_food" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp">
+
+                <ImageView
+                    android:id="@+id/img_chicken"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_chicken"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chicken"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_chicken" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp">
+
+                <ImageView
+                    android:id="@+id/img_snack_food"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_snack_food"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/snack"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_snack_food" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_menubar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/first_menubar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_pork_cutlet2"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_pork_cutlet"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pork"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_pork_cutlet2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp">
+
+                <ImageView
+                    android:id="@+id/img_japanese_food2"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_japanese_food"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/japanese"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_japanese_food2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp">
+
+                <ImageView
+                    android:id="@+id/img_korean_food2"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_korean_food"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/korean"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_korean_food2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp">
+
+                <ImageView
+                    android:id="@+id/img_chicken2"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_chicken"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chicken"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_chicken2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp">
+
+                <ImageView
+                    android:id="@+id/img_snack_food2"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/img_snack_food"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/snack"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_snack_food2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_home_adver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_bar">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_home_adver"
+            android:layout_width="306dp"
+            android:layout_height="77dp"
+            android:background="@color/adver_navy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/corner_size_8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="81dp"
+            android:layout_marginTop="21dp"
+            android:text="@string/adver1"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@id/siv_home_adver"
+            app:layout_constraintTop_toTopOf="@id/siv_home_adver" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="81dp"
+            android:layout_marginTop="38dp"
+            android:text="@string/adver2"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/siv_home_adver"
+            app:layout_constraintTop_toTopOf="@id/siv_home_adver" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_home_order"
+            android:layout_width="84dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="12dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/siv_home_adver"
+            app:layout_constraintTop_toTopOf="@id/siv_home_adver"
+            app:shapeAppearanceOverlay="@style/corner_size_4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5.2dp"
+            android:text="@string/adver3"
+            android:textColor="@color/adver_navy"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/siv_home_order"
+            app:layout_constraintTop_toTopOf="@id/siv_home_order" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/tv_home_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/recent"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/cl_home_adver"
+        app:layout_constraintTop_toBottomOf="@id/cl_home_adver" />
+
+    <ImageView
+        android:id="@+id/iv_home_tteokbokki"
+        android:layout_width="230dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/img_tteokbokki"
+        app:layout_constraintStart_toStartOf="@id/tv_home_recent"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_recent" />
+
+    <TextView
+        android:id="@+id/tv_home_tteokbokki_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/tteokbokki_name"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/iv_home_tteokbokki"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_tteokbokki" />
+
+    <LinearLayout
+        android:id="@+id/score_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/tv_home_tteokbokki_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_tteokbokki_name">
+
+        <ImageView
+            android:id="@+id/iv_home_score_star"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/img_star" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/score"
+            android:textColor="@color/score_gray"
+            android:textSize="12sp" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
