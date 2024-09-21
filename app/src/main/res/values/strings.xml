@@ -2,4 +2,15 @@
     <string name="app_name">Kuit4AndroidPrivate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="address">서울 광진구 구의동</string>
+    <string name="suggestion">현재우님, 요아정 어때요?</string>
+    <string name="pork_cutlet">돈까스</string>
+    <string name="japanese_food">일식</string>
+    <string name="korean_food">한식</string>
+    <string name="chicken">치킨</string>
+    <string name="snack_food">분식</string>
+    <string name="our_snacks">아워떡볶이</string>
+    <string name="minutes_30">30분</string>
+    <string name="recently_viewed_place">최근 본 맛집</string>
 </resources>

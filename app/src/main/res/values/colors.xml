@@ -3,4 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="nav_unselected">#939DA9</color>
+    <color name="suggestion_color">#98ABAB</color>
+    <color name="grey">#575252</color>
+    <color name="promotion_container_color">#0C2F65</color>
+    <color name="promotion_button_color">#FEFFFF</color>
 </resources>
