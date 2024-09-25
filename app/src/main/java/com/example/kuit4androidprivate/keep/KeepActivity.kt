@@ -24,5 +24,9 @@ class KeepActivity : AppCompatActivity() {
             val intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
         }
+
+        binding.ivActivityKeepBack.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 }

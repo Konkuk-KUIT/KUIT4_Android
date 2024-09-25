@@ -35,5 +35,9 @@ class MyEatsFragment : Fragment() {
             startActivity(intent)
         }
 
+        binding.ivMyEatsBack.setOnClickListener{
+           requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
     }
 }
