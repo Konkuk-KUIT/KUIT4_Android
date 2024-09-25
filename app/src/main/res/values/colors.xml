@@ -5,6 +5,10 @@
     <color name="nav_unselected">#939DA9</color>
     <color name="suggestion_color">#98ABAB</color>
     <color name="grey">#575252</color>
+    <color name="phone_number_color">#444D53</color>
     <color name="promotion_container_color">#0C2F65</color>
+    <color name="light_blue">#02AFFE</color>
+    <color name="activity_keep_rectangle_color">#F7F8F8</color>
+    <color name="shadow"></color>"
     <color name="promotion_button_color">#FEFFFF</color>
 </resources>
