@@ -185,6 +185,7 @@
             app:layout_constraintTop_toTopOf="@id/siv_my_eats_see_detail_container" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_my_eats_like_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="27dp"
