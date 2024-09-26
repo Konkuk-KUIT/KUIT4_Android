@@ -26,7 +26,7 @@ class KeepActivity : AppCompatActivity() {
         }
 
         binding.ivActivityKeepBack.setOnClickListener{
-            onBackPressedDispatcher.onBackPressed()
+            finish()
         }
     }
 }

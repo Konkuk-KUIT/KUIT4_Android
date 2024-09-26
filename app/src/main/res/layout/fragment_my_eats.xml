@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_eats"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".myeats.MyEatsFragment">
 
 
-    <!-- TODO: Intent for favorites -->
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_my_eats"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -160,18 +158,22 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/siv_my_eats_see_detail_container"
+        <Button
+            android:id="@+id/btn_my_eats_see_detail"
             android:layout_width="306dp"
-            android:layout_height="42dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="자세히 보기"
+            android:textColor="@color/light_blue"
+            android:textSize="14sp"
+            android:elevation="6dp"
+            android:background="@drawable/btn_bg_4_lightblue"
+            app:backgroundTint="@null"
             app:layout_constraintTop_toBottomOf="@id/cl_statistics_container"
-            app:layout_goneMarginTop="18dp"
-            app:shapeAppearanceOverlay="@style/corner_rd_4"
-            app:strokeColor="@color/light_blue"
-            app:strokeWidth="1dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -179,10 +181,10 @@
             android:text="자세히 보기"
             android:textColor="@color/light_blue"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/siv_my_eats_see_detail_container"
-            app:layout_constraintEnd_toEndOf="@id/siv_my_eats_see_detail_container"
-            app:layout_constraintStart_toStartOf="@id/siv_my_eats_see_detail_container"
-            app:layout_constraintTop_toTopOf="@id/siv_my_eats_see_detail_container" />
+            app:layout_constraintBottom_toBottomOf="@id/btn_my_eats_see_detail"
+            app:layout_constraintEnd_toEndOf="@id/btn_my_eats_see_detail"
+            app:layout_constraintStart_toStartOf="@id/btn_my_eats_see_detail"
+            app:layout_constraintTop_toTopOf="@id/btn_my_eats_see_detail" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_my_eats_like_container"
@@ -191,7 +193,7 @@
             android:layout_marginStart="27dp"
             android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/siv_my_eats_see_detail_container">
+            app:layout_constraintTop_toBottomOf="@id/btn_my_eats_see_detail">
 
             <ImageView
                 android:id="@+id/iv_my_eats_like"
@@ -219,4 +221,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
