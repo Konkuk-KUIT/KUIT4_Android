@@ -7,4 +7,123 @@
     android:layout_height="match_parent"
     tools:context=".keep.KeepActivity">
 
+    <ImageView
+        android:id="@+id/iv_keep_arrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_keep_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/like"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/iv_keep_arrow"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:text="@string/change"
+        android:textColor="@color/my_eats_color"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/tv_keep_like"
+        app:layout_constraintTop_toTopOf="@id/tv_keep_like" />
+
+    <TextView
+        android:id="@+id/tv_keep_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="58dp"
+        android:text="@string/count"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_keep_arrow" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_keep_rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="24dp"
+        android:background="#F7F8F8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_keep_count"
+        app:shapeAppearanceOverlay="@style/rectangle" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_keep_tteokbokki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/siv_keep_rectangle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="27dp">
+        
+        <ImageView
+            android:id="@+id/iv_keep_tteokbokki"
+            android:layout_width="306dp"
+            android:layout_height="129dp"
+            android:src="@drawable/img_tteokbokki"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_keep_tteokbokki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/name"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/iv_keep_tteokbokki"
+            app:layout_constraintTop_toBottomOf="@id/iv_keep_tteokbokki" />
+
+        <TextView
+            android:id="@+id/tv_keep_minute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/minute"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_keep_tteokbokki"
+            app:layout_constraintTop_toBottomOf="@id/iv_keep_tteokbokki" />
+
+        <ImageView
+            android:id="@+id/iv_keep_star"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_keep_tteokbokki" />
+
+        <TextView
+            android:id="@+id/tv_keep_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:text="@string/score"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/iv_keep_star"
+            app:layout_constraintTop_toTopOf="@id/iv_keep_star" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

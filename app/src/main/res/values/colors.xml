@@ -3,4 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="nav_unselected">#939DA9</color>
+    
+    <color name="suggest_color">#98A0AB</color>
+    <color name="my_eats_color">#02AFFE</color>
 </resources>
