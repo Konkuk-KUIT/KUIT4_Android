@@ -7,4 +7,108 @@
     android:layout_height="match_parent"
     tools:context=".keep.KeepActivity">
 
+    <ImageView
+        android:id="@+id/back_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:text="즐겨찾기"
+        app:layout_constraintStart_toStartOf="@id/back_icon"
+        app:layout_constraintTop_toTopOf="@id/back_icon" />
+
+    <TextView
+        android:id="@+id/change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="247dp"
+        android:text="수정"
+        android:textColor="#02AFFE"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/back_icon"
+        app:layout_constraintTop_toTopOf="@id/back_icon" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:text="총 1개"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/back_icon"
+        app:layout_constraintTop_toBottomOf="@id/back_icon"
+        app:layout_goneMarginTop="58dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/touch_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="185dp"
+        android:layout_marginStart="27dp">
+        <ImageView
+            android:id="@+id/home_food"
+            android:layout_width="235dp"
+            android:layout_height="121dp"
+            android:src="@drawable/home_food"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/redfood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/pretendardvariable"
+            android:text="아워떡볶이"
+            android:textFontWeight="600"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/home_food"
+            app:layout_constraintTop_toBottomOf="@id/home_food" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
+            android:text="30분"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/redfood"
+            app:layout_constraintTop_toTopOf="@id/redfood" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="15sp"
+            android:src="@drawable/ic_home_star"
+            app:layout_constraintStart_toStartOf="@id/redfood"
+            app:layout_constraintTop_toBottomOf="@id/redfood" />
+
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="4.9 (3,849)"
+            android:textColor="#575252"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/star"
+            app:layout_constraintTop_toTopOf="@id/star" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

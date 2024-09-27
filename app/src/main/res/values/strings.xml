@@ -10,4 +10,7 @@
     <string name="korean">한식</string>
     <string name="chiken">치킨 </string>
     <string name="snack_food">분식</string>
+
+    <string name="user">강병완</string>
+    <string name="user_phonenumber">010-5524-3982</string>
 </resources>

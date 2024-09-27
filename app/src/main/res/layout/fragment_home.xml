@@ -397,59 +397,69 @@
         app:layout_constraintTop_toBottomOf="@id/iv_home_rectangle"
 
         />
-
-    <ImageView
-        android:layout_width="235dp"
-        android:layout_height="121dp"
-        android:layout_marginStart="19dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bootom_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_home_rectangle"
+        app:layout_constraintTop_toBottomOf="@id/recent"
         android:layout_marginTop="32dp"
-        android:src="@drawable/home_food"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recent" />
+        >
+        <ImageView
+            android:id="@+id/big_food"
+            android:layout_width="235dp"
+            android:layout_height="121dp"
+            android:src="@drawable/home_food"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/redfood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="159dp"
-        android:fontFamily="@font/pretendardvariable"
-        android:text="아워떡볶이"
-        android:textFontWeight="600"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/recent"
-        app:layout_constraintTop_toBottomOf="@id/recent" />
+        <TextView
+            android:id="@+id/redfood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/pretendardvariable"
+            android:text="아워떡볶이"
+            android:textFontWeight="600"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/big_food"
+            app:layout_constraintTop_toBottomOf="@id/big_food" />
 
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
-        android:text="30분"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@id/redfood"
-        app:layout_constraintTop_toTopOf="@id/redfood" />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
+            android:text="30분"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/redfood"
+            app:layout_constraintTop_toTopOf="@id/redfood" />
 
-    <ImageView
-        android:id="@+id/star"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="15sp"
-        android:src="@drawable/ic_home_star"
-        app:layout_constraintStart_toStartOf="@id/redfood"
-        app:layout_constraintTop_toBottomOf="@id/redfood" />
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="15sp"
+            android:src="@drawable/ic_home_star"
+            app:layout_constraintStart_toStartOf="@id/redfood"
+            app:layout_constraintTop_toBottomOf="@id/redfood" />
 
-    <TextView
-        android:id="@+id/rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="4.9 (3,849)"
-        android:textColor="#575252"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@id/star"
-        app:layout_constraintTop_toTopOf="@id/star" />
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="4.9 (3,849)"
+            android:textColor="#575252"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/star"
+            app:layout_constraintTop_toTopOf="@id/star" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
