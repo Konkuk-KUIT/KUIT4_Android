@@ -3,14 +3,21 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="place">place</string>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 6168c3bcee7236c11dde41ba0c279fca02486d24
     <string name="suggest">강병완님, 요아정 어때요?</string>
     <string name="prok_cutlet">돈까스</string>
     <string name="japenese">일식</string>
     <string name="korean">한식</string>
     <string name="chiken">치킨 </string>
     <string name="snack_food">분식</string>
+<<<<<<< HEAD
 
     <string name="user">강병완</string>
     <string name="user_phonenumber">010-5524-3982</string>
+=======
+>>>>>>> 6168c3bcee7236c11dde41ba0c279fca02486d24
 </resources>
