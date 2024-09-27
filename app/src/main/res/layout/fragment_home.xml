@@ -74,5 +74,294 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/iv_home_marker"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="62dp"
+        android:src="@drawable/ic_home_marker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_home_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="63dp"
+        android:text="서울시 광진구 화양동"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/iv_home_marker"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_home_bell"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="27dp"
+        android:src="@drawable/ic_home_bell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_home_down"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="66dp"
+        android:src="@drawable/ic_home_down"
+        app:layout_constraintStart_toEndOf="@id/tv_home_address"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_home_search"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/ic_home_search"
+        app:layout_constraintStart_toStartOf="@id/iv_home_marker"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
+
+    <TextView
+        android:id="@+id/tv_home_suggest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/suggest"
+        android:textColor="@color/suggest_color"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="115dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_home_center_images"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="163dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_search">
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/img_porkcutlet" />
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/img_japanesefood" />
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/img_koreanfood" />
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/img_chicken" />
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:src="@drawable/img_snackfood" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_home_center_texts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_home_center_images">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="45dp"
+            android:text="돈까스"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="45dp"
+            android:text="일식"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="45dp"
+            android:text="한식"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="42dp"
+            android:text="치킨"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분식"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_home_center_images">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ll_pork"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/img_porkcutlet" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="45dp"
+                android:text="돈까스"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintTop_toBottomOf="@id/ll_pork"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ll_japan"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/img_japanesefood" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="45dp"
+                android:text="일식"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintTop_toBottomOf="@id/ll_japan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ll_korean"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/img_koreanfood" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="45dp"
+                android:text="한식"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintTop_toBottomOf="@id/ll_korean"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ll_chicken"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/img_chicken" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="42dp"
+                android:text="치킨"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintTop_toBottomOf="@id/ll_chicken"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ll_snack"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/img_snackfood" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="분식"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintTop_toBottomOf="@id/ll_snack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

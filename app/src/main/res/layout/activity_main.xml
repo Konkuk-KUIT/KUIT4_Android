@@ -8,12 +8,23 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_main_sample"
+        android:layout_width="306dp"
+        android:layout_height="77dp"
+        app:shapeAppearanceOverlay="@style/corner_size_8"
+        android:background="#0C2F65"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_frm"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/main_bottom_nav"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.fragment.app.FragmentContainerView>
 

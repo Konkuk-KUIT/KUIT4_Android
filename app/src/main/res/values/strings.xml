@@ -2,4 +2,11 @@
     <string name="app_name">Kuit4AndroidPrivate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="suggest">정유빈님, 요아정 어때요?</string>
+    <string name="porkcutlet">돈까스</string>
+    <string name="japanese">일식</string>
+    <string name="korean">한식</string>
+    <string name="chicken">치킨</string>
+    <string name="snackfood">분식</string>
 </resources>
