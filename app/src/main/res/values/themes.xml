@@ -23,6 +23,5 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">4dp</item>
     </style>
-
     <style name="Theme.Kuit4AndroidPrivate" parent="Base.Theme.Kuit4AndroidPrivate" />
 </resources>

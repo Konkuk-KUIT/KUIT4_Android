@@ -7,4 +7,142 @@
     android:layout_height="match_parent"
     tools:context=".keep.KeepActivity">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_keep_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/iv_keep_back"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_keep_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="0dp"
+            android:text="즐겨찾기"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/iv_keep_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_keep_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:text="수정"
+            android:textColor="@color/lightblue"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/tv_keep_like"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_keep_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="58dp"
+        android:text="총 1개"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_keep_menu" />
+
+    <View
+        android:id="@+id/view_keep_rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="24dp"
+        android:background="#F7F8F8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_keep_total" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_keep_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginTop="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_keep_rectangle">
+
+        <ImageView
+            android:id="@+id/iv_keep_like"
+            android:layout_width="306dp"
+            android:layout_height="129dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_home_food"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_keep_snack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:lineHeight="16dp"
+            android:text="@string/tv_home_our"
+            android:fontFamily="@font/pretendard_variable"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/iv_keep_like"
+            app:layout_constraintTop_toBottomOf="@id/iv_keep_like" />
+
+        <TextView
+            android:id="@+id/tv_keep_minute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/tv_home_minute"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_keep_like"
+            app:layout_constraintTop_toBottomOf="@id/iv_keep_like" />
+
+        <ImageView
+            android:id="@+id/iv_keep_star"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/img_home_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_keep_snack" />
+
+        <TextView
+            android:id="@+id/tv_keep_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:text="4.9 (3,849)"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/iv_keep_star"
+            app:layout_constraintTop_toTopOf="@id/iv_keep_star" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
