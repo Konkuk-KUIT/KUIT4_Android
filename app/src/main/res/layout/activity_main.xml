@@ -38,7 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#DBDBDB"
-        app:layout_constraintBottom_toTopOf="@id/main_bottom_nav" />
+        app:layout_constraintBottom_toTopOf="@id/main_bottom_nav"
+        tools:layout_editor_absoluteX="-16dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
