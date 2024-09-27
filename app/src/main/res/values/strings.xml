@@ -15,4 +15,9 @@
     <string name="recently_viewed_place">최근 본 맛집</string>
     <string name="user_name">현재우</string>
     <string name="phone_number">010-****-****</string>
+    <string name="my_reviews">내가 남긴 리뷰</string>
+    <string name="it_helped">도움이 됐어요</string>
+    <string name="favorites">즐겨찾기</string>
+    <string name="see_details">자세히 보기</string>
+    <string name="edit">수정</string>
 </resources>
