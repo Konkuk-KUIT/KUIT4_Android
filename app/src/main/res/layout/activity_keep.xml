@@ -7,4 +7,106 @@
     android:layout_height="match_parent"
     tools:context=".keep.KeepActivity">
 
+    <ImageView
+        android:id="@+id/iv_keep_back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_myeats_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="20dp"
+        android:text="즐겨찾기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="35dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="27dp"
+        android:text="수정"
+        android:textColor="#02AFFE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_keep_num"
+        android:layout_width="53dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="58dp"
+        android:text="총 1개"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_keep_back"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_keep_restaurant01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="59dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_keep_num">
+
+        <ImageView
+            android:id="@+id/iv_keep_restaurant"
+            android:layout_width="230dp"
+            android:layout_height="129dp"
+            android:src="@drawable/img_restaurant01"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_keep_restaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="아워떡볶이"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/iv_keep_restaurant"
+            app:layout_constraintTop_toBottomOf="@id/iv_keep_restaurant" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="30분"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_keep_restaurant"
+            app:layout_constraintTop_toBottomOf="@id/iv_keep_restaurant" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/img_home_star"
+            app:layout_constraintStart_toStartOf="@id/iv_keep_restaurant"
+            app:layout_constraintTop_toBottomOf="@id/iv_keep_restaurant" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="31dp"
+            android:text="4.9 (3,849)"
+            android:textColor="#575252"
+            app:layout_constraintStart_toStartOf="@id/iv_keep_restaurant"
+            app:layout_constraintTop_toBottomOf="@id/iv_keep_restaurant" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
