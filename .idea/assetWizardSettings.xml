@@ -19,8 +19,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_detail_like" />
-                            <entry key="sourceFile" value="C:\Users\hyunj\OneDrive\KUIT\like_detail.svg" />
+                            <entry key="outputName" value="ic_like_filled" />
+                            <entry key="sourceFile" value="C:\Users\hyunj\OneDrive\KUIT\Like (Filled).svg" />
                           </map>
                         </option>
                       </PersistentState>

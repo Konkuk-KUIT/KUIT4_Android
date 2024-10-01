@@ -14,6 +14,7 @@ import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.adapter.RVAdapterCategory
 import com.example.kuit4androidprivate.adapter.RVAdapterRecent
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
+import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuData
@@ -118,71 +119,71 @@ class HomeFragment : Fragment() {
             arrayListOf(
                 MenuData(
                     restaurantName = getString(R.string.our_snacks),
+                    eta = "50분",
+                    imgId = R.drawable.img_favorite_our_snack,
+                    rating = "2.9",
+                    totalReviews = "(1149)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
                     eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
+                    imgId = R.drawable.img_favorite_our_snack,
                     rating = "4.9",
                     totalReviews = "(3849)"
                 ),
                 MenuData(
                     restaurantName = getString(R.string.our_snacks),
                     eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
+                    imgId = R.drawable.img_favorite_our_snack,
                     rating = "4.9",
                     totalReviews = "(3849)"
                 ),
                 MenuData(
                     restaurantName = getString(R.string.our_snacks),
                     eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
+                    imgId = R.drawable.img_favorite_our_snack,
                     rating = "4.9",
                     totalReviews = "(3849)"
                 ),
                 MenuData(
                     restaurantName = getString(R.string.our_snacks),
                     eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
+                    imgId = R.drawable.img_favorite_our_snack,
                     rating = "4.9",
                     totalReviews = "(3849)"
                 ),
                 MenuData(
                     restaurantName = getString(R.string.our_snacks),
                     eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
+                    imgId = R.drawable.img_favorite_our_snack,
                     rating = "4.9",
                     totalReviews = "(3849)"
                 ),
                 MenuData(
                     restaurantName = getString(R.string.our_snacks),
                     eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
+                    imgId = R.drawable.img_favorite_our_snack,
                     rating = "4.9",
                     totalReviews = "(3849)"
                 ),
                 MenuData(
                     restaurantName = getString(R.string.our_snacks),
                     eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
+                    imgId = R.drawable.img_favorite_our_snack,
                     rating = "4.9",
                     totalReviews = "(3849)"
                 ),
                 MenuData(
                     restaurantName = getString(R.string.our_snacks),
                     eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
+                    imgId = R.drawable.img_favorite_our_snack,
                     rating = "4.9",
                     totalReviews = "(3849)"
                 ),
                 MenuData(
                     restaurantName = getString(R.string.our_snacks),
                     eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
-                    rating = "4.9",
-                    totalReviews = "(3849)"
-                ),
-                MenuData(
-                    restaurantName = getString(R.string.our_snacks),
-                    eta = "30분",
-                    imgId = R.drawable.img_recent_restaurant,
+                    imgId = R.drawable.img_favorite_our_snack,
                     rating = "4.9",
                     totalReviews = "(3849)"
                 ),
@@ -192,7 +193,10 @@ class HomeFragment : Fragment() {
 
     private fun initRVAdapterRecent() {
         rvAdapterRecent = RVAdapterRecent(requireContext(), recentItem) { it ->
-            Toast.makeText(requireContext(), it.restaurantName, Toast.LENGTH_LONG).show()
+            val intent = Intent(requireContext(), DetailActivity::class.java)
+            //menuData를 intent에 넘김
+            intent.putExtra("menuData",it)
+            startActivity(intent)
         }
 
         with(binding.rvHomeRecent) {

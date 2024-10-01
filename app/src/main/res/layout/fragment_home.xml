@@ -235,9 +235,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/rv_home_recent"
         app:layout_constraintTop_toBottomOf="@id/tv_recently_searched_restaurant"
-        android:layout_marginStart="27dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/tv_recently_searched_restaurant"/>
 
 <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--        android:id="@+id/cl_recently_viewed_restaurant_container"-->
