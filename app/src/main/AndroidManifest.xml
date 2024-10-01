@@ -17,6 +17,8 @@
             android:exported="false" />
         <activity android:name=".detail.DetailActivity"
             android:exported="false" />
+        <activity android:name=".favorite.FavoriteActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
