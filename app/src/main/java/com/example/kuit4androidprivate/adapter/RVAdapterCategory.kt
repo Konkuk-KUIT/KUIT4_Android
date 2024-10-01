@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kuit4androidprivate.databinding.ItemHomeCategoryBinding
 import com.example.kuit4androidprivate.model.MenuCategoryData
 
-class RVAdapter(
+class RVAdapterCategory(
     private val context: Context,
     private val items: ArrayList<MenuCategoryData>,
     private val categoryClickListener: (MenuCategoryData) -> Unit
-    ): RecyclerView.Adapter<RVAdapter.ViewHolder>() {
+    ): RecyclerView.Adapter<RVAdapterCategory.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemHomeCategoryBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(item: MenuCategoryData){
@@ -24,7 +24,7 @@ class RVAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapterCategory.ViewHolder {
         val binding = ItemHomeCategoryBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(binding)
     }

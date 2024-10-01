@@ -8,21 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kuit4androidprivate.R
-import com.example.kuit4androidprivate.adapter.RVAdapter
+import com.example.kuit4androidprivate.adapter.RVAdapterCategory
+import com.example.kuit4androidprivate.adapter.RVAdapterRecent
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
-import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.model.MenuCategoryData
+import com.example.kuit4androidprivate.model.MenuData
 
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var recyclerView: RecyclerView
-    private lateinit var rvAdapter: RVAdapter
+    private lateinit var rvAdapterCategory: RVAdapterCategory
     private val categoryItem = arrayListOf<MenuCategoryData>()
+    private lateinit var rvAdapterRecent: RVAdapterRecent
+    private val recentItem = arrayListOf<MenuData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +35,9 @@ class HomeFragment : Fragment() {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
         initCategory()
-        initRVAdapter()
+        initRVAdapterCategory()
+        initRecent()
+        initRVAdapterRecent()
         return binding.root
     }
 
@@ -39,12 +45,12 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //KeepActivity로 전환하기 위한 함수
-        binding.clRecentlyViewedRestaurantContainer.setOnClickListener {
-            val intent = Intent(activity, DetailActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.clRecentlyViewedRestaurantContainer.setOnClickListener {
+//            val intent = Intent(activity, DetailActivity::class.java)
+//            startActivity(intent)
+//        }
 
-        binding.sivPromotionOrderButton.setOnClickListener{
+        binding.sivPromotionOrderButton.setOnClickListener {
             val intent = Intent(activity, FavoriteActivity::class.java)
             startActivity(intent)
         }
@@ -53,7 +59,7 @@ class HomeFragment : Fragment() {
 //        recyclerView.layoutManager = GridLayoutManager(requireContext(), 5)
     }
 
-    private fun initCategory(){
+    private fun initCategory() {
         categoryItem.addAll(
             arrayListOf(
                 MenuCategoryData(
@@ -96,14 +102,103 @@ class HomeFragment : Fragment() {
         )
     }
 
-    private fun initRVAdapter(){
-        rvAdapter = RVAdapter(requireContext(), categoryItem){it->
+    private fun initRVAdapterCategory() {
+        rvAdapterCategory = RVAdapterCategory(requireContext(), categoryItem) { it ->
             Toast.makeText(requireContext(), it.categoryName, Toast.LENGTH_LONG).show()
         }
 
-        with(binding.rvHomeCategory){
-            adapter = rvAdapter
+        with(binding.rvHomeCategory) {
+            adapter = rvAdapterCategory
             layoutManager = GridLayoutManager(requireContext(), 5)
+        }
+    }
+
+    private fun initRecent() {
+        recentItem.addAll(
+            arrayListOf(
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+                MenuData(
+                    restaurantName = getString(R.string.our_snacks),
+                    eta = "30분",
+                    imgId = R.drawable.img_recent_restaurant,
+                    rating = "4.9",
+                    totalReviews = "(3849)"
+                ),
+            )
+        )
+    }
+
+    private fun initRVAdapterRecent() {
+        rvAdapterRecent = RVAdapterRecent(requireContext(), recentItem) { it ->
+            Toast.makeText(requireContext(), it.restaurantName, Toast.LENGTH_LONG).show()
+        }
+
+        with(binding.rvHomeRecent) {
+            adapter = rvAdapterRecent
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
     }
 }

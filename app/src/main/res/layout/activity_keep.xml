@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@id/v_activity_keep_rectangle">
 
         <ImageView
-            android:id="@+id/iv_favorite_restaurant"
+            android:id="@+id/iv_restaurant_img"
             android:layout_width="306dp"
             android:layout_height="129dp"
             android:src="@drawable/img_favorite_restaurant"
@@ -88,7 +88,7 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_favorite_restaurant" />
+            app:layout_constraintTop_toBottomOf="@id/iv_restaurant_img" />
 
         <TextView
             android:id="@+id/tv_favorites_ETA"
@@ -96,8 +96,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/minutes_30"
-            app:layout_constraintEnd_toEndOf="@id/iv_favorite_restaurant"
-            app:layout_constraintTop_toBottomOf="@id/iv_favorite_restaurant" />
+            app:layout_constraintEnd_toEndOf="@id/iv_restaurant_img"
+            app:layout_constraintTop_toBottomOf="@id/iv_restaurant_img" />
 
         <ImageView
             android:id="@+id/iv_favorites_rating_star"
