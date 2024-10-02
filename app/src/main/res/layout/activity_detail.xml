@@ -39,6 +39,7 @@
             android:id="@+id/iv_detail_restaurant"
             android:layout_width="360dp"
             android:layout_height="149dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/img_detail_restaurant"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

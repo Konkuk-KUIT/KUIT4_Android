@@ -13,6 +13,11 @@ class RVAdapterCategory(
     private val categoryClickListener: (MenuCategoryData) -> Unit
     ): RecyclerView.Adapter<RVAdapterCategory.ViewHolder>() {
 
+    companion object{
+        private const val VIEW_TYPE_ITEM = 0
+        private const val VIEW_TYPE_SHOW_MORE = 1
+    }
+
     inner class ViewHolder(val binding: ItemHomeCategoryBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(item: MenuCategoryData){
             binding.ivCategoryImage.setImageResource(item.categoryImage)

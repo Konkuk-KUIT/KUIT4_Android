@@ -11,4 +11,5 @@
     <color name="activity_keep_rectangle_color">#F7F8F8</color>
     <color name="shadow"></color>"
     <color name="promotion_button_color">#FEFFFF</color>
+    <color name="button_edge">#E8E9EB</color>
 </resources>
