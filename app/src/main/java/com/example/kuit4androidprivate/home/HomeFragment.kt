@@ -104,9 +104,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRVAdapterCategory() {
-        rvAdapterCategory = RVAdapterCategory(requireContext(), categoryItem) { it ->
-            Toast.makeText(requireContext(), it.categoryName, Toast.LENGTH_LONG).show()
-        }
+        rvAdapterCategory = RVAdapterCategory(
+            requireContext(),
+            items = categoryItem,
+            categoryClickListener = {
+                Toast.makeText(requireContext(), it.categoryName, Toast.LENGTH_LONG).show()
+            },
+            showMoreClickListener = {
+                Toast.makeText(requireContext(), "더보기", Toast.LENGTH_LONG).show()
+            })
 
         with(binding.rvHomeCategory) {
             adapter = rvAdapterCategory
@@ -196,7 +202,7 @@ class HomeFragment : Fragment() {
         rvAdapterRecent = RVAdapterRecent(requireContext(), recentItem) { it ->
             val intent = Intent(requireContext(), DetailActivity::class.java)
             //menuData를 intent에 넘김
-            intent.putExtra("menuData",it)
+            intent.putExtra("menuData", it)
             startActivity(intent)
         }
 
