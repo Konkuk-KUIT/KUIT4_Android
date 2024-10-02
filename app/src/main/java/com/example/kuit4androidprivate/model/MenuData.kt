@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class MenuData(
     val restaurantName: String,
     val eta: String,
-    val imageUrl: String? = null,
+    val imgUrl: String? = null,
     val imgId: Int? = null,
     val rating: String,
     val totalReviews: String,

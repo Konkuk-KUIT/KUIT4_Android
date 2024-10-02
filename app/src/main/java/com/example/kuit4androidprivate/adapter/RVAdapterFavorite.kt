@@ -20,7 +20,7 @@ class RVAdapterFavorite(
                 binding.ivRestaurantImg.setImageResource(item.imgId)
             }else{//Glide로 image url 사용하는 경우
                 Glide.with(context)
-                    .load(item.imageUrl)
+                    .load(item.imgUrl)
                     .into(binding.ivRestaurantImg)
             }
 

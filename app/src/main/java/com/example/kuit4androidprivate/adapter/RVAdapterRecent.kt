@@ -20,9 +20,14 @@ class RVAdapterRecent(
                 binding.ivRestaurantImg.setImageResource(item.imgId)
             }else{//Glide로 image url 사용하는 경우
                 Glide.with(context)
-                    .load(item.imageUrl)
+                    .load(item.imgUrl)
                     .into(binding.ivRestaurantImg)
             }
+
+            binding.tvRestaurantName.text = item.restaurantName
+            binding.tvETA.text = item.eta
+            binding.tvRestaurantRating.text = item.rating
+            binding.tvTotalReviews.text = item.totalReviews
 
             binding.root.setOnClickListener {
                 recentClickListener(item)

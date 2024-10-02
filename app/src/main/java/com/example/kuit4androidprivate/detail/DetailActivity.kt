@@ -27,9 +27,9 @@ class DetailActivity: AppCompatActivity() {
 
         if (menuData.imgId != null){
             binding.ivDetailRestaurant.setImageResource(menuData.imgId)
-        }else if (menuData.imageUrl != null){
+        }else if (menuData.imgUrl != null){
             Glide.with(this)
-                .load(menuData.imageUrl)
+                .load(menuData.imgUrl)
                 .into(binding.ivDetailRestaurant)
         }
 
