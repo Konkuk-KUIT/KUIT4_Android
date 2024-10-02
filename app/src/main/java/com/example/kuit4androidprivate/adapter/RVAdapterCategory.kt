@@ -26,6 +26,7 @@ class RVAdapterCategory(
 
             binding.root.setOnClickListener {
                 categoryClickListener(item)
+//                asfasdf
             }
         }
     }
@@ -35,7 +36,7 @@ class RVAdapterCategory(
         return ViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = items.size + 1
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(items[position])
