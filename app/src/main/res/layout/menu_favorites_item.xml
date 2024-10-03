@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+
+    <ImageView
+        android:id="@+id/iv_favorites_item_img"
+        android:layout_width="306dp"
+        android:layout_height="129dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_favorites_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/pretendard_variable"
+        android:text="떡볶이"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/iv_favorites_item_img"
+        app:layout_constraintTop_toBottomOf="@id/iv_favorites_item_img" />
+
+    <TextView
+        android:id="@+id/tv_favorites_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/pretendard_variable"
+        android:text="30분"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/iv_favorites_item_img"
+        app:layout_constraintTop_toBottomOf="@id/iv_favorites_item_img" />
+
+    <ImageView
+        android:id="@+id/iv_favorite_item_star"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_favorites_item_title" />
+
+    <TextView
+        android:id="@+id/tv_favorites_item_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/pretendard_variable"
+        android:text="4.9"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/iv_favorite_item_star"
+        app:layout_constraintTop_toTopOf="@id/iv_favorite_item_star" />
+
+    <TextView
+        android:id="@+id/tv_favorites_item_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/pretendard_variable"
+        android:text="(3,849)"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tv_favorites_item_score"
+        app:layout_constraintTop_toTopOf="@id/tv_favorites_item_score" />
+
+    <FrameLayout
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="6dp"
+        app:layout_constraintEnd_toEndOf="@id/tv_favorites_item_time"
+        app:layout_constraintTop_toBottomOf="@id/tv_favorites_item_time">
+
+        <ImageView
+            android:id="@+id/iv_favorite_blank_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_blank_heart"
+
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_favorite_filled_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_filled_heart"
+            android:visibility="visible" />
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

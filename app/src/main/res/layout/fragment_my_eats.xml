@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".myeats.MyEatsFragment">
 
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_back_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tv_my_name"
         android:layout_width="wrap_content"
@@ -159,8 +150,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_my_eats_move_detail"
-        android:layout_width="122px"
-        android:layout_height="30px"
+        android:layout_width="122dp"
+        android:layout_height="30dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"

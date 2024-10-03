@@ -140,319 +140,15 @@
         app:layout_constraintStart_toEndOf="@id/iv_home_search"
         app:layout_constraintTop_toTopOf="@id/iv_home_search" />
 
-    <LinearLayout
-        android:id="@+id/ll_home1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_menu_category"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="37dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_home_search"
-
-        >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ll1_con1"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_ll1_img1"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_porkcutlet"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/pork_cutlet"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_ll1_img1" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ll1_con2"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/ll1_con1"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_ll1_img2"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_japanesefood"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/japanese"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_ll1_img2" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ll1_con3"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/ll1_con2"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_ll1_img3"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_koreanfood"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/korean"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_ll1_img3" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ll1_con4"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/ll1_con3"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_ll1_img4"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_chicken"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/chicken"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_ll1_img4" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ll1_con5"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/con4"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_ll1_img5"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_snackfood"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/snack_food"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_ll1_img5" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_home2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_home1"
-
-        >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/con1"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_center_img1"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_porkcutlet"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/pork_cutlet"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_center_img1" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/con2"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/con1"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_center_img2"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_japanesefood"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/japanese"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_center_img2" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/con3"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/con2"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_center_img3"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_koreanfood"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/korean"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_center_img3" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/con4"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/con3"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_center_img4"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_chicken"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/chicken"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_center_img4" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/con5"
-            android:layout_width="47dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/con4"
-            app:layout_constraintTop_toTopOf="@id/ll_home1">
-
-            <ImageView
-                android:id="@+id/iv_home_center_img5"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:src="@drawable/img_home_snackfood"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="31dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/snack_food"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_home_center_img5" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/tv_home_question"
+        tools:listitem="@layout/menu_category_item" />
 
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -463,7 +159,7 @@
         android:background="@color/box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_home2"
+        app:layout_constraintTop_toBottomOf="@id/rv_menu_category"
         app:shapeAppearanceOverlay="@style/corner_size_8" />
 
     <TextView
@@ -494,7 +190,7 @@
         app:layout_constraintTop_toBottomOf="@id/siv_ad_sub" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/siv_button"
+        android:id="@+id/siv_home_button"
         android:layout_width="84dp"
         android:layout_height="25dp"
         android:layout_marginTop="26dp"
@@ -514,11 +210,11 @@
         android:textColor="@color/button"
         android:textSize="11sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/siv_button"
-        app:layout_constraintTop_toTopOf="@id/siv_button" />
+        app:layout_constraintEnd_toEndOf="@id/siv_home_button"
+        app:layout_constraintTop_toTopOf="@id/siv_home_button" />
 
     <TextView
-        android:id="@+id/tv_menu_item1"
+        android:id="@+id/tv_home_recently_title"
         style="bold"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
@@ -533,65 +229,14 @@
 
         app:layout_constraintTop_toBottomOf="@id/siv_main" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/con_menu"
-        android:layout_width="231dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_menu_recently"
+        android:layout_width="wrap_content"
         android:layout_height="176dp"
         android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="@id/tv_menu_item1"
-        app:layout_constraintTop_toBottomOf="@id/tv_menu_item1">
-
-        <ImageView
-            android:id="@+id/iv_store"
-            android:layout_width="230dp"
-            android:layout_height="129dp"
-            android:src="@drawable/img_menu_item"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_store"
-            android:layout_width="61dp"
-            android:layout_height="17dp"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/pretendard_variable"
-            android:text="@string/store_name"
-            android:textColor="@color/black"
-            android:textFontWeight="600"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_store" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="30분"
-            android:textColor="@color/black"
-            android:textFontWeight="400"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_store" />
-
-        <ImageView
-            android:id="@+id/iv_store_score"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/star"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_store" />
-
-        <TextView
-            android:layout_width="61dp"
-            android:layout_height="14dp"
-            android:layout_marginStart="5dp"
-            android:text="4.9 (3,849)"
-            android:textFontWeight="400"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/iv_store_score"
-            app:layout_constraintTop_toTopOf="@id/iv_store_score" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintStart_toStartOf="@id/tv_home_recently_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_recently_title"
+        tools:listitem="@layout/menu_favorites_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

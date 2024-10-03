@@ -8,6 +8,7 @@
     tools:context=".keep.KeepActivity">
 
     <ImageView
+        android:id="@+id/iv_keep_back_button"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="27dp"

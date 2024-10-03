@@ -10,17 +10,27 @@ class KeepActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityKeepBinding
 
+    private fun initListener() {
+        binding.ivKeepBackButton.setOnClickListener() {
+            finish()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityKeepBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
         intentToActivityDetail()
+        initListener()
     }
+
     private fun intentToActivityDetail() {
         binding.conFavoritesMenu.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
         }
     }
+
 }

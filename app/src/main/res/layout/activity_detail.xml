@@ -8,6 +8,7 @@
     tools:context=".detail.DetailActivity">
 
     <ImageView
+        android:id="@+id/iv_detail_back_button"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="27dp"
@@ -15,53 +16,82 @@
         android:src="@drawable/ic_back_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/img_detail_heart"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="27dp"
+        android:src="@drawable/img_blank_heart"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"/>
+        android:visibility="visible"/>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="27dp"
+        android:src="@drawable/img_filled_heart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+
+
     <ImageView
         android:id="@+id/iv_detail_store"
         android:layout_width="360dp"
         android:layout_height="149dp"
+        android:layout_marginTop="64dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/img_detail_store"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="64dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_detail_store_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="아워떡볶이"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/pretendard_variable"
+        android:text="아워떡볶이"
         android:textFontWeight="600"
         android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@id/iv_detail_store"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="111dp"/>
+        app:layout_constraintTop_toBottomOf="@id/iv_detail_store" />
+
     <ImageView
         android:layout_width="20dp"
         android:layout_height="15dp"
+        android:layout_marginStart="125dp"
         android:layout_marginTop="9dp"
         android:src="@drawable/star"
-        android:layout_marginStart="125dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_detail_store_name" />
 
     <TextView
+        android:id="@+id/tv_detail_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="155dp"
         android:layout_marginTop="8dp"
-        android:text="4.9 (3,849)"
+        android:text="4.9"
         android:textFontWeight="400"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_detail_store_name"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_store_name" />
 
+    <TextView
+        android:id="@+id/tv_detail_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:text="(3,524)"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tv_detail_score"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_store_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
