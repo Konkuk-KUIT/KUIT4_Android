@@ -41,7 +41,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ll_myeats_menu"
+        android:id="@+id/cl_myeats_menu"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="36dp"
@@ -155,7 +155,7 @@
         android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_myeats_menu">
+        app:layout_constraintTop_toBottomOf="@id/cl_myeats_menu">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/siv_myeats_detail"

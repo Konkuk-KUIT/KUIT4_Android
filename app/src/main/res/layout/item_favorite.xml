@@ -1,0 +1,98 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_favorite_like"
+        android:layout_width="306dp"
+        android:layout_height="129dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_home_food"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_favorite_snack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:lineHeight="16dp"
+        android:text="@string/tv_home_our"
+        android:fontFamily="@font/pretendard_variable"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/iv_favorite_like"
+        app:layout_constraintTop_toBottomOf="@id/iv_favorite_like" />
+
+    <TextView
+        android:id="@+id/tv_favorite_minute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/tv_home_minute"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/iv_favorite_like"
+        app:layout_constraintTop_toBottomOf="@id/iv_favorite_like" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_favorite_snack">
+
+        <ImageView
+            android:id="@+id/iv_favorite_star"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/img_home_star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_favorite_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:text="4.9"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_favorite_star"
+            app:layout_constraintStart_toEndOf="@id/iv_favorite_star"
+            app:layout_constraintTop_toTopOf="@id/iv_favorite_star" />
+
+        <TextView
+            android:id="@+id/tv_favorite_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:text="(3,849)"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_favorite_score"
+            app:layout_constraintStart_toEndOf="@id/tv_favorite_score"
+            app:layout_constraintTop_toTopOf="@id/tv_favorite_score" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/iv_favorite_love"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_nav_like"
+        app:layout_constraintEnd_toEndOf="@id/iv_favorite_like"
+        app:layout_constraintTop_toBottomOf="@+id/tv_favorite_minute" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kuit4androidprivate.databinding.ActivityKeepBinding
-import com.example.kuit4androidprivate.home.DetailActivity
+import com.example.kuit4androidprivate.DetailActivity
 
 class KeepActivity : AppCompatActivity() {
 
@@ -22,7 +22,7 @@ class KeepActivity : AppCompatActivity() {
         }
 
         binding.ivKeepBack.setOnClickListener {
-            onBackPressed()
+            finish()
         }
     }
 }
