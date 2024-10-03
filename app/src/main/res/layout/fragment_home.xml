@@ -144,6 +144,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="37dp"
+        android:paddingStart="27dp"
+        android:paddingEnd="26dp"
         />
 
     <com.google.android.material.imageview.ShapeableImageView
