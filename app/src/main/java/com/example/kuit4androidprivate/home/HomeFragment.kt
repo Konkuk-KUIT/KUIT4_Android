@@ -1,6 +1,7 @@
 package com.example.kuit4androidprivate.home
 
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -114,9 +115,17 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(), "더보기", Toast.LENGTH_LONG).show()
             })
 
+        val itemDecoration = object: RecyclerView.ItemDecoration(){
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                // 좌우 및 상하 간격 설정
+                outRect.bottom = 7
+            }
+        }
+
         with(binding.rvHomeCategory) {
             adapter = rvAdapterCategory
             layoutManager = GridLayoutManager(requireContext(), 5)
+            addItemDecoration(itemDecoration)
         }
 
     }

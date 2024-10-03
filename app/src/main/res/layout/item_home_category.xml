@@ -9,7 +9,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="18dp"
         tools:ignore="MissingConstraints">
 <!--        이 주석 위의 코드에서 width, height를 match_parent로 두고-->
 <!--        ignore 관련 코드가 없을 때에는 족발/보쌈이 두 줄로 출력이 되는데-->
