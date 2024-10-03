@@ -11,7 +11,7 @@ import com.example.kuit4androidprivate.keep.KeepActivity
 
 class MyEatsFragment : Fragment() {
 
-    private lateinit var binding : FragmentMyEatsBinding
+    private lateinit var binding: FragmentMyEatsBinding
 
 
     override fun onCreateView(
@@ -19,13 +19,21 @@ class MyEatsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMyEatsBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
-        binding.clMykeep.setOnClickListener {
-            val intent = Intent(requireContext(), KeepActivity::class.java)
-        startActivity(intent)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.clMyfavorite.setOnClickListener {
+            val intent = Intent(activity, KeepActivity::class.java)
+            startActivity(intent)
         }
 
-        return binding.root
+        binding.ivBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 
 }

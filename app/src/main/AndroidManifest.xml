@@ -16,8 +16,9 @@
         <activity
             android:name=".keep.KeepActivity"
             android:exported="false" />
-        <activity android:name=".DetailActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".detail.DetailActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

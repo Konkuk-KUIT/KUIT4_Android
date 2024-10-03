@@ -264,9 +264,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/pork_cutlet"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:textColor="@color/black"
                 android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/porkpic" />
 
@@ -452,8 +452,8 @@
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/siv_order_button"
-        app:layout_constraintStart_toStartOf="@id/siv_order_button"
         app:layout_constraintEnd_toEndOf="@id/siv_order_button"
+        app:layout_constraintStart_toStartOf="@id/siv_order_button"
         app:layout_constraintTop_toTopOf="@id/siv_order_button" />
 
     <TextView
@@ -469,68 +469,74 @@
         app:layout_constraintStart_toStartOf="@id/iv_home_marker"
         app:layout_constraintTop_toBottomOf="@+id/siv_main_sample" />
 
-    <ImageView
-        android:id="@+id/greatsnack"
-        android:layout_width="230dp"
-        android:layout_height="129dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_ourrickcake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginTop="25dp"
-        android:src="@drawable/img_greatsnack"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastly" />
-
-    <LinearLayout
-        android:id="@+id/about"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/greatsnack"
-
-        >
-
-        <TextView
-            android:id="@+id/tv_restaurant"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="아워떡볶이"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="145dp"
-            android:text="30분"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/tv_restaurant" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/review"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="@id/about"
-        app:layout_constraintTop_toBottomOf="@id/about">
+        app:layout_constraintTop_toBottomOf="@+id/lastly">
 
         <ImageView
-            android:id="@+id/star"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/img_star" />
+            android:id="@+id/greatsnack"
+            android:layout_width="230dp"
+            android:layout_height="129dp"
+            android:src="@drawable/img_greatsnack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/about"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="4.9 (3,849)"
-            android:textSize="12sp" />
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/greatsnack"
 
-    </LinearLayout>
+            >
+
+            <TextView
+                android:id="@+id/tv_restaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아워떡볶이"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="145dp"
+                android:text="30분"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/tv_restaurant" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/about"
+            app:layout_constraintTop_toBottomOf="@id/about">
+
+            <ImageView
+                android:id="@+id/star"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/img_star" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="4.9 (3,849)"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

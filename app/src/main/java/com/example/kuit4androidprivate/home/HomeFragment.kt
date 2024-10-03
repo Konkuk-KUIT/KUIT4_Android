@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.kuit4androidprivate.DetailActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
+import com.example.kuit4androidprivate.detail.DetailActivity
 
 
 class HomeFragment : Fragment() {
@@ -21,11 +21,17 @@ class HomeFragment : Fragment() {
     ): View {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
-
-        binding.clHomeTop.setOnClickListener {
-            val intent = Intent(requireContext(), DetailActivity::class.java)
-            startActivity(intent)
-        }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.clOurrickcake.setOnClickListener {
+            val intent = Intent(activity,DetailActivity::class.java)
+            startActivity(intent)
+
+
+        }
     }
 }
