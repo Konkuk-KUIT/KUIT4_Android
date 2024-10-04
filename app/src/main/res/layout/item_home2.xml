@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/v_item1"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_item_food"
+        android:layout_width="230dp"
+        android:layout_height="129dp"
+        android:scaleType="fitXY"
+        android:background="@color/white"
+        app:shapeAppearanceOverlay="@style/corner_size_8"
+        app:layout_constraintStart_toStartOf="@id/v_item1"
+        app:layout_constraintTop_toTopOf="@id/v_item1"
+        android:layout_marginHorizontal="40dp"
+        />
+    <TextView
+        android:id="@+id/tv_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_item_food"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@id/iv_item_food"
+        android:text="아워 떡볶이"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+    <ImageView
+        android:id="@+id/iv_item_star"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_home_star"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_name"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/iv_item_food"/>
+
+    <TextView
+        android:id="@+id/tv_item_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_name"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/iv_item_star"
+        android:layout_marginStart="5dp"
+        android:text="4.9"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_item_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_name"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/tv_item_rate"
+        android:layout_marginStart="5dp"
+        android:text="(3,849)"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_item_minuite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_item_food"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@id/iv_item_food"
+        android:layout_marginEnd="1dp"
+        android:text="30분"
+        android:textSize="12dp"
+        android:textColor="@color/black"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".myeats.MyEatsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/myname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="진의현"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/mynumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="010-1234-1234"
+        app:layout_constraintTop_toBottomOf="@id/myname"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@id/myname"
+        app:layout_constraintStart_toStartOf="@id/myname"/>
+
+    <LinearLayout
+        android:id="@+id/textlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mynumber"
+        android:layout_marginTop="18dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/review"
+            android:layout_width="75dp"
+            android:layout_height="63dp"
+            android:layout_marginEnd="40dp">
+            <TextView
+                android:id="@+id/review_num_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@id/review"
+                app:layout_constraintEnd_toEndOf="@id/review"
+                app:layout_constraintTop_toTopOf="@id/review"
+                android:text="0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내가남긴 리뷰"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@id/review_num_1"
+                app:layout_constraintStart_toStartOf="@id/review_num_1"
+                app:layout_constraintEnd_toEndOf="@id/review_num_1"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/review2"
+            android:layout_width="75dp"
+            android:layout_height="63dp"
+            android:layout_marginEnd="40dp">
+
+             <TextView
+                    android:id="@+id/review_num_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="28sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/review2"
+                    app:layout_constraintEnd_toEndOf="@id/review2"
+                    app:layout_constraintTop_toTopOf="@id/review2"
+                    android:text="0"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="도움이 됬어요"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toStartOf="@id/review_num_2"
+                    app:layout_constraintEnd_toEndOf="@id/review_num_2"
+                    app:layout_constraintTop_toBottomOf="@id/review_num_2"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/review3"
+            android:layout_width="75dp"
+            android:layout_height="63dp">
+
+            <TextView
+                android:id="@+id/review_num_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@id/review3"
+                app:layout_constraintEnd_toEndOf="@id/review3"
+                app:layout_constraintTop_toTopOf="@id/review3"
+                android:text="0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="즐겨찾기"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="@id/review_num_3"
+                app:layout_constraintEnd_toEndOf="@id/review_num_3"
+                app:layout_constraintTop_toBottomOf="@id/review_num_3"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+     </LinearLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/whiteblue_box"
+        android:layout_width="306dp"
+        android:layout_height="42dp"
+        app:layout_constraintTop_toBottomOf="@id/textlist"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeWidth="1dp"
+        app:strokeColor="#02AFFE"
+        app:shapeAppearanceOverlay="@style/corner_size_4"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자세히 보기"
+        android:textSize="14dp"
+        android:textColor="#02AFFE"
+        app:layout_constraintTop_toTopOf="@id/whiteblue_box"
+        app:layout_constraintStart_toStartOf="@id/whiteblue_box"
+        app:layout_constraintEnd_toEndOf="@id/whiteblue_box"
+        app:layout_constraintBottom_toBottomOf="@id/whiteblue_box"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_myeat_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/whiteblue_box"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="@id/whiteblue_box">
+        
+        <ImageView
+            android:id="@+id/icon_heart"
+            android:src="@drawable/heart"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_myeat_like"
+            app:layout_constraintTop_toTopOf="@+id/layout_myeat_like"
+            app:layout_constraintStart_toStartOf="@+id/layout_myeat_like"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="즐겨찾기"
+            android:textSize="21dp"
+            app:layout_constraintStart_toEndOf="@id/icon_heart"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_myeat_like"
+            app:layout_constraintTop_toTopOf="@+id/layout_myeat_like"
+            android:layout_marginStart="19dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
