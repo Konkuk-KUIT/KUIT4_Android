@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_like"
+        android:id="@+id/tv_eats_like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
@@ -92,7 +92,7 @@
             app:layout_constraintTop_toTopOf="@id/redfood" />
 
         <ImageView
-            android:id="@+id/star"
+            android:id="@+id/iv_star"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginTop="15sp"
@@ -108,8 +108,8 @@
             android:text="4.9 (3,849)"
             android:textColor="#575252"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/star"
-            app:layout_constraintTop_toTopOf="@id/star" />
+            app:layout_constraintStart_toEndOf="@id/iv_star"
+            app:layout_constraintTop_toTopOf="@id/iv_star" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

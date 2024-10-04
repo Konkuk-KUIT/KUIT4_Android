@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home.HomeFragment">
-
+    <!--자바 인텔리제이나 안드로이드 스튜디오로 아이디선언 연습하기-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_home_top"
         android:layout_width="match_parent"
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/iv_home_address"
+        android:id="@+id/tv_home_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -114,7 +114,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginTop="66dp"
         android:src="@drawable/ic_home_view"
-        app:layout_constraintStart_toEndOf="@id/iv_home_address"
+        app:layout_constraintStart_toEndOf="@id/tv_home_address"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -136,201 +136,31 @@
         android:textColor="@color/suggest_color"
         app:layout_constraintStart_toEndOf="@id/iv_home_search"
         app:layout_constraintTop_toTopOf="@id/iv_home_search" />
-
-    <LinearLayout
-        android:id="@+id/ll_home_center_images"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:orientation="horizontal"
+    <!--중앙정렬후 마진 주기-->
+    <!--마진 100 넘지않는게 좋음   -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_menu_category"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="174dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/iv_home_search">
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_marginEnd="18dp"
-            android:src="@drawable/img_pork_cutlet" />
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_marginEnd="18dp"
-            android:src="@drawable/img_japanese_food" />
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_marginEnd="18dp"
-            android:src="@drawable/img_korean_food" />
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_marginEnd="18dp"
-            android:src="@drawable/chicken" />
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:src="@drawable/img_snack_food" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_home_center_texts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_home_center_images">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:text="@string/prok_cutlet"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="45dp"
-            android:text="@string/japenese"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="45dp"
-            android:text="@string/korean"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="42dp"
-            android:text="@string/chiken"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/snack_food"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_home_center_images2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ll_home_center_images">
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_marginEnd="18dp"
-            android:src="@drawable/img_pork_cutlet" />
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_marginEnd="18dp"
-            android:src="@drawable/img_japanese_food" />
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_marginEnd="18dp"
-            android:src="@drawable/img_korean_food" />
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_marginEnd="18dp"
-            android:src="@drawable/chicken" />
-
-        <ImageView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:src="@drawable/img_snack_food" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_home_center_texts2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_home_center_images2">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:text="@string/prok_cutlet"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="45dp"
-            android:text="@string/japenese"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="45dp"
-            android:text="@string/korean"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="42dp"
-            android:text="@string/chiken"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/snack_food"
-            android:textColor="@color/black"
-            android:textSize="11sp" />
-
-    </LinearLayout>
-
-    <ImageView
+        app:layout_constraintStart_toStartOf="@id/tv_home_suggest"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--버튼 백그라운드하는 걸로 바꾸기-->
+    <!--    큰거는 shape으로 하얀거는 버튼으로-->
+    <!--    마진도 다시주기-->
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_home_rectangle"
         android:layout_width="306dp"
         android:layout_height="77dp"
-        android:layout_marginTop="81dp"
-        android:src="@drawable/ic_rectangle"
-        app:layout_constraintStart_toStartOf="@id/ll_home_center_images2"
-        app:layout_constraintTop_toTopOf="@id/ll_home_center_images2" />
+        android:layout_marginTop="16dp"
+        android:background="#0C2F65"
+        app:shapeAppearance="@style/corner_rd_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_menu_category"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -341,13 +171,10 @@
         android:textColor="@color/white"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="@id/iv_home_rectangle"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_rectangle"
         app:layout_constraintTop_toTopOf="@id/iv_home_rectangle" />
 
     <TextView
-<<<<<<< HEAD
-=======
-        style="bold"
->>>>>>> 6168c3bcee7236c11dde41ba0c279fca02486d24
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="81dp"
@@ -357,265 +184,51 @@
         android:textColor="@color/white"
         android:textFontWeight="700"
         android:textSize="15sp"
-<<<<<<< HEAD
         android:textStyle="bold"
-=======
->>>>>>> 6168c3bcee7236c11dde41ba0c279fca02486d24
         app:layout_constraintStart_toStartOf="@id/iv_home_rectangle"
         app:layout_constraintTop_toTopOf="@id/iv_home_rectangle" />
 
-    <ImageView
-        android:layout_width="84dp"
-        android:layout_height="24dp"
+    <Button
+        android:id="@+id/button_make_order"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="210dp"
         android:layout_marginTop="26dp"
-        android:src="@drawable/ic_white_rectangle"
-        app:layout_constraintStart_toStartOf="@id/iv_home_rectangle"
-        app:layout_constraintTop_toTopOf="@id/iv_home_rectangle" />
-
-    <TextView
-<<<<<<< HEAD
-=======
-        style="bold"
->>>>>>> 6168c3bcee7236c11dde41ba0c279fca02486d24
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="222dp"
-        android:layout_marginTop="30dp"
         android:fontFamily="@font/pretendardvariable"
+        android:backgroundTint="@color/white"
         android:text="주문하러가기"
-        android:textColor="#0C2F65"
-        android:textFontWeight="700"
+        android:padding="0dp"
+        android:textColor="#3E7EDB"
+        android:singleLine="true"
         android:textSize="11sp"
-<<<<<<< HEAD
         android:textStyle="bold"
-=======
->>>>>>> 6168c3bcee7236c11dde41ba0c279fca02486d24
         app:layout_constraintStart_toStartOf="@id/iv_home_rectangle"
         app:layout_constraintTop_toTopOf="@id/iv_home_rectangle" />
 
+
+
     <TextView
-        android:id="@+id/recent"
-<<<<<<< HEAD
+        android:id="@+id/tv_recent"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-
         android:layout_marginTop="24dp"
         android:fontFamily="@font/pretendardvariable"
         android:text="최근에 본맛집"
-
         android:textColor="@color/black"
         android:textFontWeight="700"
         android:textSize="17sp"
         android:textStyle="bold"
-=======
-        style="bold"
-        android:layout_width="wrap_content"
-
-        android:layout_height="20dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/pretendardvariable"
-
-        android:text="최근에 본맛집"
-        android:textColor="@color/black"
-        android:textFontWeight="700"
-        android:textSize="17sp"
->>>>>>> 6168c3bcee7236c11dde41ba0c279fca02486d24
         app:layout_constraintStart_toStartOf="@id/iv_home_rectangle"
-        app:layout_constraintTop_toBottomOf="@id/iv_home_rectangle"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_rectangle" />
 
-        />
-<<<<<<< HEAD
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bootom_layout"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/iv_home_rectangle"
-        app:layout_constraintTop_toBottomOf="@id/recent"
-        android:layout_marginTop="32dp"
-        >
-        <ImageView
-            android:id="@+id/big_food"
-            android:layout_width="235dp"
-            android:layout_height="121dp"
-            android:src="@drawable/home_food"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/redfood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/pretendardvariable"
-            android:text="아워떡볶이"
-            android:textFontWeight="600"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/big_food"
-            app:layout_constraintTop_toBottomOf="@id/big_food" />
-
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="125dp"
-            android:text="30분"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/redfood"
-            app:layout_constraintTop_toTopOf="@id/redfood" />
-
-        <ImageView
-            android:id="@+id/star"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginTop="15sp"
-            android:src="@drawable/ic_home_star"
-            app:layout_constraintStart_toStartOf="@id/redfood"
-            app:layout_constraintTop_toBottomOf="@id/redfood" />
-
-        <TextView
-            android:id="@+id/rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="4.9 (3,849)"
-            android:textColor="#575252"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/star"
-            app:layout_constraintTop_toTopOf="@id/star" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-=======
-
-    <ImageView
-        android:layout_width="235dp"
-        android:layout_height="121dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/home_food"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recent" />
-
-    <TextView
-        android:id="@+id/redfood"
-        style="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="159dp"
-        android:fontFamily="@font/pretendardvariable"
-        android:text="아워떡볶이"
-        android:textFontWeight="600"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/recent"
-        app:layout_constraintTop_toBottomOf="@id/recent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
-        android:text="30분"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@id/redfood"
-        app:layout_constraintTop_toTopOf="@id/redfood" />
-
-    <ImageView
-        android:id="@+id/star"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="15sp"
-        android:src="@drawable/ic_home_star"
-        app:layout_constraintStart_toStartOf="@id/redfood"
-        app:layout_constraintTop_toBottomOf="@id/redfood" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="4.9 (3,849)"
-        android:textColor="#575252"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@id/star"
-        app:layout_constraintTop_toTopOf="@id/star" />
-    <!--    <LinearLayout-->
-    <!--        android:id="@+id/bottom_btn"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/star"-->
-    <!--        android:layout_marginTop="12dp"-->
-    <!--        android:orientation="horizontal">-->
-    <!--        <ImageView-->
-    <!--            android:layout_width="24dp"-->
-    <!--            android:layout_height="24dp"-->
-    <!--            android:src="@drawable/ic_home_btn"-->
-    <!--            android:layout_marginStart="27dp"/>-->
-    <!--        <ImageView-->
-    <!--            android:layout_width="24dp"-->
-    <!--            android:layout_height="24dp"-->
-    <!--            android:src="@drawable/ic_search_btn"-->
-    <!--            android:layout_marginStart="45dp"/>-->
-    <!--        <ImageView-->
-    <!--            android:layout_width="24dp"-->
-    <!--            android:layout_height="24dp"-->
-    <!--            android:src="@drawable/ic_home_like_btn"-->
-    <!--            android:layout_marginStart="48dp"/>-->
-    <!--        <ImageView-->
-    <!--            android:layout_width="24dp"-->
-    <!--            android:layout_height="24dp"-->
-    <!--            android:src="@drawable/ic_home_recipt_btn"-->
-    <!--            android:layout_marginStart="56dp"/>-->
-    <!--        <ImageView-->
-    <!--            android:layout_width="24dp"-->
-    <!--            android:layout_height="24dp"-->
-    <!--            android:src="@drawable/ic_hoe_mine"-->
-    <!--            android:layout_marginStart="43dp"/>-->
-    <!--    </LinearLayout>-->
-
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/bottom_btn"-->
-    <!--        android:layout_marginTop="3dp"-->
-    <!--        android:orientation="horizontal">-->
-
-    <!--        <TextView-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="홈"-->
-    <!--            android:layout_marginStart="34dp"-->
-    <!--            />-->
-    <!--        <TextView-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_marginStart="50dp"-->
-    <!--            android:text="검색"-->
-    <!--            />-->
-    <!--        <TextView-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_marginStart="35dp"-->
-    <!--            android:text="즐겨찾기"-->
-    <!--            />-->
-    <!--        <TextView-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="주문내역"-->
-    <!--            android:layout_marginStart="25dp"-->
-    <!--            />-->
-    <!--        <TextView-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="My 이츠"-->
-    <!--            android:layout_marginStart="17dp"-->
-    <!--            />-->
-    <!--    </LinearLayout>-->
->>>>>>> 6168c3bcee7236c11dde41ba0c279fca02486d24
-
+        app:layout_constraintTop_toBottomOf="@id/tv_recent" />
+    <!--height 0이랑 wrap_content랑 비교하기-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

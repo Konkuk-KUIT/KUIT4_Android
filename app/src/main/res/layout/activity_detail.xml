@@ -3,8 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <ImageView
         android:id="@+id/icon_back"
         android:layout_width="24dp"
@@ -50,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@id/img_home_food" />
 
     <ImageView
-        android:id="@+id/star"
+        android:id="@+id/iv_star"
         android:layout_width="20dp"
         android:layout_height="15dp"
         android:layout_marginStart="14dp"
@@ -60,12 +58,21 @@
         app:layout_constraintTop_toBottomOf="@id/store_name" />
 
     <TextView
+        android:id="@+id/tv_rating_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="4.9 (3,849)"
+        android:text="4.9"
         android:textColor="#575252"
-        app:layout_constraintStart_toEndOf="@id/star"
-        app:layout_constraintTop_toTopOf="@id/star" />
+        app:layout_constraintStart_toEndOf="@id/iv_star"
+        app:layout_constraintTop_toTopOf="@id/iv_star" />
+    <TextView
+        android:id="@+id/tv_visit_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="(3,900)"
+        app:layout_constraintStart_toEndOf="@id/tv_rating_number"
+        app:layout_constraintTop_toTopOf="@id/iv_star"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout><!--    width는 wrap이나 parent에 맞춰서 하고 옆에 마진으로 관리한다-->

@@ -11,7 +11,7 @@ import com.example.kuit4androidprivate.keep.KeepActivity
 
 class MyEatsFragment : Fragment() {
 
-    private lateinit var binding : FragmentMyEatsBinding
+    private lateinit var binding: FragmentMyEatsBinding
 
 
     override fun onCreateView(
@@ -24,10 +24,11 @@ class MyEatsFragment : Fragment() {
     }
 
     private fun initListener() {
-        binding.likeLayout.setOnClickListener{//fragment는 context가 없음
-            val intent = Intent(requireActivity(), KeepActivity::class.java)
-            startActivity(intent)
-        }
+        binding.LLEatsLikeLayout
+            .setOnClickListener {//fragment는 context가 없음
+                val intent = Intent(requireActivity(), KeepActivity::class.java)
+                startActivity(intent)
+            }
     }
 
 
