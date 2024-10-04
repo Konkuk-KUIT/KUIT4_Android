@@ -117,9 +117,9 @@ class FavoriteActivity : AppCompatActivity() {
                     totalReviews = "(3949)"
                 ),
                 MenuData(
-                    restaurantName = getString(R.string.our_snacks),
+                    restaurantName = "bhc",
                     eta = "39분",
-                    imgId = R.drawable.img_favorite_our_snack,
+                    imgUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA0MDNfMjA0%2FMDAxNTg1OTExNjM2MjIy.-TUFGBHW_mMmjYGL0X4VHHeuY8nj6Gll9n-fQlLwrzYg.jHPnNRWnB6Dwpvc7bY3mwFhtpWujdk51gpHX4JlRk_gg.JPEG.tldbs2814%2FIMG_0323.JPG&type=sc960_832",
                     rating = "4.9",
                     totalReviews = "(3119)"
                 ),

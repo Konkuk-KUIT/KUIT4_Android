@@ -35,9 +35,10 @@ class MyEatsFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.ivMyEatsBack.setOnClickListener{
-           requireActivity().onBackPressedDispatcher.onBackPressed()
-        }
+//        myeats 화면에서 뒤로가기 버튼 삭제
+//        binding.ivMyEatsBack.setOnClickListener{
+//           requireActivity().onBackPressedDispatcher.onBackPressed()
+//        }
 
     }
 }

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
-<!--        이 주석 위의 코드에서 width, height를 match_parent로 두고-->
-<!--        ignore 관련 코드가 없을 때에는 족발/보쌈이 두 줄로 출력이 되는데-->
-<!--        위처럼 하니까 한 줄로 출력돼서 해결은 되나 이유를 모르겠음-->
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_category_image"
@@ -30,8 +27,8 @@
             android:text="@string/pork_cutlet"
             android:textColor="@color/black"
             android:textSize="11sp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_category_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

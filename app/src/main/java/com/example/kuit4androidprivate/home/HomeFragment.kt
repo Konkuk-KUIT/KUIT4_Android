@@ -56,48 +56,45 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, FavoriteActivity::class.java)
             startActivity(intent)
         }
-
-//        recyclerView = binding.rvHomeCategory
-//        recyclerView.layoutManager = GridLayoutManager(requireContext(), 5)
     }
 
     private fun initCategory() {
         categoryItem.addAll(
             arrayListOf(
                 MenuCategoryData(
-                    "돈까스",
+                    getString(R.string.pork_cutlet),
                     R.drawable.img_pork_cutlet
                 ),
                 MenuCategoryData(
-                    "일식",
+                    getString(R.string.japanese_food),
                     R.drawable.img_japanese_food
                 ),
                 MenuCategoryData(
-                    "한식",
+                    getString(R.string.korean_food),
                     R.drawable.img_korean_food
                 ),
                 MenuCategoryData(
-                    "치킨",
+                    getString(R.string.chicken),
                     R.drawable.img_chicken
                 ),
                 MenuCategoryData(
-                    "분식",
+                    getString(R.string.snack_food),
                     R.drawable.img_snack_food
                 ),
                 MenuCategoryData(
-                    "족발/보쌈",
+                    getString(R.string.bossam),
                     R.drawable.img_bossam
                 ),
                 MenuCategoryData(
-                    "찜/탕",
+                    getString(R.string.soup),
                     R.drawable.img_soup
                 ),
                 MenuCategoryData(
-                    "구이",
+                    getString(R.string.barbeque),
                     R.drawable.img_barbeque
                 ),
                 MenuCategoryData(
-                    "피자",
+                    getString(R.string.pizza),
                     R.drawable.img_pizza
                 ),
             )
@@ -197,9 +194,9 @@ class HomeFragment : Fragment() {
                     totalReviews = "(3949)"
                 ),
                 MenuData(
-                    restaurantName = getString(R.string.our_snacks),
+                    restaurantName = "bhc",
                     eta = "39분",
-                    imgId = R.drawable.img_favorite_our_snack,
+                    imgUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA0MDNfMjA0%2FMDAxNTg1OTExNjM2MjIy.-TUFGBHW_mMmjYGL0X4VHHeuY8nj6Gll9n-fQlLwrzYg.jHPnNRWnB6Dwpvc7bY3mwFhtpWujdk51gpHX4JlRk_gg.JPEG.tldbs2814%2FIMG_0323.JPG&type=sc960_832",
                     rating = "4.9",
                     totalReviews = "(3119)"
                 ),
