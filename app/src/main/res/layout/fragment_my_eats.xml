@@ -6,19 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".myeats.MyEatsFragment">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="45dp"
-        android:src="@drawable/ic_myeats_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_myeats_userinfo"
         android:layout_width="wrap_content"
-        android:layout_height="61dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="135dp"
         android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +49,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_myeats_review"
             android:layout_width="wrap_content"
-            android:layout_height="63dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -85,7 +76,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_myeats_help"
             android:layout_width="wrap_content"
-            android:layout_height="63dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             app:layout_constraintStart_toEndOf="@id/cl_myeats_review"
             app:layout_constraintTop_toTopOf="parent">
@@ -114,7 +105,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_myeats_fav"
             android:layout_width="wrap_content"
-            android:layout_height="63dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             app:layout_constraintStart_toEndOf="@id/cl_myeats_help"
             app:layout_constraintTop_toTopOf="parent">
