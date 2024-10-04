@@ -25,20 +25,23 @@ class GridHomeRVAdapter(
                 .into(binding.ivItem)
         }
     }
-    companion object{
-        private const val VIEW_TYPE_ITEM=0
-        private const val VIEW_TYPE_SHOW_MORE=1
+
+    companion object {
+        private const val VIEW_TYPE_ITEM = 0
+        private const val VIEW_TYPE_SHOW_MORE = 1
 
     }
+
     inner class ShowMoreViewHolder(
         private val binding: IconMainAddBinding
-    ):RecyclerView.ViewHolder(binding.root){
-        init{
-            binding.root.setOnClickListener{
+    ) : RecyclerView.ViewHolder(binding.root) {
+        init {
+            binding.root.setOnClickListener {
 
             }
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == VIEW_TYPE_ITEM) {
             val binding = ItemMainMenuCategoryBinding.inflate(
@@ -56,21 +59,22 @@ class GridHomeRVAdapter(
             ShowMoreViewHolder(showMoreBinding)
         }
     }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if(holder is ViewHolder){
+        if (holder is ViewHolder) {
             holder.bind(menuCategoryItems[position])
-        }else if(holder is ShowMoreViewHolder){
+        } else if (holder is ShowMoreViewHolder) {
 
         }
 
     }
 
-    override fun getItemCount(): Int = menuCategoryItems.size+1
+    override fun getItemCount(): Int = menuCategoryItems.size + 1
 
     override fun getItemViewType(position: Int): Int {
-        return if (position==menuCategoryItems.size){
+        return if (position == menuCategoryItems.size) {
             VIEW_TYPE_SHOW_MORE
-        }else{
+        } else {
             VIEW_TYPE_ITEM
         }
     }
