@@ -5,5 +5,7 @@ data class MenuData(
     val title: String,
     val time: String,
     val review: String,
-    val count : String
+    val count : String,
+    var bookmark: Boolean = false
+
 )
