@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_home_food"
+        android:layout_width="230dp"
+        android:layout_height="129dp"
+        android:src="@drawable/img_home_food"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_home_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/pretendard_variable"
+        android:text="아워떡볶이"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_food"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_home_star2"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/img_home_star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_food" />
+
+    <TextView
+        android:id="@+id/tv_home_score"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:layout_marginStart="5dp"
+        android:text="5.0"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/iv_home_star2"
+        app:layout_constraintTop_toTopOf="@id/iv_home_star2" />
+    <TextView
+        android:id="@+id/tv_home_review"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:layout_marginStart="5dp"
+        android:text="(3,949)"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tv_home_score"
+        app:layout_constraintTop_toTopOf="@id/tv_home_score" />
+</androidx.constraintlayout.widget.ConstraintLayout>
