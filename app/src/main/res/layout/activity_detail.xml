@@ -40,6 +40,7 @@
         android:layout_width="360dp"
         android:layout_height="149dp"
         android:layout_marginTop="64dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/img_restaurant_detail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -73,13 +74,24 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tv_detail_reviewscore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="4.9 (3,849)"
+            android:text="4.9"
+            android:textColor="#575252"
+            app:layout_constraintStart_toEndOf="@id/iv_detail_star"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_detail_reviewcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="(3,849)"
             android:textColor="#575252"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_detail_star"
+            app:layout_constraintStart_toEndOf="@id/tv_detail_reviewscore"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
