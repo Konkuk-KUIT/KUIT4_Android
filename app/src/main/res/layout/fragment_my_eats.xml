@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="360dp"
-    android:layout_height="800dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".myeats.MyEatsFragment">
 
     <ImageView
@@ -12,12 +12,11 @@
         android:layout_height="24dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/icon_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/name_text"
+        android:id="@+id/tv_eats_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"
@@ -28,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/phonenumber_text"
+        android:id="@+id/tv_eats_phone_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="135dp"
@@ -36,10 +35,10 @@
         android:text="@string/user_phonenumber"
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name_text"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_eats_name"/>
 
     <LinearLayout
-
+        android:id="@+id/LL_eats_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
@@ -74,6 +73,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/LL_eats_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@id/icon_back" >
 
         <TextView
-            android:id="@+id/rating_text"
+            android:id="@+id/tv_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="내가 남긴 리뷰"
@@ -91,7 +91,7 @@
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/help_text"
+            android:id="@+id/tv_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
@@ -100,7 +100,7 @@
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/liking_text"
+            android:id="@+id/tv_liking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -110,7 +110,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/bule_rec"
+        android:id="@+id/iv_eats_blue_src"
         android:layout_width="306dp"
         android:layout_height="42dp"
         android:layout_marginTop="134dp"
@@ -119,19 +119,19 @@
         app:layout_constraintTop_toBottomOf="@id/icon_back" />
 
     <TextView
-        android:id="@+id/close_look"
+        android:id="@+id/tv_eats_close_look"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textColor="#02AFFE"
-        app:layout_constraintStart_toStartOf="@id/bule_rec"
-        app:layout_constraintTop_toTopOf="@id/bule_rec"
+        app:layout_constraintStart_toStartOf="@id/iv_eats_blue_src"
+        app:layout_constraintTop_toTopOf="@id/iv_eats_blue_src"
         android:text="자세히 보기"
         android:layout_marginTop="13dp"
         android:layout_marginStart="121dp"/>
 
     <LinearLayout
-        android:id="@+id/like_layout"
+        android:id="@+id/LL_eats_like_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/icon_back"
@@ -140,13 +140,13 @@
         app:layout_constraintTop_toBottomOf="@id/icon_back">
         
         <ImageView
-            android:id="@+id/img_like"
+            android:id="@+id/iv_like"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/ic_black_like"
             />
         <TextView
-            android:id="@+id/text_like"
+            android:id="@+id/tv_eats_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="19dp"

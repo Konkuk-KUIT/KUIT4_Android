@@ -24,9 +24,12 @@ class KeepActivity : AppCompatActivity() {
     }
 
     private fun initListener() {
-        binding.touchScreen.setOnClickListener{
-        val intent=Intent(this,DetailActivity::class.java)
-        startActivity(intent)
+        binding.touchScreen.setOnClickListener {
+            val intent = Intent(this, DetailActivity::class.java)
+            startActivity(intent)
+        }
+        binding.backIcon.setOnClickListener {
+            finish()
         }
     }
 }
