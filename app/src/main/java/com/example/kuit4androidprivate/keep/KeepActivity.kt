@@ -2,6 +2,8 @@ package com.example.kuit4androidprivate.keep
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,6 +24,9 @@ class KeepActivity : AppCompatActivity() {
 
         binding.clKeepTteokbokki.setOnClickListener{
             intentToDetailActivity()
+
+            val arrow = findViewById<ImageView>(R.id.iv_keep_arrow) as ImageView
+        arrow.setOnClickListener(View.OnClickListener { finish() })
         }
 
     }

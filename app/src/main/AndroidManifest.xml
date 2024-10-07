@@ -13,11 +13,20 @@
         android:theme="@style/Theme.Kuit4AndroidPrivate"
         tools:targetApi="31">
         <activity
+            android:name=".item_more_menu"
+            android:exported="false" />
+        <activity
+            android:name=".FavoriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".search.MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".DetailActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".keep.KeepActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
