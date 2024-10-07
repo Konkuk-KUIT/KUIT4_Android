@@ -11,6 +11,7 @@
     </style>
 
     <style name="corner_rd_4">
+        <item name="strokeWidth">2dp</item>
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">4dp</item>
     </style>
