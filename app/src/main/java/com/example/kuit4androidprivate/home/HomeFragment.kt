@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.adapter.RVAdapterCategory
 import com.example.kuit4androidprivate.adapter.RVAdapterRecent
@@ -43,7 +44,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initVPAdapterHome() {
-        binding.vpHome.adapter = VPAdapterHome().apply{
+        binding.vpHome.adapter = VPAdapterHome(vpItems.size).apply{
             submitList(vpItems)
         }
     }

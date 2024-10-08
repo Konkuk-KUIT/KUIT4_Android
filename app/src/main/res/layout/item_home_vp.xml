@@ -27,6 +27,7 @@
         app:layout_constraintTop_toTopOf="@id/iv_home_vp_img" />
 
     <TextView
+        android:id="@+id/tv_home_vp_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1/3"

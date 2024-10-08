@@ -9,13 +9,15 @@ import com.bumptech.glide.Glide
 import com.example.kuit4androidprivate.databinding.ItemHomeVpBinding
 import com.example.kuit4androidprivate.model.MenuData
 
-class VPAdapterHome: ListAdapter<MenuData, VPAdapterHome.ViewHolder>(diffUtil){
+class VPAdapterHome(val totalItemCount: Int): ListAdapter<MenuData, VPAdapterHome.ViewHolder>(diffUtil){
     inner class ViewHolder(private val binding: ItemHomeVpBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(item: MenuData){
+        fun bind(item: MenuData, position: Int){
             Glide.with(binding.root)
                 .load(item.imgUrl)
                 .into(binding.ivHomeVpImg)
 
+            val currentPage = (position % totalItemCount) + 1
+            binding.tvHomeVpPage.text = "$currentPage / $totalItemCount"
         }
     }
 
@@ -25,7 +27,7 @@ class VPAdapterHome: ListAdapter<MenuData, VPAdapterHome.ViewHolder>(diffUtil){
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(currentList[position%5])
+        holder.bind(currentList[position % totalItemCount], position)
     }
 
     override fun getItemCount(): Int {
