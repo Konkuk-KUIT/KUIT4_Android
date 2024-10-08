@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.ActivityKeepBinding
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsBinding
+import com.example.kuit4androidprivate.home.HomeFragment
 import com.example.kuit4androidprivate.keep.KeepActivity
 
 class MyEatsFragment : Fragment() {
@@ -28,17 +30,25 @@ class MyEatsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //KeepActivity로 전환하기 위한 함수
-        binding.clMyEatsLikeContainer.setOnClickListener {
-//            fragment는 context를 상속받지 않아서 this를 인자로 주면 안되고,
-//            requireContext() 나 activity를 인자로 줘야한다
-            val intent = Intent(activity, KeepActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.clMyEatsLikeContainer.setOnClickListener {
+////            fragment는 context를 상속받지 않아서 this를 인자로 주면 안되고,
+////            requireContext() 나 activity를 인자로 줘야한다
+//            val intent = Intent(activity, KeepActivity::class.java)
+//            startActivity(intent)
+//        }
 
 //        myeats 화면에서 뒤로가기 버튼 삭제
 //        binding.ivMyEatsBack.setOnClickListener{
 //           requireActivity().onBackPressedDispatcher.onBackPressed()
 //        }
+
+        parentFragmentManager
+            .beginTransaction()
+            .replace(R.id.my_eats_frm, MyEatsDefaultFragment())
+            .commitAllowingStateLoss()
+
+        binding.ivMyEatsBack.visibility = View.GONE
+
 
     }
 }

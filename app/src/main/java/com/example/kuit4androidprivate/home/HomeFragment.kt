@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.adapter.RVAdapterCategory
 import com.example.kuit4androidprivate.adapter.RVAdapterRecent
+import com.example.kuit4androidprivate.adapter.VPAdapterHome
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
@@ -29,6 +30,8 @@ class HomeFragment : Fragment() {
     private val categoryItem = arrayListOf<MenuCategoryData>()
     private lateinit var rvAdapterRecent: RVAdapterRecent
     private val recentItem = arrayListOf<MenuData>()
+    private lateinit var vpAdapterHome: VPAdapterHome
+    private var vpItems = arrayListOf<MenuData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,11 +39,54 @@ class HomeFragment : Fragment() {
     ): View {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
-        initCategory()
-        initRVAdapterCategory()
-        initRecent()
-        initRVAdapterRecent()
         return binding.root
+    }
+
+    private fun initVPAdapterHome() {
+        binding.vpHome.adapter = VPAdapterHome().apply{
+            submitList(vpItems)
+        }
+    }
+
+    private fun initVPData() {
+        vpItems = arrayListOf(
+
+            MenuData(
+                restaurantName = "모터시티",
+                eta = "30분",
+                imgUrl = "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240306_55%2F1709683905690CRcjK_JPEG%2FIMG_3105.jpeg",
+                rating = "4.9",
+                totalReviews = "(3149)"
+            ),
+            MenuData(
+                restaurantName = "지노스 피자",
+                eta = "31분",
+                imgUrl = "https://ldb-phinf.pstatic.net/20240421_108/1713677860549T8AzD_JPEG/KakaoTalk_20240418_210511163_03.jpg",
+                rating = "4.9",
+                totalReviews = "(3249)"
+            ),
+            MenuData(
+                restaurantName = "우래옥",
+                eta = "32분",
+                imgUrl = "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNDA5MjlfMTU3%2FMDAxNzI3NTg5MTI1Mjkz.rn45W-mYbs-LflYbvnFQHCV2uZmyo1j7RmmbFXVMUYIg.tBOf99kd04i8Cdtr7Z9-6Cyer73lANZy_IdDKM1HxcMg.JPEG%2F11D3207C-F9F0-4C0D-A6B8-48F855E8C8AE.jpeg%3Ftype%3Dw1500_60_sharpen",
+                rating = "4.9",
+                totalReviews = "(3349)"
+            ),
+            MenuData(
+                restaurantName = "파이브가이즈",
+                eta = "33분",
+                imgUrl = "https://ldb-phinf.pstatic.net/20240911_26/1726021704778F3qK5_PNG/%B8%DE%B4%BA_%C7%DC%B9%F6%B0%C5.png",
+                rating = "4.9",
+                totalReviews = "(3449)"
+            ),
+            MenuData(
+                restaurantName = "고든램지버거",
+                eta = "34분",
+                imgUrl = "https://ldb-phinf.pstatic.net/20230726_13/16903611564251FjFA_JPEG/1-2%C7%EF%BD%BA%C5%B0%C4%A3_%282%29.jpg",
+                rating = "4.9",
+                totalReviews = "(3549)"
+            ),
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,6 +102,13 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, FavoriteActivity::class.java)
             startActivity(intent)
         }
+
+        initCategory()
+        initRVAdapterCategory()
+        initRecent()
+        initRVAdapterRecent()
+        initVPData()
+        initVPAdapterHome()
     }
 
     private fun initCategory() {
