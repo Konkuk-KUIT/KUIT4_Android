@@ -11,9 +11,10 @@ import com.example.kuit4androidprivate.model.MenuData
 class RVAdapterMyEatsFavorite(
     private val context: Context,
     private val items: ArrayList<MenuData>,
-): RecyclerView.Adapter<RVAdapterMyEatsFavorite.ViewHolder>() {
+) : RecyclerView.Adapter<RVAdapterMyEatsFavorite.ViewHolder>() {
 
-    inner class ViewHolder(val binding: ItemMyEatsFavoriteBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemMyEatsFavoriteBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MenuData) {
             if (item.imgId != null) {//res의 image 사용하는 경우
                 binding.ivRestaurantImg.setImageResource(item.imgId)

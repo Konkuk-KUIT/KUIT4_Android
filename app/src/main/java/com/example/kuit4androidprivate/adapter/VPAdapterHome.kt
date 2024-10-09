@@ -15,9 +15,6 @@ class VPAdapterHome(val totalItemCount: Int): ListAdapter<MenuData, VPAdapterHom
             Glide.with(binding.root)
                 .load(item.imgUrl)
                 .into(binding.ivHomeVpImg)
-
-            val currentPage = (position % totalItemCount) + 1
-            binding.tvHomeVpPage.text = "$currentPage / $totalItemCount"
         }
     }
 

@@ -17,6 +17,4 @@ class FragmentVPAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
             else -> MyEatsReviewsFragment()
         }
     }
-
-
 }

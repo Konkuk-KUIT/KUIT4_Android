@@ -48,8 +48,6 @@ class MyEatsFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
-
-
     }
 
     private fun backVisibilityCheck(){

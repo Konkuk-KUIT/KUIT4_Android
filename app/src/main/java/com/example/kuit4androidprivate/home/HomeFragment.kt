@@ -47,11 +47,25 @@ class HomeFragment : Fragment() {
         binding.vpHome.adapter = VPAdapterHome(vpItems.size).apply{
             submitList(vpItems)
         }
+
+        binding.vpHome.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+
+                // ViewPager의 현재 페이지 번호 계산 (무한 스크롤을 고려한 % 연산)
+                val currentPage = (position % vpItems.size) + 1 // 현재 페이지는 1부터 시작
+                val totalPageCount = vpItems.size // 전체 페이지 수
+
+                // TextView에 현재 페이지와 총 페이지 수 반영
+                binding.tvHomeVpPage.text = "$currentPage/$totalPageCount"
+            }
+        })
+
+        binding.vpHome.currentItem = 1000
     }
 
     private fun initVPData() {
         vpItems = arrayListOf(
-
             MenuData(
                 restaurantName = "모터시티",
                 eta = "30분",
@@ -92,12 +106,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //KeepActivity로 전환하기 위한 함수
-//        binding.clRecentlyViewedRestaurantContainer.setOnClickListener {
-//            val intent = Intent(activity, DetailActivity::class.java)
-//            startActivity(intent)
-//        }
 
         binding.sivPromotionOrderButton.setOnClickListener {
             val intent = Intent(activity, FavoriteActivity::class.java)
