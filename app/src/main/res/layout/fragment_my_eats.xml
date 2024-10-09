@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".myeats.MyEatsFragment">
 
+    <ImageView
+        android:id="@+id/iv_my_eats_back_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_back_button"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_my_name"
         android:layout_width="wrap_content"
@@ -131,53 +142,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/iv_my_eats_move_detail"
-        android:layout_width="306dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/my_eats_button"
-        android:backgroundTint="@null"
-        android:fontFamily="@font/pretendard_variable"
-        android:text="자세히 보기"
-        android:textColor="#02AFFE"
-        android:textSize="16sp"
-        android:theme="@style/Widget.AppCompat.Button.Borderless"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_my_eats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="178dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_my_eats_my_information" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_my_eats_move_detail"
-        android:layout_width="122dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_my_eats_move_detail">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/img_heart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_favorites"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pretendard_variable"
-            android:text="즐겨찾기"
-            android:textFontWeight="400"
-            android:textSize="21sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

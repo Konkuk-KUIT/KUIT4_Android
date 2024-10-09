@@ -1,36 +1,43 @@
 package com.example.kuit4androidprivate.myeats
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.Keep
+import com.example.kuit4androidprivate.MyEatsDetailFragment
+import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsBinding
-import com.example.kuit4androidprivate.keep.KeepActivity
+import kotlin.math.log
 
 class MyEatsFragment : Fragment() {
 
-    private lateinit var binding : FragmentMyEatsBinding
-
+    private lateinit var binding: FragmentMyEatsBinding
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        Log.d("a","d")
         binding = FragmentMyEatsBinding.inflate(layoutInflater)
-        intentToKeepActivity()
         return binding.root
     }
 
-    private fun intentToKeepActivity() {
-        binding.clMyEatsMoveDetail.setOnClickListener {
-            val intent = Intent(requireActivity(), KeepActivity::class.java)
-            startActivity(intent)
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val detailFragment = MyEatsDetailFragment()
+        childFragmentManager.beginTransaction()
+            .replace(R.id.fcv_my_eats, detailFragment)
+            .addToBackStack(null)
+            .commit()
+
     }
+
+    fun showBackButton(){
+        binding.ivMyEatsBackButton.visibility = View.VISIBLE
+    }
+
 
 
 }

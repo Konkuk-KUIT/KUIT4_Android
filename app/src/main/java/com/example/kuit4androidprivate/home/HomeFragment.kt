@@ -11,10 +11,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kuit4androidprivate.FavoriteActivity
 import com.example.kuit4androidprivate.R
+import com.example.kuit4androidprivate.adapter.HomeBottomVPAdapter
 import com.example.kuit4androidprivate.adapter.MenuCategoryRVAdapter
 import com.example.kuit4androidprivate.adapter.MenuDataRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
+import com.example.kuit4androidprivate.databinding.ItemHomeBottomBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
+import com.example.kuit4androidprivate.model.HomeBottomData
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuLatelyData
 
@@ -26,6 +29,8 @@ class HomeFragment : Fragment() {
     private lateinit var latelyRVAdapter: MenuDataRVAdapter
     private val dummyItemsLately = ArrayList<MenuLatelyData>()
     private val dummyItemsCategory = ArrayList<MenuCategoryData>()
+    private val dummyItemsHomeBottom = ArrayList<HomeBottomData>()
+    private lateinit var itemHomeBottomBinding: ItemHomeBottomBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +47,45 @@ class HomeFragment : Fragment() {
         initCategoryRVAdapter()
         initDummy2()
         initLatelyRVAdapter()
+
+        initBottomData()
+        initHomeBottomVP()
         return binding.root
+    }
+
+    private fun initHomeBottomVP() {
+        binding.vpMainBottom.adapter = HomeBottomVPAdapter().apply{
+            submitList(dummyItemsHomeBottom)
+        }
+
+        binding.vpMainBottom.currentItem = 1000
+
+    }
+
+    private fun initBottomData() {
+        dummyItemsHomeBottom.addAll(
+            arrayListOf(
+                HomeBottomData(
+                    imageUrl = "https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_1280.jpg",
+                    id = 1
+                ),
+                HomeBottomData(
+                    imageUrl = "https://cdn.pixabay.com/photo/2019/12/01/15/08/if-the-4665686_1280.jpg",
+                    id = 2
+                ),
+                HomeBottomData(
+                    imageUrl = "https://cdn.pixabay.com/photo/2019/08/15/09/00/pilaf-4407500_1280.jpg",
+                    id = 3
+                ),
+                HomeBottomData(
+                    imageUrl = "https://cdn.pixabay.com/photo/2019/09/05/01/08/food-4452840_1280.jpg",
+                    id = 4
+                ), HomeBottomData(
+                    imageUrl = "https://cdn.pixabay.com/photo/2018/08/10/12/17/mohinga-3596735_1280.jpg",
+                    id = 5
+                )
+            )
+        )
     }
 
 
@@ -147,5 +190,6 @@ class HomeFragment : Fragment() {
         categoryRVAdapter = MenuCategoryRVAdapter(this, dummyItemsCategory)
         binding.rvMenuCategory.adapter = categoryRVAdapter
         binding.rvMenuCategory.layoutManager = GridLayoutManager(requireContext(), 5)
+
     }
 }
