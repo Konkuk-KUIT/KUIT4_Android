@@ -15,7 +15,9 @@ import com.example.kuit4androidprivate.DetailActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.FavoriteActivity
 import com.example.kuit4androidprivate.adapter.GridRVAdapter
+import com.example.kuit4androidprivate.adapter.HomeImageRVAdapter
 import com.example.kuit4androidprivate.adapter.HorizontalRVAdapter
+import com.example.kuit4androidprivate.data.HomeImageData
 import com.example.kuit4androidprivate.data.MenuCategoryData
 import com.example.kuit4androidprivate.data.MenuData
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
@@ -26,8 +28,10 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var gridRVAdapter:GridRVAdapter
     private lateinit var horizontalRVAdapter: HorizontalRVAdapter
+    private lateinit var homeImageRVAdapter: HomeImageRVAdapter
     private var menuCategoryData: ArrayList<MenuCategoryData> = ArrayList()
     private var menuData: ArrayList<MenuData> = ArrayList()
+    private var homeImageData: ArrayList<HomeImageData> = ArrayList()
 
 
     override fun onCreateView(
@@ -48,8 +52,26 @@ class HomeFragment : Fragment() {
         addMenuData()
         initGridRVAdapter()
         initHorizontalRVAdapter()
+        addHomeImageData()
+        initHomeImageRVAdapter()
 
         return binding.root
+    }
+
+    private fun initHomeImageRVAdapter() {
+        homeImageRVAdapter = HomeImageRVAdapter(requireActivity(), homeImageData)
+
+        binding.vpHomeImageScroll.adapter = homeImageRVAdapter
+    }
+
+    private fun addHomeImageData() {
+        homeImageData.addAll(
+            arrayListOf(
+                HomeImageData(image=R.drawable.img_gukbap, index=1),
+                HomeImageData(image=R.drawable.img_taco, index=2),
+                HomeImageData(image=R.drawable.img_bagel, index=3)
+            )
+        )
     }
 
     private fun initFavorite() {
@@ -95,7 +117,8 @@ class HomeFragment : Fragment() {
                 MenuCategoryData(image = R.drawable.img_jokbal_bossam , name = "족발/보쌈"),
                 MenuCategoryData(image = R.drawable.img_soup , name = "찜/탕"),
                 MenuCategoryData(image = R.drawable.img_roast , name = "구이"),
-                MenuCategoryData(image = R.drawable.img_pizza , name = "피자")
+                MenuCategoryData(image = R.drawable.img_pizza , name = "피자"),
+                MenuCategoryData(image = R.drawable.img_pizza, name = "더보기")
             )
         )
     }

@@ -1,5 +1,6 @@
 package com.example.kuit4androidprivate
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -7,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.kuit4androidprivate.adapter.VerticalRVAdapter
 import com.example.kuit4androidprivate.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
@@ -31,11 +33,5 @@ class DetailActivity : AppCompatActivity() {
         binding.tvDetailReview.text = review
 
         binding.ivDetailMenu.setImageResource(image)
-
-        initVerticalRVAdapter()
-    }
-
-    private fun initVerticalRVAdapter() {
-
     }
 }

@@ -20,9 +20,6 @@ class MyEatsFragment : Fragment() {
     ): View {
         binding = FragmentMyEatsBinding.inflate(layoutInflater)
 
-        binding.llMyEatsLike.setOnClickListener{
-            intentToKeepActivity()
-        }
         return binding.root
     }
 
