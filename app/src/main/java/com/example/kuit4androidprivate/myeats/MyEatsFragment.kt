@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.ActivityKeepBinding
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsBinding
+import com.example.kuit4androidprivate.home.HomeFragment
 import com.example.kuit4androidprivate.keep.KeepActivity
 
 class MyEatsFragment : Fragment() {
@@ -27,18 +29,35 @@ class MyEatsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //KeepActivity로 전환하기 위한 함수
-        binding.clMyEatsLikeContainer.setOnClickListener {
-//            fragment는 context를 상속받지 않아서 this를 인자로 주면 안되고,
-//            requireContext() 나 activity를 인자로 줘야한다
-            val intent = Intent(activity, KeepActivity::class.java)
-            startActivity(intent)
+        childFragmentManager
+            .beginTransaction()
+            .replace(R.id.my_eats_frm, MyEatsDefaultFragment())
+            .addToBackStack(null)
+            .commit()
+
+        backVisibilityCheck()
+
+        childFragmentManager.addOnBackStackChangedListener {
+            backVisibilityCheck()
         }
 
-//        myeats 화면에서 뒤로가기 버튼 삭제
-//        binding.ivMyEatsBack.setOnClickListener{
-//           requireActivity().onBackPressedDispatcher.onBackPressed()
-//        }
+        binding.ivMyEatsBack.setOnClickListener{
+            childFragmentManager
+                .beginTransaction()
+                .replace(R.id.my_eats_frm, MyEatsDefaultFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+    }
 
+    private fun backVisibilityCheck(){
+        //binding을 사용하면 어떤 Fragment인지는 알지 못하므로 findFragmentById 사용
+//        var currentFragment = binding.myEatsFrm
+        val currentFragment = childFragmentManager.findFragmentById(R.id.my_eats_frm)
+        if (currentFragment is MyEatsDefaultFragment) {
+            binding.ivMyEatsBack.visibility = View.GONE
+        }else{
+            binding.ivMyEatsBack.visibility = View.VISIBLE
+        }
     }
 }
