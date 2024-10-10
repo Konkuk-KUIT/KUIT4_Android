@@ -8,7 +8,7 @@ import com.example.kuit4androidprivate.databinding.ActivityMainBinding
 import com.example.kuit4androidprivate.history.HistoryFragment
 import com.example.kuit4androidprivate.home.HomeFragment
 import com.example.kuit4androidprivate.keep.KeepActivity
-import com.example.kuit4androidprivate.myeats.MyEatsFragment
+import com.example.kuit4androidprivate.myEats.MyEatsFragment
 import com.example.kuit4androidprivate.search.SearchFragment
 
 class MainActivity : AppCompatActivity() {
@@ -123,4 +123,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
