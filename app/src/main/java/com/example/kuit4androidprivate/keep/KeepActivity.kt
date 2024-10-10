@@ -22,17 +22,22 @@ class KeepActivity : AppCompatActivity() {
         binding = ActivityKeepBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.clKeepTteokbokki.setOnClickListener{
+        binding.clKeepTteokbokki.setOnClickListener {
             intentToDetailActivity()
-
-            val arrow = findViewById<ImageView>(R.id.iv_keep_arrow) as ImageView
-        arrow.setOnClickListener(View.OnClickListener { finish() })
+        }
+        binding.ivKeepArrow.setOnClickListener{
+            finish()
         }
 
     }
 
     private fun intentToDetailActivity() {
-        val intent = Intent(this, DetailActivity::class.java)
+        val intent = Intent(this, DetailActivity::class.java).apply{
+            intent.putExtra("name", "아워떡볶이")
+            intent.putExtra("score", "4.9")
+            intent.putExtra("review", "3,849")
+            intent.putExtra("image", R.drawable.img_tteokbokki)
+        }
         startActivity(intent)
     }
 }
