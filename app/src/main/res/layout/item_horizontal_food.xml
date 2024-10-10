@@ -4,13 +4,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_home_food"
         android:layout_width="230dp"
         android:layout_height="129dp"
         android:src="@drawable/img_home_food"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/corner_size_8" />
+
 
     <TextView
         android:id="@+id/tv_home_food"
