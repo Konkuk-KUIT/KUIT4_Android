@@ -3,7 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="nav_unselected">#939DA9</color>
-    <color name="grey">#98A0AB</color>
-    <color name="blue">#0C2F65</color>
-    <color name="lightblue">#02AFFE</color>
+    <color name="gray1">#98A0AB</color>
+    <color name="blue1">#0C2F65</color>
+    <color name="blue2">#02AFFE</color>
+    <color name="gray2">#DBDBDB</color>
+    <color name="gray3">#D7D2D2</color>
+    <color name="gray4">#595353</color>
+    <color name="gray5">#575252</color>
 </resources>

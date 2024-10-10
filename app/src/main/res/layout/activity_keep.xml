@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"
             android:text="수정"
-            android:textColor="@color/lightblue"
+            android:textColor="@color/blue2"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@id/tv_keep_like"
             app:layout_constraintTop_toTopOf="parent" />

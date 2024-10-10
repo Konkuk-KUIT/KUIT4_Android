@@ -6,25 +6,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
-
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var foodAdapter: MenuCategoryDataAdapter
     private lateinit var menuAdapter: MenuDataAdapter
+    private lateinit var noticeViewPagerAdapter: NoticeViewPagerAdapter
+    private lateinit var indicators: List<TextView>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
         binding.rvHomeSee.setOnClickListener {
@@ -69,7 +72,6 @@ class HomeFragment : Fragment() {
             MenuData("순살만공격", "4.1", "799", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
             MenuData("페리카나", "4.7", "2,414", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
             MenuData("BBQ", "4.7", "999", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-
         )
 
         menuAdapter = MenuDataAdapter(menuCategoryList) { menuData ->
@@ -88,6 +90,56 @@ class HomeFragment : Fragment() {
             addItemDecoration(HorizontalSpacingItemDecoration(50))
         }
 
+        val images = intArrayOf(
+            R.drawable.img_home_snackfood,
+            R.drawable.img_home_porkcutlet,
+            R.drawable.img_home_japanesefood,
+            R.drawable.img_home_koreanfood,
+            R.drawable.img_home_chicken
+        )
+
+        val texts = arrayOf("1/5", "2/5", "3/5", "4/5", "5/5")
+
+        noticeViewPagerAdapter = NoticeViewPagerAdapter(images, texts)
+        binding.vpHome.adapter = noticeViewPagerAdapter
+
+        createIndicators(texts.size)
+
+        binding.vpHome.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                updateIndicators(position % texts.size)
+                binding.tvHomeVp.text = "${(position % texts.size) + 1}/${texts.size}"
+            }
+        })
+
         return binding.root
+    }
+
+    private fun createIndicators(count: Int) {
+        indicators = List(count) { index ->
+            TextView(requireContext()).apply {
+                text = "●"
+                textSize = 6f
+                setTextColor(resources.getColor(R.color.gray2))
+                val layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
+                    setMargins(4, 0, 4, 0)
+                }
+                this.layoutParams = layoutParams
+                binding.llHomeIndicator.addView(this)
+            }
+        }
+    }
+
+    private fun updateIndicators(position: Int) {
+        indicators.forEachIndexed { index, textView ->
+            textView.setTextColor(if (index == position) {
+                resources.getColor(R.color.blue2)
+            } else {
+                resources.getColor(R.color.gray2)
+            })
+        }
     }
 }
