@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lately_menu_total"
+    android:layout_width="wrap_content"
+    android:layout_marginEnd="24dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginStart="27dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_latelyitem"
+        android:layout_width="wrap_content"
+        android:layout_height="129dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/corner_size_8"
+        android:background="#DBDBDB"
+        />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_latelymenu"
+        android:text="아워떡볶이"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/siv_latelyitem"
+        app:layout_constraintTop_toBottomOf="@+id/siv_latelyitem"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_latelytime"
+        android:textSize="12sp"
+        android:text="30분"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/siv_latelyitem"
+        app:layout_constraintTop_toBottomOf="@+id/siv_latelyitem"/>
+
+    <ImageView
+        android:id="@+id/star"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_latelymenu"
+        app:layout_constraintTop_toBottomOf="@+id/tv_latelymenu"
+        android:src="@drawable/img_star" />
+
+
+    <TextView
+        android:id="@+id/tv_lately_review"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="1dp"
+        android:text="4.9"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/star"
+        app:layout_constraintTop_toBottomOf="@+id/tv_latelymenu" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_lately_count"
+        android:textSize="12sp"
+        android:text="(3,839)"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_lately_review"
+        app:layout_constraintTop_toBottomOf="@+id/tv_latelymenu"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
