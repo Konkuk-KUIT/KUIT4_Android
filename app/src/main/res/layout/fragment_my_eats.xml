@@ -144,7 +144,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcv_my_eats"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="178dp"
         app:layout_constraintStart_toStartOf="parent"

@@ -7,17 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.kuit4androidprivate.adapter.MyEatsFragmentVPAdatper
+import com.example.kuit4androidprivate.databinding.FragmentDetailViewPagerBinding
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsBinding
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsDetailBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.keep.KeepActivity
 import com.example.kuit4androidprivate.myeats.MyEatsFragment
 
-
 class MyEatsDetailFragment : Fragment() {
-
     lateinit var binding: FragmentMyEatsDetailBinding
-    lateinit var eatsBinding: FragmentMyEatsBinding
+    lateinit var viewPagerBinding : FragmentDetailViewPagerBinding
+    lateinit var myEatsBinding : FragmentMyEatsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,10 +35,12 @@ class MyEatsDetailFragment : Fragment() {
             startActivity(intent)
         }
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         binding.btnMyEatsMoveKeep.setOnClickListener {
+
+            val parentFragment = parentFragment as? MyEatsFragment
+            parentFragment?.showBackButton()
 
             val viewFragment = DetailViewPagerFragment()
             parentFragmentManager.beginTransaction()
@@ -46,8 +48,11 @@ class MyEatsDetailFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
 
+
+
         }
 
-    }
 
+
+    }
 }
