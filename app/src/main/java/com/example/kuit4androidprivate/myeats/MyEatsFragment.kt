@@ -1,35 +1,56 @@
 package com.example.kuit4androidprivate.myeats
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsBinding
-import com.example.kuit4androidprivate.keep.KeepActivity
 
 class MyEatsFragment : Fragment() {
 
     private lateinit var binding: FragmentMyEatsBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMyEatsBinding.inflate(layoutInflater)
-        initListener()
+
+        initReadLikeFragment()
+        initBackListener()
         return binding.root
     }
 
-    private fun initListener() {
-        binding.LLEatsLikeLayout
-            .setOnClickListener {//fragment는 context가 없음
-                val intent = Intent(requireActivity(), KeepActivity::class.java)
-                startActivity(intent)
-            }
+    private fun initBackListener() {
+        binding.ivEatsBack.setOnClickListener {
+            visibilityBack()
+            initReadLikeFragment()
+        }
     }
 
+
+    public fun initReadLikeFragment() {
+        val childFragment = ReadMoreFragment()
+        childFragmentManager.beginTransaction()
+            .replace(R.id.frm_my_eat, childFragment)
+            .commit()
+    }
+
+    public fun visibilityBack() {
+        if (binding.ivEatsBack.visibility == View.VISIBLE) {
+            binding.ivEatsBack.visibility = View.INVISIBLE
+        } else {
+            binding.ivEatsBack.visibility = View.VISIBLE
+        }
+    }
+
+    public fun initReviewLikeFragment() {//MyEatsReviewLikeFragment
+        val childFragment = MyEatsReviewLikeFragment()
+        childFragmentManager.beginTransaction()
+            .replace(R.id.frm_my_eat, childFragment)
+            .commit()
+    }
 
 }

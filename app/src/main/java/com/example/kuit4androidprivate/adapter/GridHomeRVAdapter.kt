@@ -22,7 +22,7 @@ class GridHomeRVAdapter(
             binding.tvItem1.text = item.title
             Glide.with(context)
                 .load(item.imageUrl)
-                .into(binding.ivItem)
+                .into(binding.ivFavoriteDataItem)
         }
     }
 
@@ -32,12 +32,19 @@ class GridHomeRVAdapter(
 
     }
 
+    private var currentItemCount = 9
+
     inner class ShowMoreViewHolder(
         private val binding: IconMainAddBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-
+                if (currentItemCount == 14) {
+                    currentItemCount = 9
+                } else {
+                    currentItemCount = 14
+                }
+                notifyDataSetChanged()
             }
         }
     }
@@ -69,10 +76,10 @@ class GridHomeRVAdapter(
 
     }
 
-    override fun getItemCount(): Int = menuCategoryItems.size + 1
+    override fun getItemCount(): Int = currentItemCount + 1
 
     override fun getItemViewType(position: Int): Int {
-        return if (position == menuCategoryItems.size) {
+        return if (position == currentItemCount) {
             VIEW_TYPE_SHOW_MORE
         } else {
             VIEW_TYPE_ITEM

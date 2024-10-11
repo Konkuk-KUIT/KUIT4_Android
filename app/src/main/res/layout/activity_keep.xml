@@ -8,7 +8,7 @@
     tools:context=".keep.KeepActivity">
 
     <ImageView
-        android:id="@+id/back_icon"
+        android:id="@+id/iv_keep_back"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="27dp"
@@ -18,35 +18,35 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_eats_like"
+        android:id="@+id/tv_keep_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:text="즐겨찾기"
-        app:layout_constraintStart_toStartOf="@id/back_icon"
-        app:layout_constraintTop_toTopOf="@id/back_icon" />
+        app:layout_constraintStart_toStartOf="@id/iv_keep_back"
+        app:layout_constraintTop_toTopOf="@id/iv_keep_back" />
 
     <TextView
-        android:id="@+id/change"
+        android:id="@+id/tv_keep_change"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="247dp"
         android:text="수정"
         android:textColor="#02AFFE"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@id/back_icon"
-        app:layout_constraintTop_toTopOf="@id/back_icon" />
+        app:layout_constraintStart_toEndOf="@id/iv_keep_back"
+        app:layout_constraintTop_toTopOf="@id/iv_keep_back" />
 
     <TextView
-        android:id="@+id/count"
+        android:id="@+id/tv_keep_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="58dp"
         android:text="총 1개"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/back_icon"
-        app:layout_constraintTop_toBottomOf="@id/back_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_keep_back"
+        app:layout_constraintTop_toBottomOf="@id/iv_keep_back"
         app:layout_goneMarginTop="58dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/home_food"
+            android:id="@+id/iv_keep_home_food"
             android:layout_width="235dp"
             android:layout_height="121dp"
             android:scaleType="centerCrop"
@@ -68,7 +68,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/redfood"
+            android:id="@+id/tv_keep_store_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -77,39 +77,39 @@
             android:textFontWeight="600"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/home_food"
-            app:layout_constraintTop_toBottomOf="@id/home_food" />
+            app:layout_constraintStart_toStartOf="@id/iv_keep_home_food"
+            app:layout_constraintTop_toBottomOf="@id/iv_keep_home_food" />
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/tv_keep_make_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="125dp"
             android:text="30분"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/redfood"
-            app:layout_constraintTop_toTopOf="@id/redfood" />
+            app:layout_constraintStart_toEndOf="@id/tv_keep_store_name"
+            app:layout_constraintTop_toTopOf="@id/tv_keep_store_name" />
 
         <ImageView
-            android:id="@+id/iv_star"
+            android:id="@+id/iv_detail_star"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginTop="15sp"
             android:src="@drawable/ic_home_star"
-            app:layout_constraintStart_toStartOf="@id/redfood"
-            app:layout_constraintTop_toBottomOf="@id/redfood" />
+            app:layout_constraintStart_toStartOf="@id/tv_keep_store_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_keep_store_name" />
 
         <TextView
-            android:id="@+id/rating"
+            android:id="@+id/tv_keep_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="4.9 (3,849)"
             android:textColor="#575252"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/iv_star"
-            app:layout_constraintTop_toTopOf="@id/iv_star" />
+            app:layout_constraintStart_toEndOf="@id/iv_detail_star"
+            app:layout_constraintTop_toTopOf="@id/iv_detail_star" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

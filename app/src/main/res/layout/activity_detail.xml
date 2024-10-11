@@ -3,76 +3,84 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/icon_back"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/icon_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
-        />
-
-    <ImageView
-        android:id="@+id/gray_like"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="258dp"
-        android:src="@drawable/ic_nav_like"
-        app:layout_constraintStart_toEndOf="@id/icon_back"
-        app:layout_constraintTop_toTopOf="@id/icon_back" />
-
-    <ImageView
-        android:id="@+id/img_home_food"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_detail_top"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_detail_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_detail_gray_like"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="27dp"
+            android:src="@drawable/ic_nav_like"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_detail_back" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/iv_detail_home_food"
+        android:layout_width="0dp"
         android:layout_height="149dp"
         android:layout_marginTop="88dp"
         android:scaleType="centerCrop"
         android:src="@drawable/home_food"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/store_name"
+        android:id="@+id/tv_detail_store_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="111dp"
-        android:layout_marginTop="25dp"
         android:fontFamily="@font/pretendardvariable"
         android:text="아워떡볶이"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_home_food" />
+        app:layout_constraintTop_toBottomOf="@id/iv_detail_home_food" />
 
     <ImageView
-        android:id="@+id/iv_star"
+        android:id="@+id/iv_detail_star"
         android:layout_width="20dp"
         android:layout_height="15dp"
         android:layout_marginStart="14dp"
         android:layout_marginTop="9dp"
         android:src="@drawable/ic_home_star"
-        app:layout_constraintStart_toStartOf="@id/store_name"
-        app:layout_constraintTop_toBottomOf="@id/store_name" />
+        app:layout_constraintStart_toStartOf="@id/tv_detail_store_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_store_name" />
 
     <TextView
-        android:id="@+id/tv_rating_number"
+        android:id="@+id/tv_detail_rating_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="4.9"
         android:textColor="#575252"
-        app:layout_constraintStart_toEndOf="@id/iv_star"
-        app:layout_constraintTop_toTopOf="@id/iv_star" />
+        app:layout_constraintStart_toEndOf="@id/iv_detail_star"
+        app:layout_constraintTop_toTopOf="@id/iv_detail_star" />
+
     <TextView
-        android:id="@+id/tv_visit_number"
+        android:id="@+id/tv_detail_visit_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="(3,900)"
-        app:layout_constraintStart_toEndOf="@id/tv_rating_number"
-        app:layout_constraintTop_toTopOf="@id/iv_star"/>
+        app:layout_constraintStart_toEndOf="@id/tv_detail_rating_number"
+        app:layout_constraintTop_toTopOf="@id/iv_detail_star" />
 
 </androidx.constraintlayout.widget.ConstraintLayout><!--    width는 wrap이나 parent에 맞춰서 하고 옆에 마진으로 관리한다-->

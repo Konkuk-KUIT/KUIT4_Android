@@ -5,30 +5,31 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.DetailActivity
 import com.example.kuit4androidprivate.FavoriteActivity
 import com.example.kuit4androidprivate.R
+import com.example.kuit4androidprivate.adapter.CardHomeVPAdapter
 import com.example.kuit4androidprivate.adapter.GridHomeRVAdapter
 import com.example.kuit4androidprivate.adapter.LinearHomeRVAdapter
-import com.example.kuit4androidprivate.databinding.ActivityFavoriteBinding
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 import com.example.kuit4androidprivate.keep.KeepActivity
+import com.example.kuit4androidprivate.model.HomeCardData
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuData
-
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var gridHomeRVAdapter: GridHomeRVAdapter
     private lateinit var linearHomeRVAdapter: LinearHomeRVAdapter
-    private lateinit var linearFavoriteAdapter: LinearHomeRVAdapter
     private var gridHomeItems = ArrayList<MenuCategoryData>()
     private var linearHomeItems = ArrayList<MenuData>()
+    private var cardHomeCardItems = ArrayList<HomeCardData>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,7 +44,50 @@ class HomeFragment : Fragment() {
         initLinearHomeRVAdapter()
 
         initOrderButtonOnClick(linearHomeItems)
+
+        initHomeCardItems()
+        initHomeCardVP()
+        initHomeCardIndex()
         return binding.root
+    }
+
+    private fun initHomeCardIndex() {
+        binding.vpHomeBottom.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.tvHomeVpIndex.text = "${(position + 1) % 5 + 1}/5"
+            }
+        })
+    }
+
+    private fun initHomeCardVP() {
+        binding.vpHomeBottom.adapter = CardHomeVPAdapter().apply {
+            submitList(cardHomeCardItems)
+        }
+        binding.vpHomeBottom.currentItem = Int.MAX_VALUE / 2 + 1
+    }
+
+    private fun initHomeCardItems() {
+        cardHomeCardItems.addAll(
+            arrayListOf(
+                HomeCardData(
+                    1, "https://cdn.pixabay.com/photo/2021/02/08/12/40/lasagna-5994612_1280.jpg"
+                ),
+                HomeCardData(
+                    2, "https://cdn.pixabay.com/photo/2014/05/18/11/25/pizza-346985_640.jpg"
+                ),
+                HomeCardData(
+                    3, "https://cdn.pixabay.com/photo/2020/04/20/07/28/japan-food-5066734_640.jpg"
+                ),
+                HomeCardData(
+                    4, "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_640.jpg"
+                ),
+                HomeCardData(
+                    5, "https://cdn.pixabay.com/photo/2022/09/27/12/01/ikura-7482636_1280.jpg"
+                )
+            )
+        )
     }
 
     private fun initOrderButtonOnClick(items: ArrayList<MenuData>) {
@@ -71,7 +115,7 @@ class HomeFragment : Fragment() {
             arrayListOf(
                 MenuData(
                     "https://cdn.pixabay.com/photo/2016/08/20/13/06/toppokki-1607479_1280.jpg",
-                    "아워떡볶이", "30분", "4.5", " (1,203)", false
+                    "아워떡볶이", "30분", "4.5", " (1,203)", true
                 ),
                 MenuData(
                     "https://cdn.pixabay.com/photo/2015/07/08/19/40/food-836806_1280.jpg",
@@ -115,8 +159,8 @@ class HomeFragment : Fragment() {
 
     private fun initGridHomeRVAdapter() {
         gridHomeRVAdapter = GridHomeRVAdapter(requireActivity(), gridHomeItems) {}
-        binding.rvMenuCategory.adapter = gridHomeRVAdapter
-        binding.rvMenuCategory.layoutManager =
+        binding.rvHomeMenuCategory.adapter = gridHomeRVAdapter
+        binding.rvHomeMenuCategory.layoutManager =
             GridLayoutManager(requireActivity(), 5)
     }
 
@@ -134,6 +178,21 @@ class HomeFragment : Fragment() {
                 ),
                 MenuCategoryData(
                     "치킨", R.drawable.chicken
+                ),
+                MenuCategoryData(
+                    "분식", R.drawable.img_main_snack_food
+                ),
+                MenuCategoryData(
+                    "족발/보쌈", R.drawable.img_main_jokbal
+                ),
+                MenuCategoryData(
+                    "찜/탕", R.drawable.img_main_soup
+                ),
+                MenuCategoryData(
+                    "구이", R.drawable.img_main_roast
+                ),
+                MenuCategoryData(
+                    "피자", R.drawable.img_main_pizza
                 ),
                 MenuCategoryData(
                     "분식", R.drawable.img_main_snack_food

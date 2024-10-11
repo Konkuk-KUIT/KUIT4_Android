@@ -16,19 +16,20 @@ class DetailActivity : AppCompatActivity() {
 
         val item = intent.getSerializableExtra("item_data") as? MenuData
         item?.let {
-            binding.storeName.text = item.name
-            binding.tvRatingNumber.text = item.ratingNumber
-            binding.tvVisitNumber.text = item.visitNumber
+            binding.tvDetailStoreName.text = item.name
+            binding.tvDetailVisitNumber.text = item.visitNumber
+            binding.tvDetailRatingNumber.text = item.ratingNumber
+
             Glide.with(this)
                 .load(item.imgUrl)
-                .into(binding.imgHomeFood)
+                .into(binding.ivDetailHomeFood)
         }
 
         initBackIconImgListener()
     }
 
     private fun initBackIconImgListener() {
-        binding.iconBack.setOnClickListener {//fragment는 context가 없음
+        binding.ivDetailBack.setOnClickListener {//fragment는 context가 없음
             finish()
         }
     }

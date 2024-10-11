@@ -1,13 +1,12 @@
 package com.example.kuit4androidprivate
 
+import android.graphics.Rect
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.kuit4androidprivate.adapter.LinearFavoriteRVAdapter
-import com.example.kuit4androidprivate.adapter.LinearHomeRVAdapter
 import com.example.kuit4androidprivate.databinding.ActivityFavoriteBinding
 import com.example.kuit4androidprivate.model.MenuData
 
@@ -15,6 +14,9 @@ class FavoriteActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFavoriteBinding
     private lateinit var linearHomeRVAdapter: LinearFavoriteRVAdapter
+
+    private val bottomMargin = 33
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
@@ -25,6 +27,11 @@ class FavoriteActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         initBackIconImgListener()
+        initLastMarginDecoration()
+    }
+
+    private fun initLastMarginDecoration() {
+        binding.rvFavorite.addItemDecoration(LastItemMarginDecoration(bottomMargin))
     }
 
     private fun initLinearHomeRVAdapter(items: ArrayList<MenuData>) {
@@ -36,8 +43,24 @@ class FavoriteActivity : AppCompatActivity() {
 
 
     private fun initBackIconImgListener() {
-        binding.imgBack.setOnClickListener {
+        binding.ivFavoriteBack.setOnClickListener {
             finish()
+        }
+    }
+    inner class LastItemMarginDecoration(private val bottomMargin: Int) :
+        RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            val position = parent.getChildAdapterPosition(view)
+            val itemCount = state.itemCount
+
+            if (position == itemCount - 1) {
+                outRect.bottom = bottomMargin
+            }
         }
     }
 }
