@@ -1,15 +1,13 @@
-package com.example.kuit4androidprivate.model
+package com.example.kuit4androidprivate.detail
 
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kuit4androidprivate.adapter.RVAdapter
 import com.example.kuit4androidprivate.adapter.RVAdapter1
+import com.example.kuit4androidprivate.dataClass.MenuData
 import com.example.kuit4androidprivate.databinding.ActivityFavoriteBinding
-import com.example.kuit4androidprivate.model.MenuData
-import detail.DetailActivity
 
 class FavoriteActivity : AppCompatActivity() {
 

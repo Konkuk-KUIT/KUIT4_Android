@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kuit4androidprivate.databinding.ItemFoodBinding
-import com.example.kuit4androidprivate.model.MenuCategoryData
-import com.example.kuit4androidprivate.model.MenuData
+import com.example.kuit4androidprivate.dataClass.MenuCategoryData
 
 class RVAdapterGrid(
     private val context: Context,

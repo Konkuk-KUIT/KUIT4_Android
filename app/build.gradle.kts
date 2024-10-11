@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("org.jetbrains.kotlin.kapt")  // kapt 플러그인 추가
 }
 
 android {
@@ -50,4 +51,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    // KAPT 컴파일러 의존성 추가
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
 }

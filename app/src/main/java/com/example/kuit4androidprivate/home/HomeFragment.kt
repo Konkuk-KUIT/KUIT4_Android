@@ -8,14 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
+import com.example.kuit4androidprivate.adapter.HomeVPAdapter
 import com.example.kuit4androidprivate.adapter.RVAdapter
 import com.example.kuit4androidprivate.adapter.RVAdapterGrid
-import com.example.kuit4androidprivate.databinding.ActivityFavoriteBinding
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
-import com.example.kuit4androidprivate.model.FavoriteActivity
-import com.example.kuit4androidprivate.model.MenuCategoryData
-import com.example.kuit4androidprivate.model.MenuData
+import com.example.kuit4androidprivate.dataClass.MenuCategoryData
+import com.example.kuit4androidprivate.dataClass.MenuData
+import com.example.kuit4androidprivate.dataClass.HomeVPData
+import com.example.kuit4androidprivate.detail.DetailActivity
+import com.example.kuit4androidprivate.detail.FavoriteActivity
 import com.example.kuit4androidprivate.myeats.MyEatsFragment
 
 
@@ -24,9 +27,18 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var rvAdapter: RVAdapter
     private lateinit var foodAdapter: RVAdapterGrid
+    private lateinit var vpAdapter: HomeVPAdapter// 어댑터 선언
+
+    private lateinit var imgitems:ArrayList<String>
+    private lateinit var txtitems:ArrayList<String>
 
     private val dummyItems = ArrayList<MenuData>()
     private val dummyItems2 = ArrayList<MenuCategoryData>()
+    private val VPitems = ArrayList<HomeVPData>()
+
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,10 +56,53 @@ class HomeFragment : Fragment() {
         initDummy()
         initRVAdapter()
         initFoodAdapter()
+
+        initVPData()
+        initVP()
         return binding.root
 
     }
 
+    private fun initVP() {
+        vpAdapter = HomeVPAdapter()
+        binding.vpHome.adapter = vpAdapter
+        vpAdapter.submitList(VPitems)
+        binding.vpHome.currentItem = 1000
+
+        // ViewPager의 페이지가 변경될 때 호출되는 콜백을 추가
+        binding.vpHome.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                // 페이지가 변경될 때 tv_home_vp_present 값을 변경
+                val currentPage = (position % VPitems.size) + 1 // 1부터 시작하도록 설정
+                binding.tvHomeVpPresent.text = currentPage.toString() // 현재 페이지 설정
+            }
+        })
+    }
+
+
+    private fun initVPData() {
+        imgitems = arrayListOf(
+            "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_640.jpg",
+            "https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_640.jpg",
+            "https://cdn.pixabay.com/photo/2021/11/09/07/21/pastry-6780834_640.jpg",
+            "https://cdn.pixabay.com/photo/2017/01/30/13/49/pancakes-2020863_640.jpg",
+            "https://cdn.pixabay.com/photo/2017/03/23/19/57/asparagus-2169305_640.jpg"
+        )
+
+
+
+        for (i in 1 until 6){
+            VPitems.add(
+                HomeVPData(
+                    id = i,
+                    imgUrl = imgitems[i - 1]
+                )
+            )
+        }
+
+
+    }
 
 
     private fun initDummyFood() {
@@ -172,6 +227,8 @@ class HomeFragment : Fragment() {
             .replace(R.id.main_frm, MyEatsFragment()) // ID에 프래그먼트 교체
             .commit()
     }
+
+
 
 }
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myeats.MyPageFragment">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/whiteblue_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/corner_size_4"
+        app:strokeColor="#02AFFE"
+        app:strokeWidth="1dp"
+        android:layout_width="306dp"
+        android:layout_height="42dp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자세히 보기"
+        android:textSize="14dp"
+        android:textColor="#02AFFE"
+        app:layout_constraintTop_toTopOf="@id/whiteblue_box"
+        app:layout_constraintStart_toStartOf="@id/whiteblue_box"
+        app:layout_constraintEnd_toEndOf="@id/whiteblue_box"
+        app:layout_constraintBottom_toBottomOf="@id/whiteblue_box"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_myeat_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/whiteblue_box"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="@id/whiteblue_box">
+
+        <ImageView
+            android:id="@+id/icon_heart"
+            android:src="@drawable/heart"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_myeat_like"
+            app:layout_constraintTop_toTopOf="@+id/layout_myeat_like"
+            app:layout_constraintStart_toStartOf="@+id/layout_myeat_like"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="즐겨찾기"
+            android:textSize="21dp"
+            app:layout_constraintStart_toEndOf="@id/icon_heart"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_myeat_like"
+            app:layout_constraintTop_toTopOf="@+id/layout_myeat_like"
+            android:layout_marginStart="19dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

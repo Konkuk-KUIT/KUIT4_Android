@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.kuit4androidprivate.databinding.ItemHome2Binding
-import com.example.kuit4androidprivate.model.MenuData
+import com.example.kuit4androidprivate.databinding.ItemHomeRvBinding
+import com.example.kuit4androidprivate.dataClass.MenuData
 
 
 
@@ -17,7 +17,7 @@ class RVAdapter(
 ) : RecyclerView.Adapter<RVAdapter.ViewHolder>(){
 
 
-    inner class ViewHolder(private val binding:ItemHome2Binding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(private val binding:ItemHomeRvBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item:MenuData){
             binding.tvItemName.text = item.title
             binding.tvItemMinuite.text = item.time
@@ -31,7 +31,7 @@ class RVAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter.ViewHolder {
-        val binding = ItemHome2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemHomeRvBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
