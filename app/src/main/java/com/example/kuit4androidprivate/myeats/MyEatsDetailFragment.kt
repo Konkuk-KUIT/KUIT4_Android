@@ -19,7 +19,7 @@ class MyEatsDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMyEatsDetailBinding.inflate(layoutInflater)
 
         myEatsDetailRVAdapter = MyEatsDetailVPAdapter(requireActivity())
@@ -30,6 +30,12 @@ class MyEatsDetailFragment : Fragment() {
         }.attach()
 
         return binding.root
+    }
+
+    companion object {
+        fun newInstance(): MyEatsDetailFragment{
+            return MyEatsDetailFragment()
+        }
     }
 
 }

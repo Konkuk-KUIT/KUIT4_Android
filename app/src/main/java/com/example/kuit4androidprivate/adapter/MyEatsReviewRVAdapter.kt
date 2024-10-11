@@ -11,18 +11,21 @@ class MyEatsReviewRVAdapter(
     private val context: Context,
     private val reviewList: ArrayList<MyEatsReviewData>) : RecyclerView.Adapter<MyEatsReviewRVAdapter.ViewHolder>() {
 
-        inner class ViewHolder(private val binding: ItemMyReviewBinding) : RecyclerView.ViewHolder(binding.root){
+        class ViewHolder(private val binding: ItemMyReviewBinding) : RecyclerView.ViewHolder(binding.root){
             fun bind(item: MyEatsReviewData){
-
+                binding.tvMyReviewDate.text = item.date
+                binding.tvMyReviewName.text = item.name
+                binding.tvMyReviewComment.text = item.comment
             }
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyEatsReviewRVAdapter.ViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemMyReviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MyEatsReviewRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val myReview = reviewList[position]
         holder.bind(myReview)
     }

@@ -19,14 +19,23 @@ class MyEatsMainFragment : Fragment() {
     ): View? {
         binding = FragmentMyEatsMainBinding.inflate(layoutInflater)
 
-        val fragmentManager = childFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
+        val detailFragment = MyEatsDetailFragment.newInstance()
 
-        fragmentTransaction.replace(R.id.fcv_my_eats, MyEatsDetailFragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+        binding.clMyEatsDetail.setOnClickListener{
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.fcv_my_eats, detailFragment)
+                addToBackStack(null)
+                commit()
+            }
+        }
 
         return binding.root
+    }
+
+    companion object {
+        fun newInstance(): MyEatsMainFragment{
+            return MyEatsMainFragment()
+        }
     }
 
 }
