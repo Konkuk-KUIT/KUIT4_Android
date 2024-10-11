@@ -7,15 +7,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.adapter.HomeScrollRVAdapter
+import com.example.kuit4androidprivate.adapter.VpHomeAdapter
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuData
+import com.example.kuit4androidprivate.model.VpCardData
 
 
 class HomeFragment : Fragment() {
@@ -25,6 +29,9 @@ class HomeFragment : Fragment() {
     private lateinit var scrollRVAdapter: HomeScrollRVAdapter
     private val dummyItemsFavorite = ArrayList<MenuData>()
     private val dummyItemsCategory = ArrayList<MenuCategoryData>()
+    private lateinit var foodItems : ArrayList<String>
+
+    private var homeVpItems = ArrayList<VpCardData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,19 +42,59 @@ class HomeFragment : Fragment() {
         binding.sivOrderButton.setOnClickListener {
             val intent = Intent(activity, FavoriteActivity::class.java)
             startActivity(intent)
+
         }
         initBottomDummy()
         initHomeScrollRVAdapter()
         inittopDummy()
         initCategoryRVAdapter()
+        initData()
+
+        initFragmentHomeVP()
 
         return binding.root
     }
 
+    private fun initFragmentHomeVP() {
+        binding.vpHomeScroll.adapter = VpHomeAdapter().apply { submitList(homeVpItems) }
+        binding.vpHomeScroll.currentItem = 1001
+    }
+
+    private fun initData() {
+        foodItems = arrayListOf(
+            "https://media.istockphoto.com/id/1653130581/ko/%EC%82%AC%EC%A7%84/%EC%95%BC%EC%B1%84-%EC%87%A0%EA%B3%A0%EA%B8%B0-%EA%B3%84%EB%9E%80%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8-%EB%B0%A5.jpg?s=612x612&w=is&k=20&c=iDBAz2BJjOMuJA6iA16gNo2z6LkFJEmK7fOwn3GcnXc=",
+            "https://cdn.pixabay.com/photo/2023/01/09/10/56/meal-7707134_640.jpg",
+            "https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908_640.jpg",
+            "https://media.istockphoto.com/id/1366953086/ko/%EC%82%AC%EC%A7%84/%ED%95%9C%EA%B5%AD-%EC%9A%94%EB%A6%AC.jpg?s=612x612&w=is&k=20&c=xx77k5uaQ2TDTttCMQCHRfGxWlciGoR5DhCCk9kfCu8=",
+            "https://media.istockphoto.com/id/1616721452/ko/%EC%82%AC%EC%A7%84/%EC%B4%88%EB%B0%A5%EA%B3%BC-%ED%95%A8%EA%BB%98-%EC%A0%90%EC%8B%AC%EC%9D%84-%EB%A8%B9%EB%8A%94-%EC%9D%B5%EB%AA%85%EC%9D%98-%EC%82%AC%EB%9E%8C%EB%93%A4.jpg?s=612x612&w=is&k=20&c=g8Eib-415My7ok_66QfL-RLANrZuXhMhuDLMF5brKIM="
+        )
+
+        for(i in 1 until 6) {
+            homeVpItems.add(
+                VpCardData(
+                    id = i,
+                    foodImgUrl = foodItems[i - 1]
+                )
+            )
+        }
+    }
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val viewPager = view.findViewById<ViewPager2>(R.id.vp_home_scroll)
+        val tvVpCounter = view.findViewById<TextView>(R.id.tv_vp_counter)
 
+        val totalPages = 5
 
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position : Int) {
+                super.onPageSelected(position)
+                val currentPage = (position%5) + 1 // 현페이지는 1부터 시작
+
+                tvVpCounter.text = "$currentPage/$totalPages"
+            }
+        })
     }
 
     private fun initCategoryRVAdapter() {
