@@ -9,17 +9,19 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.adapter.Category_RVAdapter
 import com.example.kuit4androidprivate.adapter.RVAdapter
+import com.example.kuit4androidprivate.adapter.restaurantImage_RVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 import com.example.kuit4androidprivate.databinding.ItemHomeCategoryBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuData
+import com.example.kuit4androidprivate.model.RestaurantImageData
 
 
 class HomeFragment : Fragment() {
@@ -28,8 +30,11 @@ class HomeFragment : Fragment() {
     private lateinit var categoryBinding: ItemHomeCategoryBinding
     private lateinit var rvAdapter: RVAdapter
     private lateinit var categoryRVAdapter: Category_RVAdapter
+    private lateinit var homeitemRVAdapter : restaurantImage_RVAdapter
     private val items = ArrayList<MenuData>()
     private val categoryitems = ArrayList<MenuCategoryData>()
+    private var restaurantImageUrlItems = ArrayList<String>()
+    private var restaurantImageItems = ArrayList<RestaurantImageData>()
     private lateinit var decoration: DividerItemDecoration
 
     override fun onCreateView(
@@ -44,6 +49,9 @@ class HomeFragment : Fragment() {
         initRVAdapter()
         initCategory()
         initCategoryrvAdapter()
+
+        initrestaurantImageData()
+        inithomeVP()
 
         return binding.root
 
@@ -169,6 +177,31 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun initrestaurantImageData() {
+        restaurantImageUrlItems = arrayListOf(
+            "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg",
+            "https://cdn.pixabay.com/photo/2018/03/21/03/49/food-3245489_640.jpg",
+            "https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078_1280.jpg",
+            "https://cdn.pixabay.com/photo/2017/07/27/16/48/toppokki-2545943_640.jpg",
+            "https://cdn.pixabay.com/photo/2021/10/17/16/55/spicy-jokbal-6718937_640.jpg"
+        )
+        for(i in 1 until 6){
+            restaurantImageItems.add(
+                RestaurantImageData(
+                    id = 1,
+                    imgURL = restaurantImageUrlItems[i-1]
+                )
+            )
+        }
+    }
+
+    private fun inithomeVP(){
+        binding.vpRestaurant.adapter = restaurantImage_RVAdapter().apply {
+            submitList(restaurantImageItems)
+        }
+        binding.vpRestaurant.currentItem = 1000
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -181,6 +214,13 @@ class HomeFragment : Fragment() {
             val intent = Intent(context, FavoriteActivity::class.java)
             startActivity(intent)
         }
+
+        binding.vpRestaurant.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.tvHomeItemindex.text = "%d / 5".format(position%5+1)
+            }
+        })
     }
 
 
