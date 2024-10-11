@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="27dp"
+ >
+
+    <ImageView
+        android:id="@+id/iv_my_eats_favorites_item"
+        android:layout_width="360dp"
+        android:layout_height="149dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_detail_store"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_my_eats_favorites_store_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/pretendard_variable"
+        android:text="아워떡볶이"
+        android:textFontWeight="600"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_my_eats_favorites_item" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_my_eats_favorites_store_name" />
+
+    <TextView
+        android:id="@+id/tv_my_eats_favorites_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="8dp"
+        android:text="4.9"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_my_eats_favorites_store_name" />
+
+    <TextView
+        android:id="@+id/tv_my_eats_favorites_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:text="(3,524)"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tv_my_eats_favorites_score"
+        app:layout_constraintTop_toBottomOf="@id/tv_my_eats_favorites_store_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

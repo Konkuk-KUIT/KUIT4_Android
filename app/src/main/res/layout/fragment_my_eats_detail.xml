@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MyEatsDetailFragment">
+
+    <Button
+        android:id="@+id/btn_my_eats_move_keep"
+        android:layout_width="306dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="27dp"
+        android:background="@drawable/my_eats_button"
+        android:backgroundTint="@null"
+        android:fontFamily="@font/pretendard_variable"
+        android:text="자세히 보기"
+        android:textColor="#02AFFE"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/Widget.AppCompat.Button.Borderless" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_my_eats_move_detail"
+        app:layout_constraintTop_toBottomOf="@id/btn_my_eats_move_keep"
+        android:layout_width="122dp"
+        app:layout_constraintStart_toStartOf="@id/btn_my_eats_move_keep"
+        android:layout_height="30dp"
+        android:layout_marginTop="28dp">
+
+        <ImageView
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/img_heart" />
+
+        <TextView
+            android:id="@+id/tv_my_eats_favorites"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_variable"
+            android:text="즐겨찾기"
+            android:textFontWeight="400"
+            android:textSize="21sp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_my_eats_move_event_page"
+        app:layout_constraintTop_toBottomOf="@id/cl_my_eats_move_detail"
+        android:layout_width="183dp"
+        app:layout_constraintStart_toStartOf="@id/btn_my_eats_move_keep"
+        android:layout_height="30dp"
+        android:layout_marginTop="27dp">
+
+        <ImageView
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/iv_my_eats_event"
+            android:src="@drawable/img_verified" />
+
+        <TextView
+            android:id="@+id/tv_my_eats_event"
+            app:layout_constraintStart_toEndOf="@id/iv_my_eats_event"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_variable"
+            android:text="진행중인 이벤트"
+            android:textFontWeight="400"
+
+            android:textSize="21sp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
