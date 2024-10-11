@@ -9,7 +9,7 @@
         android:id="@+id/iv_my_eats_bookmark"
         android:layout_width="match_parent"
         android:layout_height="149dp"
-        android:src="@drawable/img_detail2week"
+        android:src="@drawable/img_detail_restaurant"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -58,11 +58,11 @@
             android:id="@+id/tv_bookmark_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
             android:text="(3,839)"
             android:textColor="#575252"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:layout_marginStart="1dp"
             app:layout_constraintStart_toEndOf="@+id/tv_bookmark_review"
             app:layout_constraintTop_toTopOf="parent" />
 

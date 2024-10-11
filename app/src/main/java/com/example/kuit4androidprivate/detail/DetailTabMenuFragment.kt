@@ -1,40 +1,42 @@
-package com.example.kuit4androidprivate.myEats
+package com.example.kuit4androidprivate.detail
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.kuit4androidprivate.adapter.MyEatsTabMenuAdapter
+import com.example.kuit4androidprivate.R
+import com.example.kuit4androidprivate.adapter.DetailTabMenuAdapter
+import com.example.kuit4androidprivate.databinding.FragmentDetailTabMenuBinding
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsTabMenuBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
+class DetailTabMenuFragment : Fragment() {
 
-class MyEatsTabmenuFragment : Fragment() {
-
-    private lateinit var binding: FragmentMyEatsTabMenuBinding
-    private var tabItems = arrayListOf<String>("리뷰", "즐겨찾기")
+    private lateinit var binding: FragmentDetailTabMenuBinding
+    private var tabItems = arrayListOf<String>("배달 30분", "포장 15분")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMyEatsTabMenuBinding.inflate(layoutInflater)
+
+        binding = FragmentDetailTabMenuBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initFragmentViewPager2()
+
     }
 
     private fun initFragmentViewPager2() {
-        binding.vpMyEats.adapter = MyEatsTabMenuAdapter(this)
+        binding.vpDetail.adapter = DetailTabMenuAdapter(this)
 
-        TabLayoutMediator(binding.tlMyEatsTab, binding.vpMyEats) { tab, position ->
+        TabLayoutMediator(binding.tlDetailTab, binding.vpDetail) { tab, position ->
             tab.text = tabItems[position]
         }.attach()
     }
-
 
 }
