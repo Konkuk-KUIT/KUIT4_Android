@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.fragment.app.FragmentManager
+import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsBinding
 import com.example.kuit4androidprivate.keep.KeepActivity
 
@@ -31,9 +34,17 @@ class MyEatsFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.clMyeatsFav2.setOnClickListener{
-            val intent = Intent(context, KeepActivity::class.java)
-            startActivity(intent)
+        binding.ivMyeatsBack.setOnClickListener{
+            changeBackButttomVisibility(View.GONE)
+            childFragmentManager
+                .beginTransaction()
+                .replace(R.id.fcv_myeats, MyEatsMainFragment())
+                .commit()
         }
+
+    }
+
+    fun changeBackButttomVisibility(visible: Int) {
+        view?.findViewById<ImageView>(R.id.iv_myeats_back)?.visibility = visible
     }
 }
