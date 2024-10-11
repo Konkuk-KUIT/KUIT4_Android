@@ -1,16 +1,13 @@
 package com.example.kuit4androidprivate.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.ActionMenuView.OnMenuItemClickListener
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.kuit4androidprivate.databinding.ItemFavorite2Binding
-import com.example.kuit4androidprivate.model.MenuData
-import detail.DetailActivity
+import com.example.kuit4androidprivate.databinding.ItemFavoriteBinding
+import com.example.kuit4androidprivate.dataClass.MenuData
 
 class RVAdapter1(
     private val context : Context,
@@ -18,7 +15,7 @@ class RVAdapter1(
     private val itemClickListener: (MenuData) -> Unit
 ) : RecyclerView.Adapter<RVAdapter1.ViewHolder>(){
 
-    inner class ViewHolder(private val binding: ItemFavorite2Binding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(private val binding: ItemFavoriteBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item:MenuData){
             binding.tvFavoriteName.text = item.title
             binding.tvFavoriteMinuite.text = item.time
@@ -61,12 +58,12 @@ class RVAdapter1(
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter1.ViewHolder {
-        val binding = ItemFavorite2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = ItemFavoriteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RVAdapter1.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.bind(items[position])
     }
 
