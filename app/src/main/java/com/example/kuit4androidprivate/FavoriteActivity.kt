@@ -22,12 +22,14 @@ class FavoriteActivity : AppCompatActivity() {
 
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        addFavoriteData()
+        initVerticalRVAdapter()
         binding.ivFavoriteArrow.setOnClickListener{
             finish()
         }
 
-        addFavoriteData()
-        initVerticalRVAdapter()
+
     }
 
     private fun initVerticalRVAdapter() {

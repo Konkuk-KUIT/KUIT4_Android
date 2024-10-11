@@ -5,5 +5,6 @@ data class FavoriteData(
     val name:String,
     val minute:String,
     val score:String,
-    val review:String
+    val review:String,
+    var isFavorite: Boolean = false
 )
