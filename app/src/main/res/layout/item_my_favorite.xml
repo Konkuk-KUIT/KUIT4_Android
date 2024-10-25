@@ -6,9 +6,10 @@
 
     <ImageView
         android:id="@+id/iv_my_eats_detail"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="149dp"
-        android:src="@drawable/img_tteokbokki"
+        android:src="@drawable/img_tteokbokki_detail"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
