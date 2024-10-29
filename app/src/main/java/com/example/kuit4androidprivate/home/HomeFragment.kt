@@ -1,5 +1,6 @@
 package com.example.kuit4androidprivate.home
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -118,6 +121,7 @@ class HomeFragment : Fragment() {
         initRVAdapterRecent()
         initVPData()
         initVPAdapterHome()
+        initEditText()
     }
 
     private fun initCategory() {
@@ -278,6 +282,21 @@ class HomeFragment : Fragment() {
             adapter = rvAdapterRecent
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+    }
+
+    private fun initEditText(){
+        binding.etHomeSuggestion.setOnEditorActionListener{textView,i,keyEvent->
+            if(i == EditorInfo.IME_ACTION_SEARCH){
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeSuggestion.windowToken,0)
+
+                binding.etHomeSuggestion.clearFocus()
+
+                true
+            }else{
+                false
+            }
         }
     }
 }

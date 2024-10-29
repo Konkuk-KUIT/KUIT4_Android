@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.kuit4androidprivate.adapter.FragmentVPAdapter
+import com.example.kuit4androidprivate.adapter.FragmentVPAdapterMyEats
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsDetailsContainerBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -30,7 +30,7 @@ class MyEatsDetailsContainerFragment: Fragment() {
     }
 
     private fun initFragmentViewPager2(){
-        binding.vpMyEats.adapter = FragmentVPAdapter(this)
+        binding.vpMyEats.adapter = FragmentVPAdapterMyEats(this)
 
         TabLayoutMediator(binding.tlMyEats, binding.vpMyEats){tab, position ->
             tab.text = tabItems[position]

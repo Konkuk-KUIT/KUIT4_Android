@@ -136,13 +136,19 @@
                 app:layout_constraintStart_toStartOf="@id/iv_home_marker"
                 app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
 
-            <TextView
-                android:id="@+id/tv_home_suggestion"
+            <EditText
+                android:id="@+id/et_home_suggestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="@string/suggestion"
+                android:hint="@string/suggestion"
+                android:background="@null"
+                android:inputType="text"
+                android:maxLines="1"
+                android:maxLength="30"
+                android:imeOptions="actionSearch"
                 android:textColor="@color/suggestion_color"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@id/iv_home_search"
                 app:layout_constraintTop_toTopOf="@id/iv_home_search" />
 
