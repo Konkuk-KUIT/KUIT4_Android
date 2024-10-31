@@ -14,6 +14,7 @@
         android:text="도착까지 약 30분"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +25,7 @@
         android:text="매장주소"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="@id/tv_detail_eta"
         app:layout_constraintTop_toBottomOf="@id/tv_detail_eta" />
@@ -35,6 +37,7 @@
         android:layout_marginStart="24dp"
         android:text="서울특별시 광진구 능동로 19길"
         android:textSize="15sp"
+        android:textColor="?attr/colorPrimary"
         app:layout_constraintStart_toEndOf="@id/tv_store_address"
         app:layout_constraintTop_toTopOf="@id/tv_store_address" />
 
@@ -45,6 +48,7 @@
         android:layout_marginStart="86dp"
         android:text="매장.원산지정보"
         android:textSize="15sp"
+        android:textColor="?attr/colorPrimary"
         app:layout_constraintStart_toEndOf="@id/tv_detail_eta"
         app:layout_constraintBottom_toBottomOf="@id/tv_detail_eta"
         app:layout_constraintTop_toTopOf="@id/tv_detail_eta" />

@@ -16,8 +16,9 @@ class DetailActivity: AppCompatActivity() {
     private lateinit var binding : ActivityDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //setTheme으로 즐겨찾기 안의 화면 텍스트 색상 변경
-//        setTheme(R.style.Base_Theme_Kuit4AndroidPrivate2)
+        //setTheme으로 Activity의 theme 지정, 소속된 fragment, item들에도 적용됨
+        //xml 파일에서 android:textColor="?attr/colorPrimary"와 같이 사용 가능
+        setTheme(R.style.Base_Theme_Kuit4AndroidPrivate2)
         super.onCreate(savedInstanceState)
 
         //상태 바 색상 변경 테스트
