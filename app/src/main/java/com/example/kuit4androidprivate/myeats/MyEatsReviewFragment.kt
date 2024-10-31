@@ -1,13 +1,11 @@
 package com.example.kuit4androidprivate.myeats
 
-import android.graphics.Rect
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.kuit4androidprivate.adapter.LinearMyEatsReviewRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsReviewBinding
 import com.example.kuit4androidprivate.model.ReviewData
@@ -19,7 +17,7 @@ class MyEatsReviewFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMyEatsReviewBinding.inflate(layoutInflater)
         initReviewData()
 //        initLastMarginDecoration()

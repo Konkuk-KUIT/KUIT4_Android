@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail.DetailPackingFragment">
+
+    <TextView
+        android:id="@+id/tv_detail_packing_arrive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="29dp"
+        android:fontFamily="@font/pretendardvariable"
+        android:text="도착까지 약 30분"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_detail_delivery_origin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
+        android:text="매장.원산지정보"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toEndOf="@id/tv_detail_packing_arrive"
+        app:layout_constraintTop_toTopOf="@id/tv_detail_packing_arrive" />
+
+    <ImageView
+        android:id="@+id/tv_detail_delivery_icon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/ic_detail"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toEndOf="@id/tv_detail_delivery_origin"
+        app:layout_constraintTop_toTopOf="@id/tv_detail_packing_arrive"
+        app:layout_goneMarginStart="5dp" />
+
+    <TextView
+        android:id="@+id/tv_detail_packing_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/pretendardvariable"
+        android:text="매장주소"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tv_detail_packing_arrive"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_packing_arrive" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/pretendardvariable"
+        android:text="서울특별시 광진구 능동로 19길"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/tv_detail_packing_place"
+        app:layout_constraintTop_toTopOf="@id/tv_detail_packing_place" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_detail_packing"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:paddingBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_packing_place" />
+    /
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

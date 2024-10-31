@@ -48,6 +48,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendardvariable"
         android:text="아워떡볶이"
+        android:textColor="?attr/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,5 +83,27 @@
         android:text="(3,900)"
         app:layout_constraintStart_toEndOf="@id/tv_detail_rating_number"
         app:layout_constraintTop_toTopOf="@id/iv_detail_star" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_detail_star"
+        app:tabIndicatorColor="#02AFEE"
+        app:tabIndicatorFullWidth="true"
+        app:tabSelectedTextColor="#02AFEE"
+        app:tabTextColor="?attr/colorPrimary" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_detail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout><!--    width는 wrap이나 parent에 맞춰서 하고 옆에 마진으로 관리한다-->

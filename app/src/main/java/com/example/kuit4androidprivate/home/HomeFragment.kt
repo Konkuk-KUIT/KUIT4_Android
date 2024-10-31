@@ -1,15 +1,18 @@
 package com.example.kuit4androidprivate.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.example.kuit4androidprivate.DetailActivity
+import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.FavoriteActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.adapter.CardHomeVPAdapter
@@ -48,7 +51,23 @@ class HomeFragment : Fragment() {
         initHomeCardItems()
         initHomeCardVP()
         initHomeCardIndex()
+
+        initEditText()
         return binding.root
+    }
+
+    private fun initEditText() {
+        binding.etHomeSuggest.setOnEditorActionListener{textView, i,keyEvent->
+            if(i == EditorInfo.IME_ACTION_SEARCH){
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeSuggest.windowToken,0)
+
+                binding.etHomeSuggest.clearFocus()
+                true
+            }else{
+                false
+            }
+        }
     }
 
     private fun initHomeCardIndex() {

@@ -138,12 +138,18 @@
                 app:layout_constraintStart_toStartOf="@id/iv_home_marker"
                 app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
 
-            <TextView
-                android:id="@+id/tv_home_suggest"
+            <EditText
+                android:id="@+id/et_home_suggest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="@string/suggest"
+                android:hint="@string/suggest"
+                android:inputType="text"
+                android:background="@null"
+                android:maxLines="1"
+                android:maxLength="30"
+                android:textSize="17sp"
+                android:imeOptions="actionSearch"
                 android:textColor="@color/suggest_color"
                 app:layout_constraintStart_toEndOf="@id/iv_home_search"
                 app:layout_constraintTop_toTopOf="@id/iv_home_search" />
@@ -156,7 +162,7 @@
                 android:layout_marginStart="27dp"
                 android:layout_marginTop="174dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/tv_home_suggest"
+                app:layout_constraintStart_toStartOf="@id/et_home_suggest"
                 app:layout_constraintTop_toTopOf="parent" />
             <!--버튼 백그라운드하는 걸로 바꾸기-->
             <!--    큰거는 shape으로 하얀거는 버튼으로-->
@@ -215,7 +221,8 @@
                 android:textSize="11sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/siv_home_rectangle"
-                app:layout_constraintTop_toTopOf="@id/siv_home_rectangle" />
+                app:layout_constraintTop_toTopOf="@id/siv_home_rectangle"
+                tools:ignore="TouchTargetSize" />
 
 
             <TextView

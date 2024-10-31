@@ -1,6 +1,5 @@
 package com.example.kuit4androidprivate.myeats
 
-import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kuit4androidprivate.DetailActivity
-import com.example.kuit4androidprivate.adapter.LinearHomeRVAdapter
 import com.example.kuit4androidprivate.adapter.LinearMyEatsLikeRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsLikeBinding
 import com.example.kuit4androidprivate.model.MenuData
