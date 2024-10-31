@@ -1,11 +1,11 @@
-package com.example.kuit4androidprivate.myeats
+package com.example.kuit4androidprivate.myeats.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.kuit4androidprivate.adapter.MyEatsDetailVPAdapter
+import com.example.kuit4androidprivate.myeats.adapter.MyEatsDetailVPAdapter
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsDetailBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -33,7 +33,7 @@ class MyEatsDetailFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): MyEatsDetailFragment{
+        fun newInstance(): MyEatsDetailFragment {
             return MyEatsDetailFragment()
         }
     }

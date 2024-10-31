@@ -1,4 +1,4 @@
-package com.example.kuit4androidprivate.adapter
+package com.example.kuit4androidprivate.myeats.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

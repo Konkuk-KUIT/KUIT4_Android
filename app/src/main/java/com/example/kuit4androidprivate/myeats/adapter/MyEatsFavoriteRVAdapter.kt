@@ -1,4 +1,4 @@
-package com.example.kuit4androidprivate.adapter
+package com.example.kuit4androidprivate.myeats.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -16,12 +16,12 @@ class MyEatsFavoriteRVAdapter(
 
             }
         }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyEatsFavoriteRVAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemMyFavoriteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MyEatsFavoriteRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = FavoriteList[position]
         holder.bind(item)
     }

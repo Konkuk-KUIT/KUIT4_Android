@@ -1,17 +1,19 @@
 package com.example.kuit4androidprivate.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.kuit4androidprivate.DetailActivity
+import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.FavoriteActivity
 import com.example.kuit4androidprivate.adapter.GridRVAdapter
@@ -52,11 +54,13 @@ class HomeFragment : Fragment() {
         addMenuData()
         initGridRVAdapter()
         initHorizontalRVAdapter()
+        initEditText()
         addHomeImageData()
         initHomeImageRVAdapter()
 
         return binding.root
     }
+
 
     private fun initHomeImageRVAdapter() {
         homeImageRVAdapter = HomeImageRVAdapter(requireActivity(), homeImageData)
@@ -141,5 +145,21 @@ class HomeFragment : Fragment() {
     private fun initDetail() {
         val intent = Intent(requireActivity(), DetailActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun initEditText() {
+        binding.etHomeFind.setOnEditorActionListener { textView, i, keyEvernt ->
+            if(i == EditorInfo.IME_ACTION_SEARCH){
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeFind.windowToken, 0)
+
+                binding.etHomeFind.clearFocus()
+
+                true
+            }
+            else{
+                false
+            }
+        }
     }
 }

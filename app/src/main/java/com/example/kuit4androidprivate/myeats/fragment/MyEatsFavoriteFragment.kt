@@ -1,4 +1,4 @@
-package com.example.kuit4androidprivate.myeats
+package com.example.kuit4androidprivate.myeats.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kuit4androidprivate.R
-import com.example.kuit4androidprivate.adapter.MyEatsFavoriteRVAdapter
-import com.example.kuit4androidprivate.adapter.VerticalRVAdapter
-import com.example.kuit4androidprivate.data.FavoriteData
+import com.example.kuit4androidprivate.myeats.adapter.MyEatsFavoriteRVAdapter
 import com.example.kuit4androidprivate.data.MyEatsFavoriteData
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsFavoriteBinding
 

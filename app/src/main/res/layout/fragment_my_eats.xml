@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".myeats.MyEatsFragment">
+    tools:context=".myeats.fragment.MyEatsFragment">
 
     <ImageView
         android:id="@+id/iv_my_eats_arrow"
@@ -155,7 +155,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcv_my_eats"
-        android:name="com.example.kuit4androidprivate.myeats.MyEatsMainFragment"
+        android:name="com.example.kuit4androidprivate.myeats.fragment.MyEatsMainFragment"
         android:layout_width="match_parent"
         android:layout_height="610dp"
         android:layout_marginTop="17dp"

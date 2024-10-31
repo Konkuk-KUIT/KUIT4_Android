@@ -1,4 +1,4 @@
-package com.example.kuit4androidprivate.myeats
+package com.example.kuit4androidprivate.myeats.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kuit4androidprivate.adapter.MyEatsReviewRVAdapter
+import com.example.kuit4androidprivate.myeats.adapter.MyEatsReviewRVAdapter
 import com.example.kuit4androidprivate.data.MyEatsReviewData
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsReviewBinding
-import com.example.kuit4androidprivate.databinding.ItemMyReviewBinding
 
 
 class MyEatsReviewFragment : Fragment() {
