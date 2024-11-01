@@ -19,6 +19,15 @@ class MyEatsReviewFragment : Fragment() {
     ): View {
         binding = FragmentMyEatsReviewBinding.inflate(inflater, container, false)
 
+        initData()
+
+        binding.rvMyEatsReview.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvMyEatsReview.adapter = reviewAdapter
+
+        return binding.root
+    }
+
+    private fun initData() {
         val reviewList = listOf(
             MyEatsReviewItem("요아정", "초코쉘 추가 무조건", "2024-10-11", 5),
             MyEatsReviewItem("요아정", "큐브치즈케이크 추가 무조건", "2024-10-10", 4),
@@ -28,10 +37,5 @@ class MyEatsReviewFragment : Fragment() {
         )
 
         reviewAdapter = MyEatsReviewAdapter(reviewList)
-
-        binding.rvMyEatsReview.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvMyEatsReview.adapter = reviewAdapter
-
-        return binding.root
     }
 }

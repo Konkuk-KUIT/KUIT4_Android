@@ -1,6 +1,5 @@
 package com.example.kuit4androidprivate.myeats
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,7 +15,6 @@ class MyEatsFavoriteFragment : Fragment() {
     private lateinit var binding: FragmentMyEatsFavoriteBinding
     private lateinit var favoriteAdapter: MyEatsFavoriteAdapter
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +31,6 @@ class MyEatsFavoriteFragment : Fragment() {
         favoriteAdapter = MyEatsFavoriteAdapter(favoriteList)
         binding.rvMyEatsFavorite.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMyEatsFavorite.adapter = favoriteAdapter
-        favoriteAdapter.notifyDataSetChanged()
 
         return binding.root
     }
