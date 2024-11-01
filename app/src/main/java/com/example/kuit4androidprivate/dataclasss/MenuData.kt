@@ -1,7 +1,6 @@
-package com.example.kuit4androidprivate.model
+package com.example.kuit4androidprivate.dataClass
 
 import java.io.Serializable
-import java.net.URL
 
 data class MenuData(
     val title: String,

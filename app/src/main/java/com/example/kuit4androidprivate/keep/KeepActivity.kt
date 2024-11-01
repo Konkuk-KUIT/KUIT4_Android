@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.ActivityKeepBinding
-import detail.DetailActivity
+import com.example.kuit4androidprivate.detail.DetailActivity
 
 class KeepActivity : AppCompatActivity() {
 
@@ -31,7 +31,7 @@ class KeepActivity : AppCompatActivity() {
     }
 
     private fun initDetailActivity() {
-        val intent = Intent(this,DetailActivity::class.java)
+        val intent = Intent(this, DetailActivity::class.java)
         startActivity(intent)
     }
 }

@@ -20,14 +20,31 @@ class MyEatsFragment : Fragment() {
         binding = FragmentMyEatsBinding.inflate(layoutInflater)
         //이 부분은 나중에 onViewCreated 에 넣어주는게 좋다.
         // 왜? onCreateView는 inflate 의 역할을 하는거라서 추가적인 기능을 구현하는 장소는 아니긴 한데 사용가능하긴해서 지금처럼 써도 됨
-        binding.layoutMyeatLike.setOnClickListener{
+        binding.textlist.setOnClickListener{
             initKeepFragment()
+        }
+
+        binding.ivMyeatsBack.setOnClickListener{
+            binding.ivMyeatsBack.visibility = View.GONE
+            replaceFragment(MyPageFragment())
+        }
+
+        if(savedInstanceState == null) {
+            replaceFragment(MyPageFragment())
         }
 
         return binding.root
     }
-    //중요 !!! MyEatsFragment 에서 KeepActivity 로 이동하기 위한 방법
 
+
+
+    private fun replaceFragment(fragment: Fragment) {
+        val transaction = childFragmentManager.beginTransaction()
+        transaction.replace(binding.fcvMyeatsPage.id, fragment)
+        transaction.commit()
+    }
+
+    //중요 !!! MyEatsFragment 에서 KeepActivity 로 이동하기 위한 방법
     private fun initKeepFragment() {
         val intent = Intent(requireActivity(),KeepActivity::class.java)
         startActivity(intent)

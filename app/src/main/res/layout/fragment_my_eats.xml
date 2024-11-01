@@ -6,6 +6,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".myeats.MyEatsFragment">
 
+    <ImageView
+        android:id="@+id/iv_myeats_back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/icon_24_back_grey"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="27dp"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/myname"
         android:layout_width="wrap_content"
@@ -120,54 +131,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
      </LinearLayout>
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/whiteblue_box"
-        android:layout_width="306dp"
-        android:layout_height="42dp"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_myeats_page"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/textlist"
-        android:layout_marginTop="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:strokeWidth="1dp"
-        app:strokeColor="#02AFFE"
-        app:shapeAppearanceOverlay="@style/corner_size_4"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="17dp"
+        />
+    
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="자세히 보기"
-        android:textSize="14dp"
-        android:textColor="#02AFFE"
-        app:layout_constraintTop_toTopOf="@id/whiteblue_box"
-        app:layout_constraintStart_toStartOf="@id/whiteblue_box"
-        app:layout_constraintEnd_toEndOf="@id/whiteblue_box"
-        app:layout_constraintBottom_toBottomOf="@id/whiteblue_box"/>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_myeat_like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/whiteblue_box"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="@id/whiteblue_box">
-        
-        <ImageView
-            android:id="@+id/icon_heart"
-            android:src="@drawable/heart"
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            app:layout_constraintBottom_toBottomOf="@+id/layout_myeat_like"
-            app:layout_constraintTop_toTopOf="@+id/layout_myeat_like"
-            app:layout_constraintStart_toStartOf="@+id/layout_myeat_like"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="즐겨찾기"
-            android:textSize="21dp"
-            app:layout_constraintStart_toEndOf="@id/icon_heart"
-            app:layout_constraintBottom_toBottomOf="@+id/layout_myeat_like"
-            app:layout_constraintTop_toTopOf="@+id/layout_myeat_like"
-            android:layout_marginStart="19dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
