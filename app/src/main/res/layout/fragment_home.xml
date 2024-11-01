@@ -152,13 +152,19 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_home_search" />
 
-                <TextView
-                    android:id="@+id/tv_home_question"
+                <EditText
+                    android:id="@+id/et_home_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
+                    android:background="@null"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:imeOptions="actionSearch"
+                    android:textSize="15sp"
+                    android:maxLines="1"
                     android:fontFamily="@font/pretendard_variable"
-                    android:text="@string/tv_home_user"
+                    android:hint="@string/tv_home_user"
                     android:textColor="@color/gray1" />
 
             </LinearLayout>

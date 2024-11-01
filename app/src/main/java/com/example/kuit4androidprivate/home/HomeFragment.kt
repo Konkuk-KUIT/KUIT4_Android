@@ -1,17 +1,20 @@
 package com.example.kuit4androidprivate.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.example.kuit4androidprivate.DetailActivity
+import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
@@ -29,6 +32,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+
+        initEditText()
 
         binding.rvHomeSee.setOnClickListener {
             val intent = Intent(requireContext(), DetailActivity::class.java)
@@ -140,6 +145,19 @@ class HomeFragment : Fragment() {
             } else {
                 resources.getColor(R.color.gray2)
             })
+        }
+    }
+
+    private fun initEditText() {
+        binding.etHomeQuestion.setOnEditorActionListener { textview, i, keyEvent ->
+            if(i == EditorInfo.IME_ACTION_SEARCH){
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeQuestion.windowToken,0)
+                binding.etHomeQuestion.clearFocus()
+                true
+            }else{
+                false
+            }
         }
     }
 }
