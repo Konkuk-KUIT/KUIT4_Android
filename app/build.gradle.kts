@@ -29,6 +29,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 
     compileOptions {
@@ -49,4 +50,5 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("com.google.android.material:material:1.1.0")
 }
