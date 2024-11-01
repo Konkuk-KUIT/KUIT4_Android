@@ -19,6 +19,7 @@
 
     <TextView
         android:id="@+id/tv_my_name"
+        style="@style/textColor"
         android:layout_width="wrap_content"
         android:layout_height="33dp"
         android:layout_marginStart="141dp"
@@ -32,6 +33,7 @@
 
     <TextView
         android:id="@+id/tv_phone_number"
+        style="@style/textColor"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
         android:layout_marginStart="135dp"
@@ -69,6 +71,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                style="@style/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pretendard_variable"
@@ -101,10 +104,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                style="@style/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pretendard_variable"
                 android:text="도움이 됐어요"
+
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -130,10 +135,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                style="@style/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pretendard_variable"
                 android:text="즐겨찾기"
+
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -149,8 +156,6 @@
         android:layout_marginTop="178dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

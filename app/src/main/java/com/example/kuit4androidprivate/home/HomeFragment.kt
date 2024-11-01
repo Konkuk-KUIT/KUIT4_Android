@@ -1,12 +1,19 @@
 package com.example.kuit4androidprivate.home
 
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kuit4androidprivate.FavoriteActivity
@@ -50,8 +57,45 @@ class HomeFragment : Fragment() {
 
         initBottomData()
         initHomeBottomVP()
+        initEditText()
         return binding.root
     }
+
+    private fun initEditText() {
+        binding.etHomeSuggestion.setOnEditorActionListener{ textView, i, keyEvent ->
+            if(i == EditorInfo.IME_ACTION_SEARCH){
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeSuggestion.windowToken,0)
+
+                binding.etHomeSuggestion.clearFocus()
+
+                true
+            }else{
+                false
+            }
+        }
+    }
+
+//    override fun dispatchTouchEvent(ev : MotionEvent) : Boolean{
+//        if(ev.action == MotionEvent.ACTION_DOWN){
+//            val v = currentFocus
+//            if(v is EditText){
+//                val outRect = Rect()
+//                v.getGlobalVisibleRect(outRect)
+//                if(!outRect.contains(ev.rawX.toInt(), ev.rawY.toInt())){
+//                    hideKeyboard(v)
+//                }
+//            }
+//
+//        }
+//        return super.dispatchTouchEvent(ev)
+//    }
+
+//    private fun hideKeyboard(view : View){
+//        view.clearFocus()
+//        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//        imm.hideSoftInputFromWindow(view.windowToken,0)
+//    }
 
     private fun initHomeBottomVP() {
         binding.vpMainBottom.adapter = HomeBottomVPAdapter().apply{
