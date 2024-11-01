@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/font"
+        android:fontFamily="@font/pretendard"
         android:text="더보기"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"

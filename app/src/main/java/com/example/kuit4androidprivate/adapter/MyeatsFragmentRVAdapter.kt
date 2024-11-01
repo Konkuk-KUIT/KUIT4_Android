@@ -6,7 +6,7 @@ import com.example.kuit4androidprivate.myeats.MyEatsDetailFragment
 import com.example.kuit4androidprivate.myeats.MyEatsFavoritesFragment
 import com.example.kuit4androidprivate.myeats.MyEatsReviewFragment
 
-class MyeatsFragment_RVAdapter(fragmentActivity: MyEatsDetailFragment) : FragmentStateAdapter(fragmentActivity) {
+class MyeatsFragmentRVAdapter(fragmentActivity: MyEatsDetailFragment) : FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount(): Int {
         return 2
     }

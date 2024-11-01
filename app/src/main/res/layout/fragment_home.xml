@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:fontFamily="@font/font"
+                    android:fontFamily="@font/pretendard"
                     android:text="무료배달 + 총 10,000원 할인"
                     android:textColor="@color/white"
                     android:textSize="12sp"
@@ -50,7 +50,7 @@
                     android:id="@+id/tv_home_top2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/font"
+                    android:fontFamily="@font/pretendard"
                     android:text=" 적용 가능"
                     android:textColor="@color/white"
                     android:textSize="12sp"
@@ -73,7 +73,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/font"
+                    android:fontFamily="@font/pretendard"
                     android:text="쿠폰 받기"
                     android:textColor="@color/white"
                     android:textSize="11sp"
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="63dp"
-                android:fontFamily="@font/font"
+                android:fontFamily="@font/pretendard"
                 android:text="서울시 광진구 구의동"
                 android:textColor="@color/black"
                 android:textSize="15sp"
@@ -139,13 +139,20 @@
                 app:layout_constraintStart_toStartOf="@id/iv_home_marker"
                 app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
 
-            <TextView
-                android:id="@+id/tv_home_suggest"
+            <EditText
+                android:id="@+id/et_home_suggest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:fontFamily="@font/font"
-                android:text="@string/suggest"
+                android:autofillHints="@string/suggest"
+                android:fontFamily="@font/pretendard"
+                android:hint="@string/suggest"
+                android:background="@null"
+                android:inputType="text"
+                android:singleLine="true"
+                android:maxLength="30"
+                android:textSize="17sp"
+                android:imeOptions="actionSearch"
                 android:textColor="@color/suggest_color"
                 app:layout_constraintStart_toEndOf="@id/iv_home_search"
                 app:layout_constraintTop_toTopOf="@id/iv_home_search" />
@@ -181,7 +188,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="81dp"
                 android:layout_marginTop="21dp"
-                android:fontFamily="@font/font"
+                android:fontFamily="@font/pretendard"
                 android:text="와우회원은 횟수 제한없이"
                 android:textColor="@color/white"
                 android:textSize="10sp"
@@ -193,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="81dp"
                 android:layout_marginTop="38dp"
-                android:fontFamily="@font/font"
+                android:fontFamily="@font/pretendard"
                 android:text="매 주문 무료배달"
                 android:textColor="@color/white"
                 android:textStyle="bold"
@@ -219,7 +226,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="6dp"
-                android:fontFamily="@font/font"
+                android:fontFamily="@font/pretendard"
                 android:text="주문하러 가기"
                 android:textColor="#0C2F65"
                 android:textSize="10sp"
@@ -237,7 +244,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="224dp"
-                android:fontFamily="@font/font"
+                android:fontFamily="@font/pretendard"
                 android:text="최근 본 맛집"
                 android:textColor="@color/black"
                 android:textSize="14sp"
@@ -246,7 +253,7 @@
                 app:layout_constraintTop_toBottomOf="@id/siv_home_mid" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_home_recentRestaurant"
+                android:id="@+id/rv_home_recent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="25dp"
@@ -263,7 +270,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_home_recentRestaurant">
+                app:layout_constraintTop_toBottomOf="@id/rv_home_recent">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_restaurant"
@@ -274,7 +281,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/siv_home_indexNumContainer"
+                    android:id="@+id/siv_home_index"
                     android:layout_width="44dp"
                     android:layout_height="19dp"
                     android:layout_marginEnd="8dp"
@@ -290,10 +297,10 @@
                     android:layout_height="wrap_content"
                     android:text="1 / 5"
                     android:textColor="#FFFFFF"
-                    app:layout_constraintBottom_toBottomOf="@id/siv_home_indexNumContainer"
-                    app:layout_constraintEnd_toEndOf="@id/siv_home_indexNumContainer"
-                    app:layout_constraintStart_toStartOf="@id/siv_home_indexNumContainer"
-                    app:layout_constraintTop_toTopOf="@id/siv_home_indexNumContainer" />
+                    app:layout_constraintBottom_toBottomOf="@id/siv_home_index"
+                    app:layout_constraintEnd_toEndOf="@id/siv_home_index"
+                    app:layout_constraintStart_toStartOf="@id/siv_home_index"
+                    app:layout_constraintTop_toTopOf="@id/siv_home_index" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

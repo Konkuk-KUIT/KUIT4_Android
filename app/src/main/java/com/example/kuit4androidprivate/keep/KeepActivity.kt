@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.ActivityKeepBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
+import com.example.kuit4androidprivate.model.MenuData
 import com.example.kuit4androidprivate.myeats.MyEatsFragment
 
 class KeepActivity : AppCompatActivity() {
@@ -28,6 +29,15 @@ class KeepActivity : AppCompatActivity() {
 
         binding.clKeepRestaurant01.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra(
+                "menuData", MenuData(
+                "아워떡볶이",
+                "30분",
+                "https://cdn.pixabay.com/photo/2017/07/27/16/48/toppokki-2545943_640.jpg",
+                "4.9",
+                "(3849)"
+                )
+            )
             startActivity(intent)
         }
 

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/iv_itemfavorite_restaurant"
+        android:id="@+id/iv_favorite_restaurant"
         android:layout_width="match_parent"
         android:layout_height="129dp"
         android:layout_marginHorizontal="27dp"
@@ -13,65 +13,65 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_itemfavorite_restaurant"
+        android:id="@+id/tv_favorite_restaurant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/font"
+        android:fontFamily="@font/pretendard"
         android:text="아워떡볶이"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@id/iv_itemfavorite_restaurant"
-        app:layout_constraintTop_toBottomOf="@id/iv_itemfavorite_restaurant" />
+        app:layout_constraintStart_toStartOf="@id/iv_favorite_restaurant"
+        app:layout_constraintTop_toBottomOf="@id/iv_favorite_restaurant" />
 
     <TextView
-        android:id="@+id/tv_itemfavorite_time"
+        android:id="@+id/tv_favorite_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/font"
+        android:fontFamily="@font/pretendard"
         android:text="30분"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@id/iv_itemfavorite_restaurant"
-        app:layout_constraintTop_toBottomOf="@id/iv_itemfavorite_restaurant" />
+        app:layout_constraintEnd_toEndOf="@id/iv_favorite_restaurant"
+        app:layout_constraintTop_toBottomOf="@id/iv_favorite_restaurant" />
 
     <ImageView
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/img_home_star"
-        app:layout_constraintStart_toStartOf="@id/tv_itemfavorite_restaurant"
-        app:layout_constraintTop_toBottomOf="@id/tv_itemfavorite_restaurant" />
+        app:layout_constraintStart_toStartOf="@id/tv_favorite_restaurant"
+        app:layout_constraintTop_toBottomOf="@id/tv_favorite_restaurant" />
 
     <TextView
-        android:id="@+id/tv_itemfavorite_reviewScore"
+        android:id="@+id/tv_favorite_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/font"
+        android:fontFamily="@font/pretendard"
         android:text="4.9"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@id/tv_itemfavorite_restaurant"
-        app:layout_constraintTop_toBottomOf="@id/tv_itemfavorite_restaurant" />
+        app:layout_constraintStart_toStartOf="@id/tv_favorite_restaurant"
+        app:layout_constraintTop_toBottomOf="@id/tv_favorite_restaurant" />
 
     <TextView
-        android:id="@+id/tv_itemfavorite_reviewCount"
+        android:id="@+id/tv_favorite_reviewcount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/font"
+        android:fontFamily="@font/pretendard"
         android:paddingBottom="27dp"
         android:text="(3,849)"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@id/tv_itemfavorite_reviewScore"
-        app:layout_constraintTop_toBottomOf="@id/tv_itemfavorite_restaurant" />
+        app:layout_constraintStart_toStartOf="@id/tv_favorite_rate"
+        app:layout_constraintTop_toBottomOf="@id/tv_favorite_restaurant" />
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="6dp"
-        app:layout_constraintEnd_toEndOf="@id/iv_itemfavorite_restaurant"
-        app:layout_constraintTop_toBottomOf="@id/iv_itemfavorite_restaurant">
+        app:layout_constraintEnd_toEndOf="@id/iv_favorite_restaurant"
+        app:layout_constraintTop_toBottomOf="@id/iv_favorite_restaurant">
 
         <ImageView
             android:id="@+id/iv_favorite_like_empty"

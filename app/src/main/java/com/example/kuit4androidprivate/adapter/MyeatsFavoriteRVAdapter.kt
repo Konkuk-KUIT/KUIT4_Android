@@ -6,26 +6,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.kuit4androidprivate.databinding.ItemDetailRestaurantBinding
-import com.example.kuit4androidprivate.databinding.ItemReviewBinding
 import com.example.kuit4androidprivate.model.MenuData
-import com.example.kuit4androidprivate.model.ReviewData
 
-class Myeats_Favorite_RVAdapter (
+class MyeatsFavoriteRVAdapter (
     private val context : Context,
     private val items: ArrayList<MenuData>
-) : RecyclerView.Adapter<Myeats_Favorite_RVAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<MyeatsFavoriteRVAdapter.ViewHolder>() {
 
     inner class ViewHolder(
         private val binding: ItemDetailRestaurantBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MenuData) {
-            binding.tvDetailRestaurantname.text = item.title
-            binding.tvDetailReviewscore.text = item.reviewScore
+            binding.tvDetailRestaurant.text = item.title
+            binding.tvDetailRate.text = item.reviewScore
             binding.tvDetailReviewcount.text = item.reviewCount
 
             Glide.with(binding.root)
                 .load(item.imageUrl)
-                .into(binding.ivDetailRestaurantdetail)
+                .into(binding.ivDetailRestaurant)
         }
     }
 
@@ -33,7 +31,7 @@ class Myeats_Favorite_RVAdapter (
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): Myeats_Favorite_RVAdapter.ViewHolder {
+    ): MyeatsFavoriteRVAdapter.ViewHolder {
         val binding =
             ItemDetailRestaurantBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -43,7 +41,7 @@ class Myeats_Favorite_RVAdapter (
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: Myeats_Favorite_RVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyeatsFavoriteRVAdapter.ViewHolder, position: Int) {
         holder.bind(items[position])
     }
 

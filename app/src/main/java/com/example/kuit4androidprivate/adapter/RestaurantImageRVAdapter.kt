@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.kuit4androidprivate.databinding.ItemHomeImageBinding
 import com.example.kuit4androidprivate.model.RestaurantImageData
 
-class restaurantImage_RVAdapter : ListAdapter<RestaurantImageData, restaurantImage_RVAdapter.ViewHolder>(diffUtl) {
+class RestaurantImageRVAdapter : ListAdapter<RestaurantImageData, RestaurantImageRVAdapter.ViewHolder>(diffUtl) {
 
     inner class ViewHolder (val binding: ItemHomeImageBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item : RestaurantImageData) {
@@ -22,12 +22,12 @@ class restaurantImage_RVAdapter : ListAdapter<RestaurantImageData, restaurantIma
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): restaurantImage_RVAdapter.ViewHolder {
+    ): RestaurantImageRVAdapter.ViewHolder {
         val binding = ItemHomeImageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: restaurantImage_RVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RestaurantImageRVAdapter.ViewHolder, position: Int) {
         holder.bind(currentList[position % 5])
     }
 

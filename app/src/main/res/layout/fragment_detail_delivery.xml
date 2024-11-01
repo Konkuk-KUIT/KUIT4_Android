@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_detail_deliverytime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="29dp"
+        android:text="도착까지 30분"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_detail_deliveryfee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="최소 주문      14,000원"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="@id/tv_detail_deliverytime"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_deliverytime" />
+
+    <TextView
+        android:id="@+id/tv_detail_deliverytip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:text="배달비           14,000원"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="@id/tv_detail_deliverytime"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_deliverytime" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_detail_delivery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_deliverytip"
+        tools:listitem="@layout/item_detail_menu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

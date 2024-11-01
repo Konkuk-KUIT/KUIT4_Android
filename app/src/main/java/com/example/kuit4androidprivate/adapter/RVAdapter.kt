@@ -24,7 +24,7 @@ class RVAdapter(
         fun bind(item: MenuData) {
             binding.tvItemRestaurant.text = item.title
             binding.tvItemTime.text = item.time
-            binding.tvItemReviewScore.text = item.reviewScore
+            binding.tvItemRate.text = item.reviewScore
             binding.tvItemReviewcount.text = item.reviewCount
 
             Glide.with(context)

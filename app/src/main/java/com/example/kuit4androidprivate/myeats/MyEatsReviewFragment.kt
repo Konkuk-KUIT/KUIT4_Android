@@ -1,24 +1,20 @@
 package com.example.kuit4androidprivate.myeats
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kuit4androidprivate.R
-import com.example.kuit4androidprivate.adapter.RVAdapter
-import com.example.kuit4androidprivate.adapter.Review_RVAdapter
+import com.example.kuit4androidprivate.adapter.ReviewRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentMyeatsReviewBinding
-import com.example.kuit4androidprivate.model.MenuData
 import com.example.kuit4androidprivate.model.ReviewData
 
 
 class MyEatsReviewFragment : Fragment() {
 
     private lateinit var binding : FragmentMyeatsReviewBinding
-    private lateinit var rvAdapter: Review_RVAdapter
+    private lateinit var rvAdapter: ReviewRVAdapter
     private val items = ArrayList<ReviewData>()
 
     override fun onCreateView(
@@ -48,7 +44,7 @@ class MyEatsReviewFragment : Fragment() {
     }
 
     private fun initReviewRVAdapter() {
-        rvAdapter = Review_RVAdapter(requireContext(), items)
+        rvAdapter = ReviewRVAdapter(requireContext(), items)
         binding.rvMyeatsReview.adapter = rvAdapter
         binding.rvMyeatsReview.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

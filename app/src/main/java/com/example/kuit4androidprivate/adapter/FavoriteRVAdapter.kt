@@ -11,26 +11,26 @@ import com.example.kuit4androidprivate.databinding.ItemFavoriteRestaurantBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.model.MenuData
 
-class Favorite_RVAdapter(
+class FavoriteRVAdapter(
     private val context: Context,
     private val items: ArrayList<MenuData>,
-) : RecyclerView.Adapter<Favorite_RVAdapter.Favorite_ViewHolder>() {
+) : RecyclerView.Adapter<FavoriteRVAdapter.Favorite_ViewHolder>() {
 
     inner class Favorite_ViewHolder(
         private val binding: ItemFavoriteRestaurantBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MenuData) {
-            binding.tvItemfavoriteRestaurant.text = item.title
-            binding.tvItemfavoriteTime.text = item.time
-            binding.tvItemfavoriteReviewScore.text = item.reviewScore
-            binding.tvItemfavoriteReviewCount.text = item.reviewCount
+            binding.tvFavoriteRestaurant.text = item.title
+            binding.tvFavoriteTime.text = item.time
+            binding.tvFavoriteRate.text = item.reviewScore
+            binding.tvFavoriteReviewcount.text = item.reviewCount
 
             Glide.with(context)
                 .load(item.imageUrl)
-                .into(binding.ivItemfavoriteRestaurant)
+                .into(binding.ivFavoriteRestaurant)
 
 
-            binding.ivItemfavoriteRestaurant.setOnClickListener {
+            binding.ivFavoriteLikeFilled.setOnClickListener {
                 val intent = Intent(context, DetailActivity::class.java).apply {
                     putExtra("title", item.title)
                     putExtra("imageUrl", item.imageUrl)

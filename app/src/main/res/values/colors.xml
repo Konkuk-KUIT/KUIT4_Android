@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="nav_unselected">#939DA9</color>
     <color name="suggest_color">#98A0AB</color>
+    <color name="real_black">#121212</color>
 </resources>

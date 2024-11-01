@@ -6,19 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kuit4androidprivate.R
-import com.example.kuit4androidprivate.adapter.Myeats_Favorite_RVAdapter
-import com.example.kuit4androidprivate.adapter.Review_RVAdapter
+import com.example.kuit4androidprivate.adapter.MyeatsFavoriteRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentMyeatsFavoritesBinding
-import com.example.kuit4androidprivate.databinding.FragmentMyeatsReviewBinding
-import com.example.kuit4androidprivate.databinding.ItemDetailRestaurantBinding
 import com.example.kuit4androidprivate.model.MenuData
 
 
 class MyEatsFavoritesFragment : Fragment() {
 
     private lateinit var binding: FragmentMyeatsFavoritesBinding
-    private lateinit var rvAdapter: Myeats_Favorite_RVAdapter
+    private lateinit var rvAdapter: MyeatsFavoriteRVAdapter
     private val items = ArrayList<MenuData>()
 
 
@@ -67,7 +63,7 @@ class MyEatsFavoritesFragment : Fragment() {
     }
 
     private fun initMyeatsFavoriteRVAdapter() {
-        rvAdapter = Myeats_Favorite_RVAdapter(requireContext(), items)
+        rvAdapter = MyeatsFavoriteRVAdapter(requireContext(), items)
         binding.rvMyeatsFavorite.adapter = rvAdapter
         binding.rvMyeatsFavorite.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

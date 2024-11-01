@@ -5,24 +5,24 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/v_home_categoryimg"
+        android:id="@+id/iv_home_category"
         android:layout_width="47dp"
         android:layout_height="47dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_home_categoryname"
+        android:id="@+id/tv_home_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/font"
+        android:fontFamily="@font/pretendard"
         android:text="돈까스"
         android:textColor="@color/black"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/v_home_categoryimg" />
+        app:layout_constraintTop_toBottomOf="@id/iv_home_category" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kuit4androidprivate.databinding.ItemHomeShowmoreBinding
 import com.example.kuit4androidprivate.model.MenuCategoryData
 
-class Category_RVAdapter(
+class CategoryRVAdapter(
     private val context: Context,
     private val items: ArrayList<MenuCategoryData>,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -23,11 +23,11 @@ class Category_RVAdapter(
         private val binding: ItemHomeCategoryBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MenuCategoryData) {
-            binding.tvHomeCategoryname.text = item.categoryName
+            binding.tvHomeCategory.text = item.categoryName
 
             Glide.with(context)
                 .load(item.image)
-                .into(binding.vHomeCategoryimg)
+                .into(binding.ivHomeCategory)
         }
     }
 

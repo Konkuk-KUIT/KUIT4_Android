@@ -6,7 +6,7 @@
     android:paddingTop="28dp">
 
     <ImageView
-        android:id="@+id/iv_detail_restaurantdetail"
+        android:id="@+id/iv_detail_restaurant"
         android:layout_width="360dp"
         android:layout_height="149dp"
         android:scaleType="centerCrop"
@@ -15,24 +15,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_detail_restaurantname"
+        android:id="@+id/tv_detail_restaurant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:fontFamily="@font/font"
+        android:fontFamily="@font/pretendard"
         android:text="아워떡볶이"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_detail_restaurantdetail" />
+        app:layout_constraintTop_toBottomOf="@id/iv_detail_restaurant" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_detail_restaurantname">
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_restaurant">
 
         <ImageView
             android:id="@+id/iv_detail_star"
@@ -44,11 +44,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_detail_reviewscore"
+            android:id="@+id/tv_detail_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:fontFamily="@font/font"
+            android:fontFamily="@font/pretendard"
             android:text="4.9"
             android:textColor="#575252"
             app:layout_constraintStart_toEndOf="@id/iv_detail_star"
@@ -59,11 +59,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:fontFamily="@font/font"
+            android:fontFamily="@font/pretendard"
             android:text="(3,849)"
             android:textColor="#575252"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_detail_reviewscore"
+            app:layout_constraintStart_toEndOf="@id/tv_detail_rate"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
