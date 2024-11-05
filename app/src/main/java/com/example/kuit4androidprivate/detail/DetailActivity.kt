@@ -2,18 +2,34 @@ package com.example.kuit4androidprivate.detail
 
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
-import com.bumptech.glide.Glide
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
+import com.example.kuit4androidprivate.adapter.VPAdapterDetail
 import com.example.kuit4androidprivate.databinding.ActivityDetailBinding
+import com.example.kuit4androidprivate.model.DetailMenuData
 import com.example.kuit4androidprivate.model.MenuData
-import com.example.kuit4androidprivate.myeats.MyEatsDefaultFragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Thread.sleep
 
 class DetailActivity: AppCompatActivity() {
 
     private lateinit var binding : ActivityDetailBinding
+    private var vpItems = arrayListOf<DetailMenuData>()
+
+    private var currentPosition = 0
+    private var mHandler = Handler(Looper.getMainLooper())
+    private var threadIsRunning = true //thread 실행 여부를 나타내는 변수
+    private var job: Job? = null //coroutine이 만든 job 객체 저장할 변수
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //setTheme으로 Activity의 theme 지정, 소속된 fragment, item들에도 적용됨
@@ -34,13 +50,12 @@ class DetailActivity: AppCompatActivity() {
             menuData = intent.extras?.getParcelable("menuData")!!
         }
 
-        if (menuData.imgId != null){
-            binding.ivDetailRestaurant.setImageResource(menuData.imgId)
-        }else if (menuData.imgUrl != null){
-            Glide.with(this)
-                .load(menuData.imgUrl)
-                .into(binding.ivDetailRestaurant)
-        }
+        initVPData()
+        initVPAdapterDetail()
+        //thread 사용해서 swipe
+//        initSwipeVPDetailThread()
+        //coroutine 사용해서 swipe
+        initSwipeVPDetailCoroutine()
 
         binding.tvDetailRestaurantName.text = menuData.restaurantName
         binding.tvDetailRating.text = menuData.rating
@@ -58,4 +73,99 @@ class DetailActivity: AppCompatActivity() {
             .commit()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("end_message","thread or coroutine 종료")
+        //thread 멈추도록 변수 값 설정
+        threadIsRunning = false
+        //coroutine 멈추는 코드
+        job?.cancel()
+    }
+
+    private fun initVPAdapterDetail() {
+        binding.vpDetailRestaurant.adapter = VPAdapterDetail(vpItems.size).apply{
+            submitList(vpItems)
+        }
+
+        binding.vpDetailRestaurant.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+
+                // ViewPager의 현재 페이지 번호 계산 (무한 스크롤을 고려한 % 연산)
+                val currentPage = (position % vpItems.size) + 1 // 현재 페이지는 1부터 시작
+                val totalPageCount = vpItems.size // 전체 페이지 수
+
+                // TextView에 현재 페이지와 총 페이지 수 반영
+                binding.tvHomeVpPage.text = "$currentPage/$totalPageCount"
+            }
+        })
+    }
+
+
+    private fun initVPData() {
+        vpItems = arrayListOf(
+            DetailMenuData(
+                "아워떡볶이1",
+                R.drawable.img_detail_restaurant,
+                "5,000원"
+            ),
+            DetailMenuData(
+                "아워떡볶이2",
+                R.drawable.img_detail_restaurant2,
+                "5,000원"
+            ),
+            DetailMenuData(
+                "아워떡볶이3",
+                R.drawable.img_detail_restaurant3,
+                "5,000원"
+            ),
+        )
+    }
+
+    private fun swipePage(){
+        with(binding.vpDetailRestaurant){
+            if(currentPosition > 2)
+                currentPosition = 0
+            setCurrentItem(currentPosition,true)
+            currentPosition++
+        }
+    }
+
+    private fun initSwipeVPDetailThread(){
+        Thread(SwipeRunnable()).start()
+    }
+
+    inner class MainHandler : Handler(Looper.getMainLooper()){
+        override fun handleMessage(msg: Message) {
+            swipePage()
+            super.handleMessage(msg)
+        }
+    }
+
+    inner class SwipeRunnable: Runnable{
+        var count = 0
+        override fun run() {
+            //threadIsRunning이 true일 때에만 실행하도록
+            while(threadIsRunning){
+                sleep(3000)
+                MainHandler().sendEmptyMessage(0)
+                count++
+                Log.d("thread_test","$count")
+            }
+        }
+    }
+
+    private fun initSwipeVPDetailCoroutine(){
+        var count = 0
+        job = CoroutineScope(Dispatchers.Main).launch{
+            while(true){
+                delay(3000)
+                withContext(Dispatchers.Main){
+                    swipePage()
+                    count++
+                }
+                Log.d("coroutine_test","$count")
+            }
+        }
+    }
 }
