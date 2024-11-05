@@ -19,9 +19,9 @@ import com.example.kuit4androidprivate.FavoriteActivity
 import com.example.kuit4androidprivate.adapter.GridRVAdapter
 import com.example.kuit4androidprivate.adapter.HomeImageRVAdapter
 import com.example.kuit4androidprivate.adapter.HorizontalRVAdapter
-import com.example.kuit4androidprivate.data.HomeImageData
 import com.example.kuit4androidprivate.data.MenuCategoryData
 import com.example.kuit4androidprivate.data.MenuData
+import com.example.kuit4androidprivate.data.ScrollImageData
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 
 
@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
     private lateinit var homeImageRVAdapter: HomeImageRVAdapter
     private var menuCategoryData: ArrayList<MenuCategoryData> = ArrayList()
     private var menuData: ArrayList<MenuData> = ArrayList()
-    private var homeImageData: ArrayList<HomeImageData> = ArrayList()
+    private var homeImageData: ArrayList<ScrollImageData> = ArrayList()
 
 
     override fun onCreateView(
@@ -58,6 +58,7 @@ class HomeFragment : Fragment() {
         addHomeImageData()
         initHomeImageRVAdapter()
 
+
         return binding.root
     }
 
@@ -71,9 +72,9 @@ class HomeFragment : Fragment() {
     private fun addHomeImageData() {
         homeImageData.addAll(
             arrayListOf(
-                HomeImageData(image=R.drawable.img_gukbap, index=1),
-                HomeImageData(image=R.drawable.img_taco, index=2),
-                HomeImageData(image=R.drawable.img_bagel, index=3)
+                ScrollImageData(image=R.drawable.img_gukbap, index=1),
+                ScrollImageData(image=R.drawable.img_taco, index=2),
+                ScrollImageData(image=R.drawable.img_bagel, index=3)
             )
         )
     }

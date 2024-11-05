@@ -4,15 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kuit4androidprivate.data.HomeImageData
-import com.example.kuit4androidprivate.databinding.ItemHomeImageScrollBinding
+import com.example.kuit4androidprivate.data.ScrollImageData
+import com.example.kuit4androidprivate.databinding.ItemImageScrollBinding
 
 class HomeImageRVAdapter(
     private val context: Context,
-    private val HomeImageList: ArrayList<HomeImageData>) : RecyclerView.Adapter<HomeImageRVAdapter.ViewHolder>() {
+    private val HomeImageList: ArrayList<ScrollImageData>) : RecyclerView.Adapter<HomeImageRVAdapter.ViewHolder>() {
 
-        inner class ViewHolder(private val binding:ItemHomeImageScrollBinding): RecyclerView.ViewHolder(binding.root){
-            fun bind(item:HomeImageData){
+        inner class ViewHolder(private val binding:ItemImageScrollBinding): RecyclerView.ViewHolder(binding.root){
+            fun bind(item: ScrollImageData){
                 binding.ivScrollImage.setImageResource(item.image)
                 if(item.index == 1)
                 {
@@ -30,7 +30,7 @@ class HomeImageRVAdapter(
 
         }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeImageRVAdapter.ViewHolder {
-        val binding = ItemHomeImageScrollBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemImageScrollBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
