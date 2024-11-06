@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="29dp"
+    android:paddingTop="21dp">
+
+    <TextView
+        android:id="@+id/tv_review_restaruant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아워떡볶이"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_review_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/tv_review_restaruant"
+        app:layout_constraintTop_toBottomOf="@id/tv_review_restaruant">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/img_home_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="18dp"
+            android:src="@drawable/img_home_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="36dp"
+            android:src="@drawable/img_home_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="54dp"
+            android:src="@drawable/img_home_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="72dp"
+            android:src="@drawable/img_home_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_review_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="1dp"
+        android:text="2024-04-11"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/cl_review_score"
+        app:layout_constraintTop_toTopOf="@id/cl_review_score" />
+
+    <TextView
+        android:id="@+id/tv_review_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="9dp"
+        android:text="맛있게 잘 먹었습니다"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/cl_review_score"
+        app:layout_constraintTop_toBottomOf="@id/cl_review_score" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

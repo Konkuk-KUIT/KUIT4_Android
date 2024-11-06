@@ -6,238 +6,309 @@
     android:layout_height="match_parent"
     tools:context=".home.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_home_top"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#212B35"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/iv_home_star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:src="@drawable/ic_top_star"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_home_top1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:text="무료배달 + 총 10,000원 할인"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_home_star"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_home_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#212B35"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_home_top2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 적용 가능"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_home_top1"
-            app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/iv_home_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_top_star"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/siv_home_top"
-            android:layout_width="58dp"
-            android:layout_height="26dp"
-            android:layout_marginVertical="8dp"
-            android:layout_marginEnd="15dp"
-            android:background="#02AFFE"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/corner_rd_4" />
+                <TextView
+                    android:id="@+id/tv_home_top1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:fontFamily="@font/pretendard"
+                    android:text="무료배달 + 총 10,000원 할인"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_home_star"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="쿠폰 받기"
-            android:textColor="@color/white"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/siv_home_top"
-            app:layout_constraintEnd_toEndOf="@id/siv_home_top"
-            app:layout_constraintStart_toStartOf="@id/siv_home_top"
-            app:layout_constraintTop_toTopOf="@id/siv_home_top" />
+                <TextView
+                    android:id="@+id/tv_home_top2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard"
+                    android:text=" 적용 가능"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_home_top1"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/siv_home_top"
+                    android:layout_width="58dp"
+                    android:layout_height="26dp"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="#02AFFE"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/corner_rd_4" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/iv_home_marker"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="62dp"
-        android:src="@drawable/ic_home_marker"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_home_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="63dp"
-        android:text="서울시 광진구 구의동"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/iv_home_marker"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_home_bell"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="27dp"
-        android:src="@drawable/ic_home_bell"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_home_down"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="66dp"
-        android:src="@drawable/ic_home_down"
-        app:layout_constraintStart_toEndOf="@id/tv_home_address"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_home_search"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="31dp"
-        android:src="@drawable/ic_home_search"
-        app:layout_constraintStart_toStartOf="@id/iv_home_marker"
-        app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
-
-    <TextView
-        android:id="@+id/tv_home_suggest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="@string/suggest"
-        android:textColor="@color/suggest_color"
-        app:layout_constraintStart_toEndOf="@id/iv_home_search"
-        app:layout_constraintTop_toTopOf="@id/iv_home_search" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_home_category"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="26dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_home_search"
-        app:spanCount="5"
-        tools:listitem="@layout/item_home_category" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/siv_home_mid"
-        android:layout_width="306dp"
-        android:layout_height="77dp"
-        android:layout_marginTop="16dp"
-        android:background="#0C2F65"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_home_category"
-        app:shapeAppearanceOverlay="@style/corner_size_8" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="81dp"
-        android:layout_marginTop="21dp"
-        android:text="와우회원은 횟수 제한없이"
-        android:textColor="@color/white"
-        android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@id/siv_home_mid"
-        app:layout_constraintTop_toTopOf="@id/siv_home_mid" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="81dp"
-        android:layout_marginTop="38dp"
-        android:text="매 주문 무료배달"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/siv_home_mid"
-        app:layout_constraintTop_toTopOf="@id/siv_home_mid" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/siv_home_gotoorder"
-        android:layout_width="84dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="12dp"
-        android:background="#FEFFFF"
-        app:layout_constraintEnd_toEndOf="@id/siv_home_mid"
-        app:layout_constraintTop_toTopOf="@id/siv_home_mid"
-        app:shapeAppearanceOverlay="@style/corner_size_4" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard"
+                    android:text="쿠폰 받기"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/siv_home_top"
+                    app:layout_constraintEnd_toEndOf="@id/siv_home_top"
+                    app:layout_constraintStart_toStartOf="@id/siv_home_top"
+                    app:layout_constraintTop_toTopOf="@id/siv_home_top" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="6dp"
-        android:text="주문하러 가기"
-        android:textColor="#0C2F65"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/siv_home_gotoorder"
-        app:layout_constraintEnd_toEndOf="@id/siv_home_gotoorder"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/siv_home_gotoorder"
-        app:layout_constraintTop_toTopOf="@id/siv_home_gotoorder"
-        app:layout_constraintVertical_bias="0.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tv_home_recent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="224dp"
-        android:text="최근 본 맛집"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/siv_home_mid"
-        app:layout_constraintTop_toBottomOf="@id/siv_home_mid" />
+            <ImageView
+                android:id="@+id/iv_home_marker"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="62dp"
+                android:src="@drawable/ic_home_marker"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_home_recentRestaurant"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
-        android:paddingStart="27dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_home_recent"
-        tools:listitem="@layout/item_home_restaurant" />
+            <TextView
+                android:id="@+id/tv_home_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="63dp"
+                android:fontFamily="@font/pretendard"
+                android:text="서울시 광진구 구의동"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@id/iv_home_marker"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_home_bell"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="62dp"
+                android:layout_marginEnd="27dp"
+                android:src="@drawable/ic_home_bell"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_home_down"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="66dp"
+                android:src="@drawable/ic_home_down"
+                app:layout_constraintStart_toEndOf="@id/tv_home_address"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_home_search"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="31dp"
+                android:src="@drawable/ic_home_search"
+                app:layout_constraintStart_toStartOf="@id/iv_home_marker"
+                app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
+
+            <EditText
+                android:id="@+id/et_home_suggest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:autofillHints="@string/suggest"
+                android:fontFamily="@font/pretendard"
+                android:hint="@string/suggest"
+                android:background="@null"
+                android:inputType="text"
+                android:singleLine="true"
+                android:maxLength="30"
+                android:textSize="17sp"
+                android:imeOptions="actionSearch"
+                android:textColor="@color/suggest_color"
+                app:layout_constraintStart_toEndOf="@id/iv_home_search"
+                app:layout_constraintTop_toTopOf="@id/iv_home_search" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_category"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="26dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_home_search"
+                app:spanCount="5"
+                tools:listitem="@layout/item_home_category" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/siv_home_mid"
+                android:layout_width="306dp"
+                android:layout_height="77dp"
+                android:layout_marginTop="16dp"
+                android:background="#0C2F65"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_home_category"
+                app:shapeAppearanceOverlay="@style/corner_size_8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="81dp"
+                android:layout_marginTop="21dp"
+                android:fontFamily="@font/pretendard"
+                android:text="와우회원은 횟수 제한없이"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@id/siv_home_mid"
+                app:layout_constraintTop_toTopOf="@id/siv_home_mid" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="81dp"
+                android:layout_marginTop="38dp"
+                android:fontFamily="@font/pretendard"
+                android:text="매 주문 무료배달"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/siv_home_mid"
+                app:layout_constraintTop_toTopOf="@id/siv_home_mid" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/siv_home_gotoorder"
+                android:layout_width="84dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="12dp"
+                android:background="#FEFFFF"
+                app:layout_constraintEnd_toEndOf="@id/siv_home_mid"
+                app:layout_constraintTop_toTopOf="@id/siv_home_mid"
+                app:shapeAppearanceOverlay="@style/corner_size_4" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/pretendard"
+                android:text="주문하러 가기"
+                android:textColor="#0C2F65"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/siv_home_gotoorder"
+                app:layout_constraintEnd_toEndOf="@id/siv_home_gotoorder"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/siv_home_gotoorder"
+                app:layout_constraintTop_toTopOf="@id/siv_home_gotoorder"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_home_recent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="224dp"
+                android:fontFamily="@font/pretendard"
+                android:text="최근 본 맛집"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/siv_home_mid"
+                app:layout_constraintTop_toBottomOf="@id/siv_home_mid" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_recent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingStart="27dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_home_recent"
+                tools:listitem="@layout/item_home_restaurant" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_home_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_home_recent">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_restaurant"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/siv_home_index"
+                    android:layout_width="44dp"
+                    android:layout_height="19dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="7dp"
+                    android:alpha="0.8"
+                    android:background="#000000"
+                    app:layout_constraintBottom_toBottomOf="@id/vp_restaurant"
+                    app:layout_constraintEnd_toEndOf="@id/vp_restaurant" />
+
+                <TextView
+                    android:id="@+id/tv_home_itemindex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 / 5"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="@id/siv_home_index"
+                    app:layout_constraintEnd_toEndOf="@id/siv_home_index"
+                    app:layout_constraintStart_toStartOf="@id/siv_home_index"
+                    app:layout_constraintTop_toTopOf="@id/siv_home_index" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

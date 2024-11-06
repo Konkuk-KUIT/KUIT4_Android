@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myeats.MyEatsMainFragment">
+
+    <Button
+        android:id="@+id/btn_myeats_detail"
+        android:layout_width="306dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/btn_bg_rad4"
+        android:fontFamily="@font/pretendard"
+        android:text="자세히 보기"
+        android:textColor="#02AFFE"
+        app:backgroundTint="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_myeats_fav2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_myeats_detail">
+
+        <ImageView
+            android:id="@+id/iv_myeats_heart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_nav_like"
+            app:layout_constraintBottom_toBottomOf="@id/cl_myeats_fav2"
+            app:layout_constraintStart_toStartOf="@id/cl_myeats_fav2"
+            app:layout_constraintTop_toTopOf="@id/cl_myeats_fav2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:fontFamily="@font/pretendard"
+            android:text="즐겨찾기"
+            app:layout_constraintBottom_toBottomOf="@id/cl_myeats_fav2"
+            app:layout_constraintStart_toEndOf="@id/iv_myeats_heart"
+            app:layout_constraintTop_toTopOf="@id/cl_myeats_fav2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

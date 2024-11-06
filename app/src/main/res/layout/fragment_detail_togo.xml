@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_detail_togo_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="29dp"
+        android:text="도착까지 30분"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_detail_togo_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="매장주소   서울특별시 광진구 능동로 19길"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="@id/tv_detail_togo_time"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_togo_time" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_detail_togo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_togo_location"
+        tools:listitem="@layout/item_detail_menu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

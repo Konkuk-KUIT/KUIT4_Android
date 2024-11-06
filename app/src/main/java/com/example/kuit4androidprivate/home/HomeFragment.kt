@@ -1,25 +1,30 @@
 package com.example.kuit4androidprivate.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
-import com.example.kuit4androidprivate.adapter.Category_RVAdapter
+import com.example.kuit4androidprivate.adapter.CategoryRVAdapter
 import com.example.kuit4androidprivate.adapter.RVAdapter
+import com.example.kuit4androidprivate.adapter.RestaurantImageRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 import com.example.kuit4androidprivate.databinding.ItemHomeCategoryBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuData
+import com.example.kuit4androidprivate.model.RestaurantImageData
 
 
 class HomeFragment : Fragment() {
@@ -27,9 +32,12 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var categoryBinding: ItemHomeCategoryBinding
     private lateinit var rvAdapter: RVAdapter
-    private lateinit var categoryRVAdapter: Category_RVAdapter
+    private lateinit var categoryRVAdapter: CategoryRVAdapter
+    private lateinit var homeitemRVAdapter : RestaurantImageRVAdapter
     private val items = ArrayList<MenuData>()
     private val categoryitems = ArrayList<MenuCategoryData>()
+    private var restaurantImageUrlItems = ArrayList<String>()
+    private var restaurantImageItems = ArrayList<RestaurantImageData>()
     private lateinit var decoration: DividerItemDecoration
 
     override fun onCreateView(
@@ -45,8 +53,28 @@ class HomeFragment : Fragment() {
         initCategory()
         initCategoryrvAdapter()
 
+        initrestaurantImageData()
+        inithomeVP()
+
+        initEditText()
+
         return binding.root
 
+    }
+
+    private fun initEditText() {
+        binding.etHomeSuggest.setOnEditorActionListener{ textview, i, keyEvent ->
+            if(i == EditorInfo.IME_ACTION_SEARCH){
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeSuggest.windowToken, 0)
+
+                binding.etHomeSuggest.clearFocus()
+                true
+            }
+            else {
+                false
+            }
+        }
     }
 
     private fun initItems() {
@@ -130,8 +158,8 @@ class HomeFragment : Fragment() {
     private fun initRVAdapter() {
 
         rvAdapter = RVAdapter(requireContext(), items)
-        binding.rvHomeRecentRestaurant.adapter = rvAdapter
-        binding.rvHomeRecentRestaurant.layoutManager =
+        binding.rvHomeRecent.adapter = rvAdapter
+        binding.rvHomeRecent.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         addDecoration()
@@ -143,7 +171,7 @@ class HomeFragment : Fragment() {
         if (drawable != null) {
             decoration.setDrawable(drawable)
         }
-        binding.rvHomeRecentRestaurant.addItemDecoration(decoration)
+        binding.rvHomeRecent.addItemDecoration(decoration)
     }
 
     private fun initCategory() {
@@ -164,15 +192,40 @@ class HomeFragment : Fragment() {
 
     private fun initCategoryrvAdapter() {
 
-        categoryRVAdapter = Category_RVAdapter(requireContext(), categoryitems)
+        categoryRVAdapter = CategoryRVAdapter(requireContext(), categoryitems)
         binding.rvHomeCategory.adapter = categoryRVAdapter
 
+    }
+
+    private fun initrestaurantImageData() {
+        restaurantImageUrlItems = arrayListOf(
+            "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg",
+            "https://cdn.pixabay.com/photo/2018/03/21/03/49/food-3245489_640.jpg",
+            "https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078_1280.jpg",
+            "https://cdn.pixabay.com/photo/2017/07/27/16/48/toppokki-2545943_640.jpg",
+            "https://cdn.pixabay.com/photo/2021/10/17/16/55/spicy-jokbal-6718937_640.jpg"
+        )
+        for(i in 1 until 6){
+            restaurantImageItems.add(
+                RestaurantImageData(
+                    id = 1,
+                    imgURL = restaurantImageUrlItems[i-1]
+                )
+            )
+        }
+    }
+
+    private fun inithomeVP(){
+        binding.vpRestaurant.adapter = RestaurantImageRVAdapter().apply {
+            submitList(restaurantImageItems)
+        }
+        binding.vpRestaurant.currentItem = 1000
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvHomeRecentRestaurant.setOnClickListener {
+        binding.rvHomeRecent.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
             startActivity(intent)
         }
@@ -181,6 +234,13 @@ class HomeFragment : Fragment() {
             val intent = Intent(context, FavoriteActivity::class.java)
             startActivity(intent)
         }
+
+        binding.vpRestaurant.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.tvHomeItemindex.text = "%d / 5".format(position%5+1)
+            }
+        })
     }
 
 

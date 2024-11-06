@@ -1,10 +1,9 @@
 package com.example.kuit4androidprivate.favorite
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kuit4androidprivate.adapter.Favorite_RVAdapter
+import com.example.kuit4androidprivate.adapter.FavoriteRVAdapter
 import com.example.kuit4androidprivate.databinding.ActivityFavoriteBinding
 import com.example.kuit4androidprivate.model.MenuData
 
@@ -12,7 +11,7 @@ class FavoriteActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFavoriteBinding
     private val items = ArrayList<MenuData>()
-    private lateinit var rvAdapter: Favorite_RVAdapter
+    private lateinit var rvAdapter: FavoriteRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +47,7 @@ class FavoriteActivity : AppCompatActivity() {
 
     private fun initRVAdapter() {
 
-        rvAdapter = Favorite_RVAdapter(this, items)
+        rvAdapter = FavoriteRVAdapter(this, items)
         binding.rvFavoriteRestaurant.adapter = rvAdapter
         binding.rvFavoriteRestaurant.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
