@@ -3,7 +3,8 @@
     <style name="Base.Theme.Kuit4AndroidPrivate" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="android:statusBarColor">@android:color/black</item>
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
     <style name="NavigationFont" parent="android:Widget.TextView">
@@ -21,4 +22,19 @@
     </style>
 
     <style name="Theme.Kuit4AndroidPrivate" parent="Base.Theme.Kuit4AndroidPrivate" />
+
+    <style name="Base.Theme.Kuit4AndroidPrivate2" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="colorPrimary">#121212</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <!-- xml에서 android:textColor="?attr/colorPrimary" 대신
+    style="@style/TextColor" 의 방식으로도 되나 보려고 작성
+    -->
+    <style name="TextColor">
+        <item name="android:textColor">#121212</item>
+    </style>
+
 </resources>

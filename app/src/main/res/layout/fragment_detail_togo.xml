@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_detail_eta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="29dp"
+        android:text="도착까지 약 30분"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_store_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="매장주소"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/tv_detail_eta"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_eta" />
+
+    <TextView
+        android:id="@+id/tv_minimum_price_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="서울특별시 광진구 능동로 19길"
+        android:textSize="15sp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toEndOf="@id/tv_store_address"
+        app:layout_constraintTop_toTopOf="@id/tv_store_address" />
+
+    <TextView
+        android:id="@+id/tv_store_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
+        android:text="매장.원산지정보"
+        android:textSize="15sp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toEndOf="@id/tv_detail_eta"
+        app:layout_constraintBottom_toBottomOf="@id/tv_detail_eta"
+        app:layout_constraintTop_toTopOf="@id/tv_detail_eta" />
+
+    <ImageView
+        android:id="@+id/iv_detail_greater_than"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="5dp"
+        android:rotation="270"
+        android:src="@drawable/ic_home_dropdown"
+        app:layout_constraintBottom_toBottomOf="@id/tv_store_info"
+        app:layout_constraintStart_toEndOf="@id/tv_store_info"
+        app:layout_constraintTop_toTopOf="@id/tv_store_info" />
+
+
+    <View
+        android:id="@+id/v_detail_togo_rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="31dp"
+        android:background="#F7F8F8"
+        app:layout_constraintTop_toBottomOf="@id/tv_store_address" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_detail_togo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="27dp"
+        android:paddingStart="38dp"
+        android:paddingEnd="27dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_detail_togo_rectangle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

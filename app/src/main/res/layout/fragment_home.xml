@@ -6,238 +6,292 @@
     android:layout_height="match_parent"
     tools:context=".home.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_home_top"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#212B35"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/iv_home_star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:src="@drawable/ic_top_star"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="70dp"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_home_top1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:text="무료배달 + 총 10,000원 할인"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_home_star"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_home_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#212B35"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_home_top2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 적용 가능"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_home_top1"
-            app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/iv_home_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_top_star"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/siv_home_top"
-            android:layout_width="58dp"
-            android:layout_height="26dp"
-            android:layout_marginVertical="8dp"
-            android:layout_marginEnd="15dp"
-            android:background="#02AFFE"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/corner_rd_4" />
+                <TextView
+                    android:id="@+id/tv_home_top1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:text="무료배달 + 총 10,000원 할인"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_home_star"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="쿠폰 받기"
-            android:textColor="@color/white"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/siv_home_top"
-            app:layout_constraintEnd_toEndOf="@id/siv_home_top"
-            app:layout_constraintStart_toStartOf="@id/siv_home_top"
-            app:layout_constraintTop_toTopOf="@id/siv_home_top" />
+                <TextView
+                    android:id="@+id/tv_home_top2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 적용 가능"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_home_top1"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/siv_home_top"
+                    android:layout_width="58dp"
+                    android:layout_height="26dp"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="#02AFFE"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/corner_rd_4" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/iv_home_marker"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="62dp"
-        android:src="@drawable/ic_home_marker"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_home_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="63dp"
-        android:text="@string/address"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/iv_home_marker"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_home_dropdown"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="66dp"
-        android:src="@drawable/ic_home_dropdown"
-        app:layout_constraintStart_toEndOf="@id/tv_home_address"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_home_bell"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="62dp"
-        android:src="@drawable/ic_home_bell"
-        app:layout_constraintStart_toEndOf="@id/iv_home_dropdown"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_home_search"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="31dp"
-        android:src="@drawable/ic_home_search"
-        app:layout_constraintStart_toStartOf="@id/iv_home_marker"
-        app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
-
-    <TextView
-        android:id="@+id/tv_home_suggestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="@string/suggestion"
-        android:textColor="@color/suggestion_color"
-        app:layout_constraintStart_toEndOf="@id/iv_home_search"
-        app:layout_constraintTop_toTopOf="@id/iv_home_search" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_home_category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/iv_home_search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="37dp"
-        android:paddingStart="27dp"
-        android:paddingEnd="26dp"
-        />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/siv_home_promotion_container"
-        android:layout_width="306dp"
-        android:layout_height="77dp"
-        android:layout_marginTop="14dp"
-        android:background="@color/promotion_container_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_home_category"
-        app:shapeAppearanceOverlay="@style/corner_rd_8" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/siv_promotion_order_button"
-        android:layout_width="84dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="26dp"
-        android:background="@color/promotion_button_color"
-        app:layout_constraintStart_toStartOf="@id/siv_home_promotion_container"
-        app:layout_constraintTop_toTopOf="@id/siv_home_promotion_container"
-        app:shapeAppearanceOverlay="@style/corner_rd_4" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="쿠폰 받기"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/siv_home_top"
+                    app:layout_constraintEnd_toEndOf="@id/siv_home_top"
+                    app:layout_constraintStart_toStartOf="@id/siv_home_top"
+                    app:layout_constraintTop_toTopOf="@id/siv_home_top" />
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="306dp"
-        android:layout_height="77dp"
-        app:layout_constraintStart_toStartOf="@id/siv_home_promotion_container"
-        app:layout_constraintTop_toTopOf="@id/siv_home_promotion_container">
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tv_promotion_text_line_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="81dp"
-            android:layout_marginTop="21dp"
-            android:text="와우회원은 횟수 제한없이"
-            android:textColor="@color/white"
-            android:textFontWeight="400"
-            android:textSize="11sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/iv_home_marker"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="62dp"
+                android:src="@drawable/ic_home_marker"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_promotion_text_line_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="81dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="21dp"
-            android:text="매 주문 무료배달"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_promotion_text_line_1" />
+            <TextView
+                android:id="@+id/tv_home_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="63dp"
+                android:text="@string/address"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@id/iv_home_marker"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_promotion_order_button_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="222dp"
-            android:layout_marginVertical="32dp"
-            android:text="주문하러 가기"
-            android:textColor="@color/promotion_container_color"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/iv_home_dropdown"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="66dp"
+                android:src="@drawable/ic_home_dropdown"
+                app:layout_constraintStart_toEndOf="@id/tv_home_address"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/iv_home_bell"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="62dp"
+                android:src="@drawable/ic_home_bell"
+                app:layout_constraintStart_toEndOf="@id/iv_home_dropdown"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_recently_searched_restaurant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/recently_viewed_place"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/iv_home_marker"
-        app:layout_constraintTop_toBottomOf="@id/siv_home_promotion_container" />
+            <ImageView
+                android:id="@+id/iv_home_search"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="31dp"
+                android:src="@drawable/ic_home_search"
+                app:layout_constraintStart_toStartOf="@id/iv_home_marker"
+                app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/rv_home_recent"
-        app:layout_constraintTop_toBottomOf="@id/tv_recently_searched_restaurant"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tv_recently_searched_restaurant"/>
+            <EditText
+                android:id="@+id/et_home_suggestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:hint="@string/suggestion"
+                android:background="@null"
+                android:inputType="text"
+                android:maxLines="1"
+                android:maxLength="30"
+                android:imeOptions="actionSearch"
+                android:textColor="@color/suggestion_color"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@id/iv_home_search"
+                app:layout_constraintTop_toTopOf="@id/iv_home_search" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="37dp"
+                android:paddingStart="27dp"
+                android:paddingEnd="26dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_home_search" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/siv_home_promotion_container"
+                android:layout_width="306dp"
+                android:layout_height="77dp"
+                android:layout_marginTop="14dp"
+                android:background="@color/promotion_container_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_home_category"
+                app:shapeAppearanceOverlay="@style/corner_rd_8" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/siv_promotion_order_button"
+                android:layout_width="84dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="26dp"
+                android:background="@color/promotion_button_color"
+                app:layout_constraintStart_toStartOf="@id/siv_home_promotion_container"
+                app:layout_constraintTop_toTopOf="@id/siv_home_promotion_container"
+                app:shapeAppearanceOverlay="@style/corner_rd_4" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="306dp"
+                android:layout_height="77dp"
+                app:layout_constraintStart_toStartOf="@id/siv_home_promotion_container"
+                app:layout_constraintTop_toTopOf="@id/siv_home_promotion_container">
+
+                <TextView
+                    android:id="@+id/tv_promotion_text_line_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="81dp"
+                    android:layout_marginTop="21dp"
+                    android:text="와우회원은 횟수 제한없이"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_promotion_text_line_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="81dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="21dp"
+                    android:text="매 주문 무료배달"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_promotion_text_line_1" />
+
+                <TextView
+                    android:id="@+id/tv_promotion_order_button_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="32dp"
+                    android:layout_marginStart="222dp"
+                    android:text="주문하러 가기"
+                    android:textColor="@color/promotion_container_color"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_recently_searched_restaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/recently_viewed_place"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/iv_home_marker"
+                app:layout_constraintTop_toBottomOf="@id/siv_home_promotion_container" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_recent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@id/tv_recently_searched_restaurant"
+                app:layout_constraintTop_toBottomOf="@id/tv_recently_searched_restaurant" />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_home"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="35dp"
+                app:layout_constraintTop_toBottomOf="@id/rv_home_recent" />
+
+
+            <ImageView
+                android:id="@+id/iv_home_vp_order"
+                android:layout_width="44dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="134dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="7dp"
+                android:src="@drawable/img_home_vp_rectangle"
+                app:layout_constraintEnd_toEndOf="@id/vp_home"
+                app:layout_constraintBottom_toBottomOf="@id/vp_home"
+                app:layout_constraintTop_toTopOf="@id/vp_home" />
+
+            <TextView
+                android:id="@+id/tv_home_vp_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/3"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_home_vp_order"
+                app:layout_constraintEnd_toEndOf="@id/iv_home_vp_order"
+                app:layout_constraintStart_toStartOf="@id/iv_home_vp_order"
+                app:layout_constraintTop_toTopOf="@id/iv_home_vp_order" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

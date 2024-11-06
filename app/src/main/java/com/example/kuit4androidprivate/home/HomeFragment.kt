@@ -1,5 +1,6 @@
 package com.example.kuit4androidprivate.home
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
@@ -7,13 +8,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.adapter.RVAdapterCategory
 import com.example.kuit4androidprivate.adapter.RVAdapterRecent
+import com.example.kuit4androidprivate.adapter.VPAdapterHome
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
@@ -29,6 +34,8 @@ class HomeFragment : Fragment() {
     private val categoryItem = arrayListOf<MenuCategoryData>()
     private lateinit var rvAdapterRecent: RVAdapterRecent
     private val recentItem = arrayListOf<MenuData>()
+    private lateinit var vpAdapterHome: VPAdapterHome
+    private var vpItems = arrayListOf<MenuData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,26 +43,85 @@ class HomeFragment : Fragment() {
     ): View {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
-        initCategory()
-        initRVAdapterCategory()
-        initRecent()
-        initRVAdapterRecent()
         return binding.root
+    }
+
+    private fun initVPAdapterHome() {
+        binding.vpHome.adapter = VPAdapterHome(vpItems.size).apply{
+            submitList(vpItems)
+        }
+
+        binding.vpHome.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+
+                // ViewPager의 현재 페이지 번호 계산 (무한 스크롤을 고려한 % 연산)
+                val currentPage = (position % vpItems.size) + 1 // 현재 페이지는 1부터 시작
+                val totalPageCount = vpItems.size // 전체 페이지 수
+
+                // TextView에 현재 페이지와 총 페이지 수 반영
+                binding.tvHomeVpPage.text = "$currentPage/$totalPageCount"
+            }
+        })
+
+        binding.vpHome.currentItem = 1000
+    }
+
+    private fun initVPData() {
+        vpItems = arrayListOf(
+            MenuData(
+                restaurantName = "모터시티",
+                eta = "30분",
+                imgUrl = "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240306_55%2F1709683905690CRcjK_JPEG%2FIMG_3105.jpeg",
+                rating = "4.9",
+                totalReviews = "(3149)"
+            ),
+            MenuData(
+                restaurantName = "지노스 피자",
+                eta = "31분",
+                imgUrl = "https://ldb-phinf.pstatic.net/20240421_108/1713677860549T8AzD_JPEG/KakaoTalk_20240418_210511163_03.jpg",
+                rating = "4.9",
+                totalReviews = "(3249)"
+            ),
+            MenuData(
+                restaurantName = "우래옥",
+                eta = "32분",
+                imgUrl = "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNDA5MjlfMTU3%2FMDAxNzI3NTg5MTI1Mjkz.rn45W-mYbs-LflYbvnFQHCV2uZmyo1j7RmmbFXVMUYIg.tBOf99kd04i8Cdtr7Z9-6Cyer73lANZy_IdDKM1HxcMg.JPEG%2F11D3207C-F9F0-4C0D-A6B8-48F855E8C8AE.jpeg%3Ftype%3Dw1500_60_sharpen",
+                rating = "4.9",
+                totalReviews = "(3349)"
+            ),
+            MenuData(
+                restaurantName = "파이브가이즈",
+                eta = "33분",
+                imgUrl = "https://ldb-phinf.pstatic.net/20240911_26/1726021704778F3qK5_PNG/%B8%DE%B4%BA_%C7%DC%B9%F6%B0%C5.png",
+                rating = "4.9",
+                totalReviews = "(3449)"
+            ),
+            MenuData(
+                restaurantName = "고든램지버거",
+                eta = "34분",
+                imgUrl = "https://ldb-phinf.pstatic.net/20230726_13/16903611564251FjFA_JPEG/1-2%C7%EF%BD%BA%C5%B0%C4%A3_%282%29.jpg",
+                rating = "4.9",
+                totalReviews = "(3549)"
+            ),
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //KeepActivity로 전환하기 위한 함수
-//        binding.clRecentlyViewedRestaurantContainer.setOnClickListener {
-//            val intent = Intent(activity, DetailActivity::class.java)
-//            startActivity(intent)
-//        }
-
         binding.sivPromotionOrderButton.setOnClickListener {
             val intent = Intent(activity, FavoriteActivity::class.java)
             startActivity(intent)
         }
+
+        initCategory()
+        initRVAdapterCategory()
+        initRecent()
+        initRVAdapterRecent()
+        initVPData()
+        initVPAdapterHome()
+        initEditText()
     }
 
     private fun initCategory() {
@@ -216,6 +282,21 @@ class HomeFragment : Fragment() {
             adapter = rvAdapterRecent
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+    }
+
+    private fun initEditText(){
+        binding.etHomeSuggestion.setOnEditorActionListener{textView,i,keyEvent->
+            if(i == EditorInfo.IME_ACTION_SEARCH){
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeSuggestion.windowToken,0)
+
+                binding.etHomeSuggestion.clearFocus()
+
+                true
+            }else{
+                false
+            }
         }
     }
 }

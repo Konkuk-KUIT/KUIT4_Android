@@ -29,7 +29,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_detail_restaurant"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:text="@string/our_snacks"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorPrimary"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +58,7 @@
             app:layout_constraintTop_toBottomOf="@id/iv_detail_restaurant" />
 
         <LinearLayout
+            android:id="@+id/ll_details_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -81,8 +82,8 @@
                 android:text="4.9"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@id/iv_rating_star"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_rating_star"
                 app:layout_constraintTop_toBottomOf="@id/tv_restaurant_name" />
 
             <TextView
@@ -92,11 +93,28 @@
                 android:text="(3,849)"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@id/tv_restaurant_rating"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_restaurant_rating"
                 app:layout_constraintTop_toBottomOf="@id/tv_restaurant_name" />
 
         </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_detail_infos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_detail_restaurant">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/detail_frm"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

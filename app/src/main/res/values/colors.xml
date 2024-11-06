@@ -12,4 +12,5 @@
     <color name="shadow"></color>"
     <color name="promotion_button_color">#FEFFFF</color>
     <color name="button_edge">#E8E9EB</color>
+    <color name="detail_tab_color">#02AFEE</color>
 </resources>
