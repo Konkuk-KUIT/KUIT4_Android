@@ -4,12 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.kuit4androidprivate.DetailActivity
-import com.example.kuit4androidprivate.FavoriteActivity
+import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.ItemFavoriteDataBinding
 import com.example.kuit4androidprivate.model.MenuData
@@ -26,35 +23,43 @@ class LinearFavoriteRVAdapter(
 
         // 아이템 데이터를 View에 바인딩
         fun bind(item: MenuData) {
-            binding.tvName.text = item.name
-            binding.tvTime.text = item.time
-            binding.tvRatingNumber.text = item.ratingNumber
-            binding.tvVisit.text = item.visitNumber
+
+            binding.tvFavoriteDataName.text = item.name
+            binding.tvFavoriteDataTime.text = item.time
+            binding.tvFavoriteDataVisitNumber.text = item.visitNumber
+            binding.tvFavoriteDataRatingNumber.text = item.ratingNumber
 
 
             Glide.with(context)
                 .load(item.imgUrl)
-                .into(binding.ivItem)
+                .into(binding.ivFavoriteDataItem)
+
             if (item.isFavorite) {
                 Glide.with(context)
                     .load(R.drawable.ic_like_full)
-                    .into(binding.ivHeart)
+                    .into(binding.ivFavoriteDataHeart)
             } else {
                 Glide.with(context)
                     .load(R.drawable.ic_nav_like)
-                    .into(binding.ivHeart)
+                    .into(binding.ivFavoriteDataHeart)
             }
             // 클릭 리스너 설정
-            binding.ivHeart.setOnClickListener {
+            binding.ivFavoriteDataHeart.setOnClickListener {
+                item.isFavorite = !item.isFavorite  // 즐겨찾기 상태 변경
                 if (item.isFavorite) {
-                    binding.ivHeart.setImageResource(R.drawable.ic_nav_like)
-                    item.isFavorite = false
+                    Glide.with(context)
+                        .load(R.drawable.ic_like_full)
+                        .into(binding.ivFavoriteDataHeart)
                 } else {
-                    binding.ivHeart.setImageResource(R.drawable.ic_like_full)
-                    item.isFavorite = true
+                    Glide.with(context)
+                        .load(R.drawable.ic_nav_like)
+                        .into(binding.ivFavoriteDataHeart)
                 }
+
+//                // 아이템 상태가 변경되었으므로 UI 갱신
+//                notifyItemChanged(adapterPosition)
             }
-            binding.ivItem.setOnClickListener {
+            binding.ivFavoriteDataItem.setOnClickListener {
                 val intent = Intent(context, DetailActivity::class.java)
                 intent.putExtra("item_data", item)
                 context.startActivity(intent)
