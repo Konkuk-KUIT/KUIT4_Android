@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".detail.DetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_detail_menu"
@@ -42,16 +42,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_detail"
             android:layout_width="match_parent"
             android:layout_height="149dp"
-            android:src="@drawable/img_home_food"
             android:scaleType="centerCrop"
+            android:src="@drawable/img_home_food"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,12 +61,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="아워떡볶이"
-            android:textFontWeight="600"
             android:fontFamily="@font/pretendard_variable"
             android:lineHeight="36dp"
-            android:textSize="30sp"
+            android:text="아워떡볶이"
             android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_detail" />
@@ -74,8 +75,8 @@
             android:id="@+id/cl_detail_like_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_detail">
 
             <ImageView
@@ -110,8 +111,29 @@
                 app:layout_constraintStart_toEndOf="@id/tv_detail_score"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_detail"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        app:tabIndicatorColor="@color/blue2"
+        app:tabTextColor="@color/black"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorHeight="3dp"
+        app:tabBackground="@drawable/bg_custom_tb"
+        app:tabSelectedTextColor="@color/blue2"
+        app:layout_constraintTop_toBottomOf="@id/cl_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_detail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"
             android:text="수정"
-            android:textColor="@color/lightblue"
+            android:textColor="@color/blue2"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@id/tv_keep_like"
             app:layout_constraintTop_toTopOf="parent" />
@@ -86,14 +86,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_keep_rectangle">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_keep_like"
             android:layout_width="306dp"
             android:layout_height="129dp"
             android:scaleType="centerCrop"
             android:src="@drawable/img_home_food"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/corner_size_8" />
 
         <TextView
             android:id="@+id/tv_keep_snack"

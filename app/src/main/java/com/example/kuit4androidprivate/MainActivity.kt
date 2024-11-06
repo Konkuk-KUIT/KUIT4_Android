@@ -1,7 +1,13 @@
 package com.example.kuit4androidprivate
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kuit4androidprivate.databinding.ActivityMainBinding
@@ -107,6 +113,26 @@ class MainActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if(event.action == MotionEvent.ACTION_DOWN){
+            val view = currentFocus
+            if(view is EditText){
+                val outRect = Rect()
+                view.getGlobalVisibleRect(outRect)
+                if(!outRect.contains(event.rawX.toInt(), event.rawY.toInt())){
+                    hideKeyboard(view)
+                }
+            }
+        }
+        return super.dispatchTouchEvent(event)
+    }
+
+    private fun hideKeyboard(view: View){
+        view.clearFocus()
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     enum class NavigationItem {
