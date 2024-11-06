@@ -4,82 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".detail.DetailActivity">
 
-    <ImageView
-        android:id="@+id/iv_detail_arrow"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_arrow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_detail_like"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="27dp"
-        android:src="@drawable/ic_nav_like"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_detail_menu"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="149dp"
-        android:layout_marginTop="64dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tv_detail_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:textFontWeight="600"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_detail_menu" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_detail_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_detail_like"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="27dp"
+                android:src="@drawable/ic_nav_like"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_detail_menu"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="64dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_detail_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:textColor="?attr/colorPrimary"
+                android:textFontWeight="600"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_detail_menu" />
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_detail_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_detail_menu">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_detail_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_detail_menu">
 
-        <ImageView
-            android:id="@+id/iv_detail_star"
-            android:layout_width="20dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_star"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/iv_detail_star"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_star"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_detail_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/iv_detail_star"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tv_detail_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@id/iv_detail_star"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_detail_review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/tv_detail_score"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tv_detail_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_detail_score"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_detail"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:backgroundTint="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_detail_score"
+                app:tabIndicatorColor="@color/black"
+                app:tabIndicatorFullWidth="true"
+                app:tabSelectedTextColor="@color/black"
+                app:tabTextColor="#595353" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tl_detail" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

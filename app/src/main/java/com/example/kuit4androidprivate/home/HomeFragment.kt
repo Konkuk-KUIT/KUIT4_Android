@@ -1,23 +1,27 @@
 package com.example.kuit4androidprivate.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.kuit4androidprivate.DetailActivity
+import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.FavoriteActivity
 import com.example.kuit4androidprivate.adapter.GridRVAdapter
+import com.example.kuit4androidprivate.adapter.HomeImageRVAdapter
 import com.example.kuit4androidprivate.adapter.HorizontalRVAdapter
 import com.example.kuit4androidprivate.data.MenuCategoryData
 import com.example.kuit4androidprivate.data.MenuData
+import com.example.kuit4androidprivate.data.ScrollImageData
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 
 
@@ -26,8 +30,10 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var gridRVAdapter:GridRVAdapter
     private lateinit var horizontalRVAdapter: HorizontalRVAdapter
+    private lateinit var homeImageRVAdapter: HomeImageRVAdapter
     private var menuCategoryData: ArrayList<MenuCategoryData> = ArrayList()
     private var menuData: ArrayList<MenuData> = ArrayList()
+    private var homeImageData: ArrayList<ScrollImageData> = ArrayList()
 
 
     override fun onCreateView(
@@ -48,8 +54,29 @@ class HomeFragment : Fragment() {
         addMenuData()
         initGridRVAdapter()
         initHorizontalRVAdapter()
+        initEditText()
+        addHomeImageData()
+        initHomeImageRVAdapter()
+
 
         return binding.root
+    }
+
+
+    private fun initHomeImageRVAdapter() {
+        homeImageRVAdapter = HomeImageRVAdapter(requireActivity(), homeImageData)
+
+        binding.vpHomeImageScroll.adapter = homeImageRVAdapter
+    }
+
+    private fun addHomeImageData() {
+        homeImageData.addAll(
+            arrayListOf(
+                ScrollImageData(image=R.drawable.img_gukbap, index=1),
+                ScrollImageData(image=R.drawable.img_taco, index=2),
+                ScrollImageData(image=R.drawable.img_bagel, index=3)
+            )
+        )
     }
 
     private fun initFavorite() {
@@ -95,7 +122,8 @@ class HomeFragment : Fragment() {
                 MenuCategoryData(image = R.drawable.img_jokbal_bossam , name = "족발/보쌈"),
                 MenuCategoryData(image = R.drawable.img_soup , name = "찜/탕"),
                 MenuCategoryData(image = R.drawable.img_roast , name = "구이"),
-                MenuCategoryData(image = R.drawable.img_pizza , name = "피자")
+                MenuCategoryData(image = R.drawable.img_pizza , name = "피자"),
+                MenuCategoryData(image = R.drawable.img_pizza, name = "더보기")
             )
         )
     }
@@ -118,5 +146,21 @@ class HomeFragment : Fragment() {
     private fun initDetail() {
         val intent = Intent(requireActivity(), DetailActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun initEditText() {
+        binding.etHomeFind.setOnEditorActionListener { textView, i, keyEvernt ->
+            if(i == EditorInfo.IME_ACTION_SEARCH){
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeFind.windowToken, 0)
+
+                binding.etHomeFind.clearFocus()
+
+                true
+            }
+            else{
+                false
+            }
+        }
     }
 }

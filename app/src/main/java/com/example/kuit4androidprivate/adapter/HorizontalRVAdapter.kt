@@ -4,11 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kuit4androidprivate.DetailActivity
+import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.data.MenuData
-import com.example.kuit4androidprivate.databinding.ActivityDetailBinding
 import com.example.kuit4androidprivate.databinding.ItemMenuDataBinding
 
 class HorizontalRVAdapter(private val context: Context,

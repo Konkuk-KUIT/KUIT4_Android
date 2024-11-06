@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myeats.fragment.MyEatsMainFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_my_eats_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_my_eats_detail"
+            android:layout_width="306dp"
+            android:layout_height="42dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/corner_size_4"
+            app:strokeColor="@color/my_eats_color"
+            app:strokeWidth="1dp" />
+
+        <TextView
+            android:id="@+id/tv_my_eats_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail"
+            android:textColor="@color/my_eats_color"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/siv_my_eats_detail"
+            app:layout_constraintEnd_toEndOf="@id/siv_my_eats_detail"
+            app:layout_constraintStart_toStartOf="@id/siv_my_eats_detail"
+            app:layout_constraintTop_toTopOf="@id/siv_my_eats_detail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_my_eats_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_my_eats_detail">
+
+        <ImageView
+            android:id="@+id/iv_like_like"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_like" />
+
+        <TextView
+            android:id="@+id/tv_like_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:text="@string/like"
+            android:textColor="@color/black"
+            android:textSize="21sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

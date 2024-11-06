@@ -2,14 +2,10 @@ package com.example.kuit4androidprivate.keep
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.kuit4androidprivate.DetailActivity
+import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.R
+import com.example.kuit4androidprivate.data.MenuData
 import com.example.kuit4androidprivate.databinding.ActivityKeepBinding
 
 class KeepActivity : AppCompatActivity() {
@@ -22,17 +18,22 @@ class KeepActivity : AppCompatActivity() {
         binding = ActivityKeepBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.clKeepTteokbokki.setOnClickListener{
-            intentToDetailActivity()
-
-            val arrow = findViewById<ImageView>(R.id.iv_keep_arrow) as ImageView
-        arrow.setOnClickListener(View.OnClickListener { finish() })
+        binding.clKeepTteokbokki.setOnClickListener {
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("menuData", MenuData(
+                name = "아워떡볶이",
+                image = R.drawable.img_tteokbokki_detail,
+                score = "4.9",
+                review = "3,849",
+                minute = "30분"
+            )
+            )
+            startActivity(intent)
+        }
+        binding.ivKeepArrow.setOnClickListener{
+            finish()
         }
 
     }
 
-    private fun intentToDetailActivity() {
-        val intent = Intent(this, DetailActivity::class.java)
-        startActivity(intent)
-    }
 }
