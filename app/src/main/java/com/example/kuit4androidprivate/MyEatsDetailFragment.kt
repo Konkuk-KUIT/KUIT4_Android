@@ -48,8 +48,6 @@ class MyEatsDetailFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
 
-
-
         }
 
 

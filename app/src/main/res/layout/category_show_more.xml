@@ -14,7 +14,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:src="@drawable/img_accordion_view_button"
@@ -26,11 +25,11 @@
 
 
     <TextView
+        style="@style/textColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:text="더보기"
-        android:textColor="@color/black"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="@id/cl_category_show_more"
         app:layout_constraintStart_toStartOf="@id/cl_category_show_more"

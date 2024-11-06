@@ -103,7 +103,7 @@
                 android:layout_marginTop="63dp"
                 android:fontFamily="@font/pretendard_variable"
                 android:text="@string/address"
-                android:textColor="@color/black"
+                style="@style/textColor"
                 android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_home_marker"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -138,13 +138,19 @@
                 app:layout_constraintStart_toStartOf="@id/iv_home_marker"
                 app:layout_constraintTop_toBottomOf="@id/iv_home_marker" />
 
-            <TextView
-                android:id="@+id/tv_home_question"
+            <EditText
+                android:id="@+id/et_home_suggestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:background="@null"
+                android:textSize="17sp"
                 android:fontFamily="@font/pretendard_variable"
-                android:text="@string/suggest"
+                android:hint="@string/suggest"
+                android:inputType="text"
+                android:maxLength="30"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
                 android:textColor="@color/suggest_color"
                 app:layout_constraintStart_toEndOf="@id/iv_home_search"
                 app:layout_constraintTop_toTopOf="@id/iv_home_search" />
@@ -156,7 +162,7 @@
                 android:layout_marginStart="27dp"
                 android:layout_marginTop="37dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_home_question"
+                app:layout_constraintTop_toBottomOf="@id/et_home_suggestion"
                 tools:listitem="@layout/menu_category_item" />
 
 
