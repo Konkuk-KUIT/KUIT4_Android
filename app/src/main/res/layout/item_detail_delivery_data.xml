@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="131dp">
+
+    <TextView
+        android:id="@+id/tv_item_detail_delivery_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="27dp"
+        android:fontFamily="@font/pretendardvariable"
+        android:text="떡볶이"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_item_detail_delivery_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:fontFamily="@font/pretendardvariable"
+        android:text="5,000원"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tv_item_detail_delivery_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_detail_delivery_name" />
+
+    <ImageView
+        android:id="@+id/iv_item_detail_delivery_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="27dp"
+        android:src="@drawable/img_detail_item_snack_food"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_item_detail_delivery_name" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
