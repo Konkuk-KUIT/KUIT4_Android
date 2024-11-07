@@ -122,6 +122,7 @@ class DetailActivity: AppCompatActivity() {
         )
     }
 
+    //클릭하면 코루틴 멈추고 떼면 그 시점의 currentPosition 받아오도록 개선?
     private fun swipePage(){
         with(binding.vpDetailRestaurant){
             if(currentPosition > 2)
@@ -147,7 +148,7 @@ class DetailActivity: AppCompatActivity() {
         override fun run() {
             //threadIsRunning이 true일 때에만 실행하도록
             while(threadIsRunning){
-                sleep(3000)
+                sleep(5000)
                 MainHandler().sendEmptyMessage(0)
                 count++
                 Log.d("thread_test","$count")
@@ -159,7 +160,7 @@ class DetailActivity: AppCompatActivity() {
         var count = 0
         job = CoroutineScope(Dispatchers.Main).launch{
             while(true){
-                delay(3000)
+                delay(5000)
                 withContext(Dispatchers.Main){
                     swipePage()
                     count++
