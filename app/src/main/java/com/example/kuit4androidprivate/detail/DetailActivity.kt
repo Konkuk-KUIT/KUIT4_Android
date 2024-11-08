@@ -1,6 +1,8 @@
 package com.example.kuit4androidprivate.detail
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
@@ -111,5 +113,20 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+    private fun initVPSwipe2() {
+        Thread {
+            while (true) {
+                try {
+                    Thread.sleep(3000) // 3초 대기
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+
+                Handler(Looper.getMainLooper()).post {
+                    swipePage()
+                }
+            }
+        }.start()
     }
 }
