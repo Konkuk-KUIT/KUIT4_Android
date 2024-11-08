@@ -1,4 +1,4 @@
-package com.example.kuit4androidprivate.data
+package com.example.kuit4androidprivate.detail.data
 
 import java.io.Serializable
 

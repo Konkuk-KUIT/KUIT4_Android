@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kuit4androidprivate.R
-import com.example.kuit4androidprivate.data.DetailMenuData
+import com.example.kuit4androidprivate.detail.data.DetailMenuData
 import com.example.kuit4androidprivate.databinding.FragmentDetailTogoBinding
 import com.example.kuit4androidprivate.detail.adapter.DetailRVAdapter
 
