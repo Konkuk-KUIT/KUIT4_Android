@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kuit4androidprivate.R
-import com.example.kuit4androidprivate.adapter.LinearDetailRVAdapter
+import com.example.kuit4androidprivate.detail.adapter.LinearDetailRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentDetailDeliveryBinding
 import com.example.kuit4androidprivate.model.DetailData
 
@@ -36,7 +36,7 @@ class DetailDeliveryFragment : Fragment() {
         detailDataItems.addAll(
             arrayListOf(
                 DetailData(
-                    "떢볶이", R.drawable.img_detail_item_snack_food,"5,000원"
+                    "떡볶이", R.drawable.img_detail_item_snack_food,"5,000원"
                 ),
                 DetailData(
                     "김말이", R.drawable.img_detail_item_kim,"3,000원"
