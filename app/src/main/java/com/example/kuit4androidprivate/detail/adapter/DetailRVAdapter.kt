@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kuit4androidprivate.data.DetailMenuData
+import com.example.kuit4androidprivate.detail.data.DetailMenuData
 import com.example.kuit4androidprivate.databinding.ItemDetailMenuBinding
 
 class DetailRVAdapter(
