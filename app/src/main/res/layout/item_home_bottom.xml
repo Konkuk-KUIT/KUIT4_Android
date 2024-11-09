@@ -19,7 +19,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="7dp"
         android:background="@color/box2"
-        android:src="@drawable/img_home_bottom_page_number"
+        android:src="@drawable/ic_page_number"
         app:layout_constraintBottom_toBottomOf="@id/iv_bottom_item"
         app:layout_constraintEnd_toEndOf="@id/iv_bottom_item"
         app:shapeAppearanceOverlay="@style/corner_size_4">
