@@ -3,6 +3,7 @@ package com.example.kuit4androidprivate.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,11 @@ import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment() {
 
@@ -26,6 +32,7 @@ class HomeFragment : Fragment() {
     private lateinit var menuAdapter: MenuDataAdapter
     private lateinit var noticeViewPagerAdapter: NoticeViewPagerAdapter
     private lateinit var indicators: List<TextView>
+    private var currentPage = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -110,14 +117,43 @@ class HomeFragment : Fragment() {
 
         createIndicators(texts.size)
 
+        CoroutineTest4()
+
         binding.vpHome.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 updateIndicators(position % texts.size)
                 binding.tvHomeVp.text = "${(position % texts.size) + 1}/${texts.size}"
+                currentPage = position
             }
         })
 
         return binding.root
+    }
+
+    private fun CoroutineTest4() {
+        CoroutineScope(Dispatchers.Default).launch {
+            var count = 0
+            while (true) {
+                count = CoroutineDelay(count)
+                withContext(Dispatchers.Main) {
+                    swipePage()  // 페이지를 넘김
+                }
+                Log.d("test", "$count")
+            }
+        }
+    }
+
+    private suspend fun CoroutineDelay(count: Int): Int {
+        delay(3000)
+        return count + 10
+    }
+
+    private fun swipePage() {
+        val pageCount = noticeViewPagerAdapter.itemCount
+        if (pageCount > 0) {
+            currentPage = (currentPage + 1) % pageCount
+            binding.vpHome.setCurrentItem(currentPage, true)
+        }
     }
 
     private fun createIndicators(count: Int) {
