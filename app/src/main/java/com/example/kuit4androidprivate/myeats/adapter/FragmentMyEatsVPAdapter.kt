@@ -1,4 +1,4 @@
-package com.example.kuit4androidprivate.adapter
+package com.example.kuit4androidprivate.myeats.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

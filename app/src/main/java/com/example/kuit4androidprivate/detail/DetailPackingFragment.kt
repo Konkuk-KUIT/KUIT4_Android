@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kuit4androidprivate.R
-import com.example.kuit4androidprivate.adapter.LinearDetailRVAdapter
+import com.example.kuit4androidprivate.detail.adapter.LinearDetailRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentDetailPackingBinding
 import com.example.kuit4androidprivate.model.DetailData
 

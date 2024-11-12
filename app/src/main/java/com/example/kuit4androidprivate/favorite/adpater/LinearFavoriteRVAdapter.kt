@@ -1,4 +1,4 @@
-package com.example.kuit4androidprivate.adapter
+package com.example.kuit4androidprivate.favorite.adpater
 
 import android.content.Context
 import android.content.Intent

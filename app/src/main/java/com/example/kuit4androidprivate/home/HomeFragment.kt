@@ -13,14 +13,16 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.detail.DetailActivity
-import com.example.kuit4androidprivate.FavoriteActivity
+import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.R
-import com.example.kuit4androidprivate.adapter.CardHomeVPAdapter
-import com.example.kuit4androidprivate.adapter.GridHomeRVAdapter
-import com.example.kuit4androidprivate.adapter.LinearHomeRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
+import com.example.kuit4androidprivate.home.adapter.CardHomeVPAdapter
+import com.example.kuit4androidprivate.home.adapter.GridHomeRVAdapter
+import com.example.kuit4androidprivate.home.adapter.LinearHomeRVAdapter
+
+
 import com.example.kuit4androidprivate.keep.KeepActivity
-import com.example.kuit4androidprivate.model.HomeCardData
+import com.example.kuit4androidprivate.model.CardData
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuData
 
@@ -31,7 +33,7 @@ class HomeFragment : Fragment() {
     private lateinit var linearHomeRVAdapter: LinearHomeRVAdapter
     private var gridHomeItems = ArrayList<MenuCategoryData>()
     private var linearHomeItems = ArrayList<MenuData>()
-    private var cardHomeCardItems = ArrayList<HomeCardData>()
+    private var cardHomeCardItems = ArrayList<CardData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -90,20 +92,20 @@ class HomeFragment : Fragment() {
     private fun initHomeCardItems() {
         cardHomeCardItems.addAll(
             arrayListOf(
-                HomeCardData(
-                    1, "https://cdn.pixabay.com/photo/2021/02/08/12/40/lasagna-5994612_1280.jpg"
+                CardData(
+                    1, "https://cdn.pixabay.com/photo/2021/02/08/12/40/lasagna-5994612_1280.jpg",0
                 ),
-                HomeCardData(
-                    2, "https://cdn.pixabay.com/photo/2014/05/18/11/25/pizza-346985_640.jpg"
+                CardData(
+                    2, "https://cdn.pixabay.com/photo/2014/05/18/11/25/pizza-346985_640.jpg",0
                 ),
-                HomeCardData(
-                    3, "https://cdn.pixabay.com/photo/2020/04/20/07/28/japan-food-5066734_640.jpg"
+                CardData(
+                    3, "https://cdn.pixabay.com/photo/2020/04/20/07/28/japan-food-5066734_640.jpg",0
                 ),
-                HomeCardData(
-                    4, "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_640.jpg"
+                CardData(
+                    4, "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_640.jpg",0
                 ),
-                HomeCardData(
-                    5, "https://cdn.pixabay.com/photo/2022/09/27/12/01/ikura-7482636_1280.jpg"
+                CardData(
+                    5, "https://cdn.pixabay.com/photo/2022/09/27/12/01/ikura-7482636_1280.jpg",0
                 )
             )
         )

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kuit4androidprivate.adapter.LinearMyEatsLikeRVAdapter
+import com.example.kuit4androidprivate.myeats.adapter.LinearMyEatsLikeRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsLikeBinding
 import com.example.kuit4androidprivate.model.MenuData
 

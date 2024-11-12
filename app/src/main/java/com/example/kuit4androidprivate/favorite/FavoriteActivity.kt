@@ -1,4 +1,4 @@
-package com.example.kuit4androidprivate
+package com.example.kuit4androidprivate.favorite
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kuit4androidprivate.adapter.LinearFavoriteRVAdapter
 import com.example.kuit4androidprivate.databinding.ActivityFavoriteBinding
+import com.example.kuit4androidprivate.favorite.adpater.LinearFavoriteRVAdapter
 import com.example.kuit4androidprivate.model.MenuData
 
 class FavoriteActivity : AppCompatActivity() {

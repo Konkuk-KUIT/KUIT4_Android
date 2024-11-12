@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.kuit4androidprivate.adapter.FragmentMyEatsVPAdapter
+import com.example.kuit4androidprivate.myeats.adapter.FragmentMyEatsVPAdapter
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsReviewLikeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -19,7 +19,7 @@ class MyEatsReviewLikeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         binding = FragmentMyEatsReviewLikeBinding.inflate(layoutInflater)
         initFragmentAdapter()
         return binding.root

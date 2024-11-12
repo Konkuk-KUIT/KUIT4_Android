@@ -1,4 +1,4 @@
-package com.example.kuit4androidprivate.adapter
+package com.example.kuit4androidprivate.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.kuit4androidprivate.databinding.ItemHomeCardBinding
-import com.example.kuit4androidprivate.model.HomeCardData
+import com.example.kuit4androidprivate.model.CardData
 
-class CardHomeVPAdapter : ListAdapter<HomeCardData, CardHomeVPAdapter.ViewHolder>(DiffUtil) {
+class CardHomeVPAdapter : ListAdapter<CardData, CardHomeVPAdapter.ViewHolder>(DiffUtil) {
     inner class ViewHolder(val binding: ItemHomeCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: HomeCardData) {
+        fun bind(item: CardData) {
             Glide.with(binding.root)
                 .load(item.imgUrl)
                 .into(binding.ivItemHomeCard)
@@ -22,7 +22,7 @@ class CardHomeVPAdapter : ListAdapter<HomeCardData, CardHomeVPAdapter.ViewHolder
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CardHomeVPAdapter.ViewHolder {
+    ): ViewHolder {
         val binding =
             ItemHomeCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
@@ -37,12 +37,12 @@ class CardHomeVPAdapter : ListAdapter<HomeCardData, CardHomeVPAdapter.ViewHolder
     }
 
     companion object {
-        val DiffUtil = object : DiffUtil.ItemCallback<HomeCardData>() {
-            override fun areItemsTheSame(oldItem: HomeCardData, newItem: HomeCardData): Boolean {
+        val DiffUtil = object : DiffUtil.ItemCallback<CardData>() {
+            override fun areItemsTheSame(oldItem: CardData, newItem: CardData): Boolean {
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: HomeCardData, newItem: HomeCardData): Boolean {
+            override fun areContentsTheSame(oldItem: CardData, newItem: CardData): Boolean {
                 return oldItem == newItem
             }
 

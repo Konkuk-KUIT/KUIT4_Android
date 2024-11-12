@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kuit4androidprivate.adapter.LinearMyEatsReviewRVAdapter
+import com.example.kuit4androidprivate.myeats.adapter.LinearMyEatsReviewRVAdapter
 import com.example.kuit4androidprivate.databinding.FragmentMyEatsReviewBinding
 import com.example.kuit4androidprivate.model.ReviewData
 
