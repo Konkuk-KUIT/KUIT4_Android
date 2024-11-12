@@ -37,17 +37,23 @@
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"/>
 
-
-
-    <ImageView
-        android:id="@+id/iv_detail_store"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_detail_store"
         android:layout_width="360dp"
         android:layout_height="149dp"
         android:layout_marginTop="64dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_detail_store"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_detail_store"-->
+<!--        android:layout_width="360dp"-->
+<!--        android:layout_height="149dp"-->
+<!--        android:layout_marginTop="64dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/img_detail_store"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/tv_detail_store_name"
@@ -61,7 +67,7 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_detail_store" />
+        app:layout_constraintTop_toBottomOf="@id/vp_detail_store" />
 
     <ImageView
         android:layout_width="20dp"

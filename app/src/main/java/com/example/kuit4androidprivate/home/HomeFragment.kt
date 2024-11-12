@@ -5,6 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -27,6 +30,12 @@ import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.model.HomeBottomData
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuLatelyData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Thread.sleep
 
 
 class HomeFragment : Fragment() {
@@ -38,6 +47,9 @@ class HomeFragment : Fragment() {
     private val dummyItemsCategory = ArrayList<MenuCategoryData>()
     private val dummyItemsHomeBottom = ArrayList<HomeBottomData>()
     private lateinit var itemHomeBottomBinding: ItemHomeBottomBinding
+
+    private var currentPosition = 0
+    private var mHandler = Handler(Looper.getMainLooper())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,23 +66,24 @@ class HomeFragment : Fragment() {
         initCategoryRVAdapter()
         initDummy2()
         initLatelyRVAdapter()
-
         initBottomData()
         initHomeBottomVP()
         initEditText()
+        initVPSwipe5()
         return binding.root
     }
 
     private fun initEditText() {
-        binding.etHomeSuggestion.setOnEditorActionListener{ textView, i, keyEvent ->
-            if(i == EditorInfo.IME_ACTION_SEARCH){
-                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(binding.etHomeSuggestion.windowToken,0)
+        binding.etHomeSuggestion.setOnEditorActionListener { textView, i, keyEvent ->
+            if (i == EditorInfo.IME_ACTION_SEARCH) {
+                val imm =
+                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeSuggestion.windowToken, 0)
 
                 binding.etHomeSuggestion.clearFocus()
 
                 true
-            }else{
+            } else {
                 false
             }
         }
@@ -98,7 +111,7 @@ class HomeFragment : Fragment() {
 //    }
 
     private fun initHomeBottomVP() {
-        binding.vpMainBottom.adapter = HomeBottomVPAdapter().apply{
+        binding.vpMainBottom.adapter = HomeBottomVPAdapter().apply {
             submitList(dummyItemsHomeBottom)
         }
 
@@ -236,4 +249,91 @@ class HomeFragment : Fragment() {
         binding.rvMenuCategory.layoutManager = GridLayoutManager(requireContext(), 5)
 
     }
+
+
+
+    //    private fun initVPSwipe1(){
+//        while(true){
+//            Thread.sleep(3000)
+//            swipePage()
+//        }
+//    }
+//    private fun initVPSwipe2(){
+//        var swipeThread = SwipeThread()
+//        swipeThread.start()
+//    }
+//    inner class  SwipeThread : Thread(){
+//        override fun run() {
+//            while(true){
+//                sleep(3000)
+//                swipePage()
+//            }
+//        }
+//    }
+    private fun swipePage() {
+        with(binding.vpMainBottom) {
+            if (currentPosition > 4) currentPosition = 0
+            setCurrentItem(currentPosition, true);
+            currentPosition++;
+        }
+    }
+    private fun initVPSwipe3() {
+        Thread(swipeRunnable()).start() // 백그라운드에서 실행
+    }
+    inner class mainHandler : Handler(Looper.getMainLooper()) { // 이 핸들러는 메인 루퍼와 연결됨
+        override fun handleMessage(msg: Message) {
+            swipePage()
+            super.handleMessage(msg)
+        }
+    }
+    inner class swipeRunnable : Runnable {
+        override fun run() {
+            while (true) {
+                sleep(3000)
+                mainHandler().sendEmptyMessage(0)
+            }
+        }
+    }
+
+//    private fun initVPSwipe4(){
+//        mainHandler2().sendEmptyMessage(0)
+//    }
+//    inner class mainHandler2 : Handler(Looper.getMainLooper()){
+//        override fun handleMessage(msg: Message) {
+//            swipePage()
+//            Thread.sleep(3000)
+//            mainHandler2().sendEmptyMessage(0) // 자기 자신한테 계속 메시지 보냄
+//            super.handleMessage(msg)
+//        }
+//    }
+
+    private fun initVPSwipe5(){
+        mHandler.postDelayed(object : Runnable{
+            override fun run() {
+                swipePage() // 3초마다 호출되는 작업
+                // 다음실행을 3초후에 예약
+                mHandler.postDelayed(this,3000)
+
+            }
+        },3000) // 첫시작 3초후에
+    }
+    private fun initVPSwipe6(){
+        mHandler.postDelayed({
+            swipePage()
+            initVPSwipe6()
+        },3000)
+    }
+
+    private fun initVPSwipe7(){
+        CoroutineScope(Dispatchers.Default).launch {
+            while(true){
+                delay(3000)
+                withContext(Dispatchers.Main){
+                    swipePage()
+                }
+
+            }
+        }
+    }
+
 }
