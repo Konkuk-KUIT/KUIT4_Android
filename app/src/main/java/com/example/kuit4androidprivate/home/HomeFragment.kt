@@ -4,6 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +28,15 @@ import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import java.lang.Thread.sleep
+import java.util.concurrent.ThreadLocalRandom.current
 
 
 class HomeFragment : Fragment() {
@@ -36,6 +49,10 @@ class HomeFragment : Fragment() {
     private val recentItem = arrayListOf<MenuData>()
     private lateinit var vpAdapterHome: VPAdapterHome
     private var vpItems = arrayListOf<MenuData>()
+
+    //현재 위치 담는 변수
+    private var currentPosition = 0
+    private var mHandler = Handler(Looper.getMainLooper())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -122,6 +139,19 @@ class HomeFragment : Fragment() {
         initVPData()
         initVPAdapterHome()
         initEditText()
+
+//        initVPSwipe1()
+//        initVPSwipe2()
+//        initVPSwipe3() //정상작동
+//        initVPSwipe4()
+//        initVPSwipe5() //정상작동
+//        initVPSwipe6() //정상작동
+//        initVPSwipe7()
+//        initVPSwipe8() //정상작동
+//        CoroutineTest1() //정상작동
+//        CoroutineTest2() //정상작동
+//        CoroutineTest3()
+
     }
 
     private fun initCategory() {
@@ -299,4 +329,181 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+    private fun swipePage(){
+        with(binding.vpHome){
+            if(currentPosition > 4)
+                currentPosition = 0
+            setCurrentItem(currentPosition,true)
+            currentPosition++
+        }
+    }
+
+    private fun initVPSwipe1(){
+        //이렇게 해서 onviewcreated에서 사용하면 UI 생성이 완료되지 않음
+        while(true){
+            Thread.sleep(3000)
+            swipePage()
+        }
+    }
+
+    private fun initVPSwipe2(){
+        //이렇게 backgroundThread에서 UI를 건드리면 안됨
+        var swipeThread = SwipeThread()
+        swipeThread.start()
+    }
+
+    inner class SwipeThread:Thread(){
+        override fun run() {
+            while(true){
+                sleep(3000)
+                swipePage()
+            }
+        }
+    }
+
+    private fun initVPSwipe3(){
+        Thread(swipeRunnable()).start()
+    }
+
+    inner class mainHandler : Handler(Looper.getMainLooper()){
+        override fun handleMessage(msg: Message) {
+            swipePage()
+            super.handleMessage(msg)
+        }
+    }
+
+    inner class swipeRunnable: Runnable{
+        override fun run() {
+            while(true){
+                sleep(3000)
+                mainHandler().sendEmptyMessage(0)
+            }
+        }
+    }
+
+    private fun initVPSwipe4(){
+        //mainHandler2가 sleep되기 때문에 UI 처리 자체가 block 되어버림
+        mainHandler2().sendEmptyMessage(0)
+
+    }
+
+    inner class mainHandler2: Handler(Looper.getMainLooper()){
+        override fun handleMessage(msg: Message) {
+            swipePage()
+            sleep(3000)
+            mainHandler2().sendEmptyMessage(0)
+            super.handleMessage(msg)
+        }
+    }
+
+    private fun initVPSwipe5(){
+        //swipe4를 해결하기 위한 방법, postDelayed로 비동기 처리를 사용
+        mHandler.postDelayed(object : Runnable {
+            override fun run() {
+                swipePage()
+                mHandler.postDelayed(this,3000)
+            }
+        },3000)
+
+        binding.ivHomeVpOrder.setOnClickListener {
+            //보낸 message, runnable을 다 없애 버림 -> 넘어가던 동작이 멈춤
+            mHandler.removeCallbacksAndMessages(null)
+        }
+    }
+
+    private fun initVPSwipe6(){
+        //initVPSwipe5와 비슷한 방식, 재귀
+        mHandler.postDelayed({
+            swipePage()
+            initVPSwipe6()
+        },3000)
+    }
+
+    private fun initVPSwipe7(){
+        //UI작업은 main thread에서만 해야하는데 Default는 main이 아니기 때문에 오류 발생
+        CoroutineScope(Dispatchers.Default).launch {
+            while(true){
+                delay(3000)
+                swipePage()
+            }
+        }
+    }
+
+    private fun initVPSwipe8(){
+        //coroutinescope는 job을 반환
+        var job = CoroutineScope(Dispatchers.Default).launch {
+            while (true){
+                delay(3000)
+                withContext(Dispatchers.Main){
+                    swipePage()
+                }
+            }
+        }
+
+        binding.ivHomeVpOrder.setOnClickListener{
+            //coroutine을 종료시킴
+            job.cancel()
+        }
+    }
+
+    private fun CoroutineTest1(){
+        CoroutineScope(Dispatchers.Default).launch {
+            while(true){
+                //coroutine 안에서 생성한 새로운 coroutine
+                launch {
+                    delay(3000)
+                }.join() //join()이 없으면 이 블록이 실행되고 나서 아래 블록이 실행되는게 아니라 그냥 계속 실행됨
+                withContext(Dispatchers.Main){
+                    swipePage()
+                }
+            }
+        }
+    }
+
+    private fun CoroutineTest2(){
+    }
+
+    private fun CoroutineTest3(){
+        var count = 0
+        CoroutineScope(Dispatchers.Default).launch {
+            while(true){
+                launch {
+                    runBlocking {
+                        //이 블록이 끝날때까지 기다림, 잘 쓰지는 않음
+                        delay(3000)
+                        count += 10
+                    }
+                }
+                withContext(Dispatchers.Main){
+                    swipePage()
+                }
+                Log.d("test","$count")
+            }
+        }
+    }
+
+    private fun CoroutineTest4(){
+        var count = 0
+        CoroutineScope(Dispatchers.Default).launch {
+            while(true){
+                //이 부분을 CoroutineDelay 안에 넣을 수도 있음
+                count = CoroutineDelay(count)
+                withContext(Dispatchers.Main){
+                    swipePage()
+                }
+
+                Log.d("test","$count")
+            }
+        }
+    }
+
+    //suspend로 사용해야한다 (coroutine에서 사용한다는 표시)
+    suspend fun CoroutineDelay(count: Int): Int{
+        delay(3000)
+        return count + 10
+    }
+
+
+
 }
