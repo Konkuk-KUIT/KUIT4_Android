@@ -36,15 +36,36 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/iv_detail_restaurant"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_detail_restaurant"
         android:layout_width="360dp"
         android:layout_height="149dp"
         android:layout_marginTop="64dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/img_restaurant_detail"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_detail_index"
+        android:layout_width="44dp"
+        android:layout_height="19dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="7dp"
+        android:alpha="0.8"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="@id/vp_detail_restaurant"
+        app:layout_constraintEnd_toEndOf="@id/vp_detail_restaurant" />
+
+    <TextView
+        android:id="@+id/tv_detail_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 / 3"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@id/siv_detail_index"
+        app:layout_constraintEnd_toEndOf="@id/siv_detail_index"
+        app:layout_constraintStart_toStartOf="@id/siv_detail_index"
+        app:layout_constraintTop_toTopOf="@id/siv_detail_index" />
 
     <TextView
         android:id="@+id/tv_detail_restaurant"
@@ -58,7 +79,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_detail_restaurant" />
+        app:layout_constraintTop_toBottomOf="@id/vp_detail_restaurant" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_detail_rate"
