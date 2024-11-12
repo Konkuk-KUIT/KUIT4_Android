@@ -45,6 +45,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/siv_scroll_number"
+                android:layout_width="44dp"
+                android:layout_height="19dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="7dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/vp_detail_menu"
+                app:layout_constraintEnd_toEndOf="@id/vp_detail_menu"
+                app:shapeAppearanceOverlay="@style/circle" />
+
+            <TextView
+                android:id="@+id/tv_scroll_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/siv_scroll_number"
+                app:layout_constraintEnd_toEndOf="@id/siv_scroll_number"
+                app:layout_constraintStart_toStartOf="@id/siv_scroll_number"
+                app:layout_constraintTop_toTopOf="@id/siv_scroll_number" />
+
             <TextView
                 android:id="@+id/tv_detail_menu"
                 android:layout_width="wrap_content"
@@ -96,13 +118,13 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tl_detail"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cl_detail_score"
-                app:tabIndicatorColor="@color/black"
+                app:tabIndicatorColor="#02AFEE"
                 app:tabIndicatorFullWidth="true"
-                app:tabSelectedTextColor="@color/black"
+                app:tabSelectedTextColor="#02AFEE"
                 app:tabTextColor="#595353" />
 
             <androidx.viewpager2.widget.ViewPager2
