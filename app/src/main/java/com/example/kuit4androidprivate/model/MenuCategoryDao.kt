@@ -9,14 +9,14 @@ import androidx.room.Update
 @Dao
 interface MenuCategoryDao {
     @Insert
-    fun insert(menuCategoryData: MenuCategoryData)
+    suspend fun insert(menuCategoryData: MenuCategoryData)
 
     @Update
-    fun update(menuCategoryData: MenuCategoryData)
+    suspend fun update(menuCategoryData: MenuCategoryData)
 
     @Delete
-    fun delete(menuCategoryData: MenuCategoryData)
+    suspend fun delete(menuCategoryData: MenuCategoryData)
 
     @Query("SELECT * FROM MenuCategoryData")
-    fun getAll(): List<MenuCategoryData>
+    suspend fun getAll(): List<MenuCategoryData>
 }

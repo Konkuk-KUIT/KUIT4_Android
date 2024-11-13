@@ -15,9 +15,12 @@ class RVAdapterCategory(
     private val showMoreClickListener: () -> Unit
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    private var isExpanded = false //전체 목록 표시하고 있는지 여부
+
     companion object{
         private const val VIEW_TYPE_ITEM = 0
         private const val VIEW_TYPE_SHOW_MORE = 1
+        private const val DEFAULT_ITEM_COUNT = 9
     }
 
     inner class ItemViewHolder(val binding: ItemHomeCategoryBinding): RecyclerView.ViewHolder(binding.root){
@@ -41,10 +44,10 @@ class RVAdapterCategory(
 
     // 아이템 뷰 타입을 반환하는 함수
     override fun getItemViewType(position: Int): Int {
-        return if (position == 9) { // 마지막 포지션
-            VIEW_TYPE_SHOW_MORE
-        } else {
-            VIEW_TYPE_ITEM
+        if(position == getItemCount() - 1 && (!isExpanded || items.size > DEFAULT_ITEM_COUNT)){
+            return VIEW_TYPE_SHOW_MORE
+        }else{
+            return VIEW_TYPE_ITEM
         }
     }
 
@@ -59,11 +62,22 @@ class RVAdapterCategory(
         }
     }
 
-    override fun getItemCount(): Int = items.size + 1
+    override fun getItemCount(): Int {
+        if (isExpanded){
+            return items.size + 1
+        }else{
+            return minOf(items.size, DEFAULT_ITEM_COUNT+1)
+        }
+    }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is ItemViewHolder){
+        if (holder is ItemViewHolder && position < items.size){
             holder.bind(items[position])
         }
+    }
+
+    fun toggleCategory(){
+        isExpanded = !isExpanded
+        notifyDataSetChanged()
     }
 }

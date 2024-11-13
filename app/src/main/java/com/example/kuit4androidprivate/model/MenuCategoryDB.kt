@@ -11,19 +11,26 @@ abstract class MenuCategoryDB: RoomDatabase() {
     abstract fun menuCategoryDao(): MenuCategoryDao
 
     companion object{
+        /**
+         * @Volatile로 여러 thread에서 안전하게 접근할 수 있도록 함
+         * 초기화가 끝나기 전에 다른 thread에서 instance를 읽지 못하도록 보장
+         */
+        @Volatile
         private var instance: MenuCategoryDB? = null
 
-        //annotation 붙여서 race condition 방지
-        @Synchronized
-        fun getInstance(context: Context): MenuCategoryDB{
-            if(instance == null){
-                instance = Room.databaseBuilder(
-                    context,
+        fun getInstance(context: Context): MenuCategoryDB {
+            /**
+             * instance가 이미 있으면 synchronized 블록을 거치지 않고 return,
+             * 없으면 synchronized 블록을 거쳐서 instance를 생성하고 return
+              */
+            return instance ?: synchronized(this) {
+                instance ?: Room.databaseBuilder(
+                    // 앱의 전체 생명주기 동안 사용하려면 applicationContext로 사용
+                    context.applicationContext,
                     MenuCategoryDB::class.java,
                     "menu_category_database"
-                ).build()
+                ).build().also { instance = it }
             }
-            return instance!!
         }
     }
 }

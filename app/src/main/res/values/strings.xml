@@ -25,4 +25,9 @@
     <string name="soup">탕/찌개</string>
     <string name="barbeque">구이</string>
     <string name="pizza">피자</string>
+    <string name="pork_cutlet2">돈까스</string>
+    <string name="chinese">중식</string>
+    <string name="seafood">회/해물</string>
+    <string name="western">양식</string>
+    <string name="dessert">디저트</string>
 </resources>

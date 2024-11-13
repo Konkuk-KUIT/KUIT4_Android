@@ -150,7 +150,7 @@ class HomeFragment : Fragment() {
                 initRVAdapterCategory()
             }
 
-            //최근 본 맛집에 대한 IO
+            //최근 본 맛집에 대한 IO, 위의 코드들이 실행된 뒤에 실행
             initRecent()
             //위의 IO처리가 완료되면 아래 작업들 실행
             withContext(Dispatchers.Main) {
@@ -160,22 +160,13 @@ class HomeFragment : Fragment() {
         initVPData()
         initVPAdapterHome()
         initEditText()
-
     }
 
-    private fun initCategory() {
+    private suspend fun initCategory() {
         val spfMenuCategory: SharedPreferences =
             requireContext().getSharedPreferences("menu_category", Context.MODE_PRIVATE)
 
-//        menuCategoryDB = Room.databaseBuilder(
-//            requireContext(),
-//            MenuCategoryDB::class.java,
-//            "menu_category_database"
-//        ).allowMainThreadQueries().build() //mainthread에서 허용하도록 임시적으로 사용
-
-        //위의 코드를 singleton 패턴으로 바꾼 코드, MenuCategoryDB.kt에 companion object 코드 추가해서 작성
         menuCategoryDB = MenuCategoryDB.getInstance(requireContext())
-
         Log.d("test", spfMenuCategory.getBoolean("isInit", false).toString())
 
         if (!spfMenuCategory.getBoolean("isInit", false)) {
@@ -183,8 +174,6 @@ class HomeFragment : Fragment() {
                 putBoolean("isInit", true)
                 apply()
             }
-            //위랑 동일한 코드
-//            spfMenuCategory.edit().putBoolean("isInit",true).apply()
 
             //isInit이 false이면 item들 db에 저장
             menuCategoryDB.menuCategoryDao().apply {
@@ -220,26 +209,56 @@ class HomeFragment : Fragment() {
                 )
                 insert(
                     MenuCategoryData(
-                    getString(R.string.bossam),
-                    R.drawable.img_bossam
+                        getString(R.string.bossam),
+                        R.drawable.img_bossam
                     )
                 )
                 insert(
                     MenuCategoryData(
-                    getString(R.string.soup),
-                    R.drawable.img_soup
+                        getString(R.string.soup),
+                        R.drawable.img_soup
                     )
                 )
                 insert(
                     MenuCategoryData(
-                    getString(R.string.barbeque),
-                    R.drawable.img_barbeque
+                        getString(R.string.barbeque),
+                        R.drawable.img_barbeque
                     )
                 )
                 insert(
                     MenuCategoryData(
-                    getString(R.string.pizza),
-                    R.drawable.img_pizza
+                        getString(R.string.pizza),
+                        R.drawable.img_pizza
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.pork_cutlet2),
+                        R.drawable.img_pork_cutlet2
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.chinese),
+                        R.drawable.img_chinese
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.seafood),
+                        R.drawable.img_seafood
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.western),
+                        R.drawable.img_pasta
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.dessert),
+                        R.drawable.img_dessert
                     )
                 )
             }
@@ -256,10 +275,11 @@ class HomeFragment : Fragment() {
             requireContext(),
             items = categoryItem,
             categoryClickListener = {
-                Toast.makeText(requireContext(), it.categoryName, Toast.LENGTH_LONG).show()
+//                Toast.makeText(requireContext(), it.categoryName, Toast.LENGTH_LONG).show()
             },
             showMoreClickListener = {
-                Toast.makeText(requireContext(), "더보기", Toast.LENGTH_LONG).show()
+//                Toast.makeText(requireContext(), "더보기", Toast.LENGTH_LONG).show()
+                rvAdapterCategory.toggleCategory()
             })
 
         val itemDecoration = object : RecyclerView.ItemDecoration() {
@@ -282,18 +302,18 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun initRecent() {
+    private suspend fun initRecent() {
         val spfRecentMenuData: SharedPreferences =
             requireContext().getSharedPreferences("recent_menu_data", Context.MODE_PRIVATE)
 
         menuDB = MenuDB.getInstance(requireContext())
         Log.d("test", spfRecentMenuData.getBoolean("isInit", false).toString())
+
         if (!spfRecentMenuData.getBoolean("isInit", false)) {
             with(spfRecentMenuData.edit()) {
                 putBoolean("isInit", true)
                 apply()
             }
-
             //최근 본 맛집 데이터 추가
             menuDB.menuDataDao().apply {
                 insert(
@@ -389,7 +409,6 @@ class HomeFragment : Fragment() {
 
             }
         }
-
         recentItem.addAll(
             //DB에서 item들 불러오기
             menuDB.menuDataDao().getAll()
