@@ -2,6 +2,7 @@ package com.example.kuit4androidprivate.home
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Rect
 import android.os.Bundle
 import android.os.Handler
@@ -18,6 +19,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.adapter.RVAdapterCategory
@@ -26,7 +28,9 @@ import com.example.kuit4androidprivate.adapter.VPAdapterHome
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
+import com.example.kuit4androidprivate.model.MenuCategoryDB
 import com.example.kuit4androidprivate.model.MenuCategoryData
+import com.example.kuit4androidprivate.model.MenuDB
 import com.example.kuit4androidprivate.model.MenuData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -54,6 +58,12 @@ class HomeFragment : Fragment() {
     private var currentPosition = 0
     private var mHandler = Handler(Looper.getMainLooper())
 
+    //카테고리에 사용
+    private lateinit var menuCategoryDB: MenuCategoryDB
+
+    //최근 본 맛집에 사용
+    private lateinit var menuDB: MenuDB
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,7 +74,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initVPAdapterHome() {
-        binding.vpHome.adapter = VPAdapterHome(vpItems.size).apply{
+        binding.vpHome.adapter = VPAdapterHome(vpItems.size).apply {
             submitList(vpItems)
         }
 
@@ -132,68 +142,131 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        initCategory()
-        initRVAdapterCategory()
-        initRecent()
-        initRVAdapterRecent()
+        CoroutineScope(Dispatchers.IO).launch {
+            //main thread에서 하지 않도록 IO에서 작업
+            initCategory()
+            //위의 IO처리가 완료되면 아래 작업들 실행
+            withContext(Dispatchers.Main) {
+                initRVAdapterCategory()
+            }
+
+            //최근 본 맛집에 대한 IO, 위의 코드들이 실행된 뒤에 실행
+            initRecent()
+            //위의 IO처리가 완료되면 아래 작업들 실행
+            withContext(Dispatchers.Main) {
+                initRVAdapterRecent()
+            }
+        }
         initVPData()
         initVPAdapterHome()
         initEditText()
-
-//        initVPSwipe1()
-//        initVPSwipe2()
-//        initVPSwipe3() //정상작동
-//        initVPSwipe4()
-//        initVPSwipe5() //정상작동
-//        initVPSwipe6() //정상작동
-//        initVPSwipe7()
-//        initVPSwipe8() //정상작동
-//        CoroutineTest1() //정상작동
-//        CoroutineTest2() //정상작동
-//        CoroutineTest3()
-
     }
 
-    private fun initCategory() {
+    private suspend fun initCategory() {
+        val spfMenuCategory: SharedPreferences =
+            requireContext().getSharedPreferences("menu_category", Context.MODE_PRIVATE)
+
+        menuCategoryDB = MenuCategoryDB.getInstance(requireContext())
+        Log.d("test", spfMenuCategory.getBoolean("isInit", false).toString())
+
+        if (!spfMenuCategory.getBoolean("isInit", false)) {
+            with(spfMenuCategory.edit()) {
+                putBoolean("isInit", true)
+                apply()
+            }
+
+            //isInit이 false이면 item들 db에 저장
+            menuCategoryDB.menuCategoryDao().apply {
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.pork_cutlet),
+                        R.drawable.img_pork_cutlet
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.japanese_food),
+                        R.drawable.img_japanese_food
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.korean_food),
+                        R.drawable.img_korean_food
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.chicken),
+                        R.drawable.img_chicken
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.snack_food),
+                        R.drawable.img_snack_food
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.bossam),
+                        R.drawable.img_bossam
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.soup),
+                        R.drawable.img_soup
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.barbeque),
+                        R.drawable.img_barbeque
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.pizza),
+                        R.drawable.img_pizza
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.pork_cutlet2),
+                        R.drawable.img_pork_cutlet2
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.chinese),
+                        R.drawable.img_chinese
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.seafood),
+                        R.drawable.img_seafood
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.western),
+                        R.drawable.img_pasta
+                    )
+                )
+                insert(
+                    MenuCategoryData(
+                        getString(R.string.dessert),
+                        R.drawable.img_dessert
+                    )
+                )
+            }
+        }
+
         categoryItem.addAll(
-            arrayListOf(
-                MenuCategoryData(
-                    getString(R.string.pork_cutlet),
-                    R.drawable.img_pork_cutlet
-                ),
-                MenuCategoryData(
-                    getString(R.string.japanese_food),
-                    R.drawable.img_japanese_food
-                ),
-                MenuCategoryData(
-                    getString(R.string.korean_food),
-                    R.drawable.img_korean_food
-                ),
-                MenuCategoryData(
-                    getString(R.string.chicken),
-                    R.drawable.img_chicken
-                ),
-                MenuCategoryData(
-                    getString(R.string.snack_food),
-                    R.drawable.img_snack_food
-                ),
-                MenuCategoryData(
-                    getString(R.string.bossam),
-                    R.drawable.img_bossam
-                ),
-                MenuCategoryData(
-                    getString(R.string.soup),
-                    R.drawable.img_soup
-                ),
-                MenuCategoryData(
-                    getString(R.string.barbeque),
-                    R.drawable.img_barbeque
-                ),
-                MenuCategoryData(
-                    getString(R.string.pizza),
-                    R.drawable.img_pizza
-                ),
-            )
+            //DB에서 item들 다 불러오기
+            menuCategoryDB.menuCategoryDao().getAll()
         )
     }
 
@@ -202,14 +275,20 @@ class HomeFragment : Fragment() {
             requireContext(),
             items = categoryItem,
             categoryClickListener = {
-                Toast.makeText(requireContext(), it.categoryName, Toast.LENGTH_LONG).show()
+//                Toast.makeText(requireContext(), it.categoryName, Toast.LENGTH_LONG).show()
             },
             showMoreClickListener = {
-                Toast.makeText(requireContext(), "더보기", Toast.LENGTH_LONG).show()
+//                Toast.makeText(requireContext(), "더보기", Toast.LENGTH_LONG).show()
+                rvAdapterCategory.toggleCategory()
             })
 
-        val itemDecoration = object: RecyclerView.ItemDecoration(){
-            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+        val itemDecoration = object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: Rect,
+                view: View,
+                parent: RecyclerView,
+                state: RecyclerView.State
+            ) {
                 // 좌우 및 상하 간격 설정
                 outRect.bottom = 7
             }
@@ -223,80 +302,116 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun initRecent() {
+    private suspend fun initRecent() {
+        val spfRecentMenuData: SharedPreferences =
+            requireContext().getSharedPreferences("recent_menu_data", Context.MODE_PRIVATE)
+
+        menuDB = MenuDB.getInstance(requireContext())
+        Log.d("test", spfRecentMenuData.getBoolean("isInit", false).toString())
+
+        if (!spfRecentMenuData.getBoolean("isInit", false)) {
+            with(spfRecentMenuData.edit()) {
+                putBoolean("isInit", true)
+                apply()
+            }
+            //최근 본 맛집 데이터 추가
+            menuDB.menuDataDao().apply {
+                insert(
+                    MenuData(
+                        restaurantName = "모터시티",
+                        eta = "30분",
+                        imgUrl = "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240306_55%2F1709683905690CRcjK_JPEG%2FIMG_3105.jpeg",
+                        rating = "4.9",
+                        totalReviews = "(3149)"
+                    )
+                )
+                insert(
+                    MenuData(
+                        restaurantName = "지노스 피자",
+                        eta = "31분",
+                        imgUrl = "https://ldb-phinf.pstatic.net/20240421_108/1713677860549T8AzD_JPEG/KakaoTalk_20240418_210511163_03.jpg",
+                        rating = "4.9",
+                        totalReviews = "(3249)"
+                    )
+                )
+                insert(
+                    MenuData(
+                        restaurantName = "우래옥",
+                        eta = "32분",
+                        imgUrl = "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNDA5MjlfMTU3%2FMDAxNzI3NTg5MTI1Mjkz.rn45W-mYbs-LflYbvnFQHCV2uZmyo1j7RmmbFXVMUYIg.tBOf99kd04i8Cdtr7Z9-6Cyer73lANZy_IdDKM1HxcMg.JPEG%2F11D3207C-F9F0-4C0D-A6B8-48F855E8C8AE.jpeg%3Ftype%3Dw1500_60_sharpen",
+                        rating = "4.9",
+                        totalReviews = "(3349)"
+                    )
+                )
+                insert(
+                    MenuData(
+                        restaurantName = "파이브가이즈",
+                        eta = "33분",
+                        imgUrl = "https://ldb-phinf.pstatic.net/20240911_26/1726021704778F3qK5_PNG/%B8%DE%B4%BA_%C7%DC%B9%F6%B0%C5.png",
+                        rating = "4.9",
+                        totalReviews = "(3449)"
+                    )
+                )
+                insert(
+                    MenuData(
+                        restaurantName = "고든램지버거",
+                        eta = "34분",
+                        imgUrl = "https://ldb-phinf.pstatic.net/20230726_13/16903611564251FjFA_JPEG/1-2%C7%EF%BD%BA%C5%B0%C4%A3_%282%29.jpg",
+                        rating = "4.9",
+                        totalReviews = "(3549)"
+                    )
+                )
+                insert(
+                    MenuData(
+                        restaurantName = "낙원타코",
+                        eta = "35분",
+                        imgUrl = "https://ldb-phinf.pstatic.net/20220928_273/166435807855170eC8_PNG/42.%B9%CC%C6%AE%C4%DE%BA%B8%C6%C4%C8%F7%C5%B8_.png",
+                        rating = "4.9",
+                        totalReviews = "(3649)"
+                    )
+                )
+                insert(
+                    MenuData(
+                        restaurantName = "부산안면옥",
+                        eta = "36분",
+                        imgUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA4MDZfMTYg%2FMDAxNzIyOTUxMzA0NzI3.XUiTiP-njBpiBCz_hCRllY2wWwmURckNRaRwqE_brTUg.YxLCT9DUrLnKonEJTp-3ReUR4y9LYUfFWCJMc-l_qsgg.JPEG%2FKakaoTalk_20240805_224239008_08.jpg",
+                        rating = "4.9",
+                        totalReviews = "(3749)"
+                    )
+                )
+                insert(
+                    MenuData(
+                        restaurantName = "소원반점",
+                        eta = "37분",
+                        imgUrl = "https://ldb-phinf.pstatic.net/20230323_178/1679549207633VXs4F_JPEG/2CB0EDF0-91AA-4AC6-B656-F2C1D19347C0.jpeg",
+                        rating = "4.9",
+                        totalReviews = "(3849)"
+                    )
+                )
+                insert(
+                    MenuData(
+                        restaurantName = "소금집",
+                        eta = "38분",
+                        imgUrl = "https://ldb-phinf.pstatic.net/20240417_120/1713343933033v1Hvq_JPEG/%B7%E7%BA%A5_%B4%DC%B5%B6.jpg",
+                        rating = "4.9",
+                        totalReviews = "(3949)"
+                    )
+                )
+                insert(
+                    MenuData(
+                        restaurantName = "bhc",
+                        eta = "39분",
+                        imgUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA0MDNfMjA0%2FMDAxNTg1OTExNjM2MjIy.-TUFGBHW_mMmjYGL0X4VHHeuY8nj6Gll9n-fQlLwrzYg.jHPnNRWnB6Dwpvc7bY3mwFhtpWujdk51gpHX4JlRk_gg.JPEG.tldbs2814%2FIMG_0323.JPG&type=sc960_832",
+                        rating = "4.9",
+                        totalReviews = "(3119)"
+                    )
+                )
+
+            }
+        }
         recentItem.addAll(
-            arrayListOf(
-                MenuData(
-                    restaurantName = "모터시티",
-                    eta = "30분",
-                    imgUrl = "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240306_55%2F1709683905690CRcjK_JPEG%2FIMG_3105.jpeg",
-                    rating = "4.9",
-                    totalReviews = "(3149)"
-                ),
-                MenuData(
-                    restaurantName = "지노스 피자",
-                    eta = "31분",
-                    imgUrl = "https://ldb-phinf.pstatic.net/20240421_108/1713677860549T8AzD_JPEG/KakaoTalk_20240418_210511163_03.jpg",
-                    rating = "4.9",
-                    totalReviews = "(3249)"
-                ),
-                MenuData(
-                    restaurantName = "우래옥",
-                    eta = "32분",
-                    imgUrl = "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNDA5MjlfMTU3%2FMDAxNzI3NTg5MTI1Mjkz.rn45W-mYbs-LflYbvnFQHCV2uZmyo1j7RmmbFXVMUYIg.tBOf99kd04i8Cdtr7Z9-6Cyer73lANZy_IdDKM1HxcMg.JPEG%2F11D3207C-F9F0-4C0D-A6B8-48F855E8C8AE.jpeg%3Ftype%3Dw1500_60_sharpen",
-                    rating = "4.9",
-                    totalReviews = "(3349)"
-                ),
-                MenuData(
-                    restaurantName = "파이브가이즈",
-                    eta = "33분",
-                    imgUrl = "https://ldb-phinf.pstatic.net/20240911_26/1726021704778F3qK5_PNG/%B8%DE%B4%BA_%C7%DC%B9%F6%B0%C5.png",
-                    rating = "4.9",
-                    totalReviews = "(3449)"
-                ),
-                MenuData(
-                    restaurantName = "고든램지버거",
-                    eta = "34분",
-                    imgUrl = "https://ldb-phinf.pstatic.net/20230726_13/16903611564251FjFA_JPEG/1-2%C7%EF%BD%BA%C5%B0%C4%A3_%282%29.jpg",
-                    rating = "4.9",
-                    totalReviews = "(3549)"
-                ),
-                MenuData(
-                    restaurantName = "낙원타코",
-                    eta = "35분",
-                    imgUrl = "https://ldb-phinf.pstatic.net/20220928_273/166435807855170eC8_PNG/42.%B9%CC%C6%AE%C4%DE%BA%B8%C6%C4%C8%F7%C5%B8_.png",
-                    rating = "4.9",
-                    totalReviews = "(3649)"
-                ),
-                MenuData(
-                    restaurantName = "부산안면옥",
-                    eta = "36분",
-                    imgUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA4MDZfMTYg%2FMDAxNzIyOTUxMzA0NzI3.XUiTiP-njBpiBCz_hCRllY2wWwmURckNRaRwqE_brTUg.YxLCT9DUrLnKonEJTp-3ReUR4y9LYUfFWCJMc-l_qsgg.JPEG%2FKakaoTalk_20240805_224239008_08.jpg",
-                    rating = "4.9",
-                    totalReviews = "(3749)"
-                ),
-                MenuData(
-                    restaurantName = "소원반점",
-                    eta = "37분",
-                    imgUrl = "https://ldb-phinf.pstatic.net/20230323_178/1679549207633VXs4F_JPEG/2CB0EDF0-91AA-4AC6-B656-F2C1D19347C0.jpeg",
-                    rating = "4.9",
-                    totalReviews = "(3849)"
-                ),
-                MenuData(
-                    restaurantName = "소금집",
-                    eta = "38분",
-                    imgUrl = "https://ldb-phinf.pstatic.net/20240417_120/1713343933033v1Hvq_JPEG/%B7%E7%BA%A5_%B4%DC%B5%B6.jpg",
-                    rating = "4.9",
-                    totalReviews = "(3949)"
-                ),
-                MenuData(
-                    restaurantName = "bhc",
-                    eta = "39분",
-                    imgUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA0MDNfMjA0%2FMDAxNTg1OTExNjM2MjIy.-TUFGBHW_mMmjYGL0X4VHHeuY8nj6Gll9n-fQlLwrzYg.jHPnNRWnB6Dwpvc7bY3mwFhtpWujdk51gpHX4JlRk_gg.JPEG.tldbs2814%2FIMG_0323.JPG&type=sc960_832",
-                    rating = "4.9",
-                    totalReviews = "(3119)"
-                ),
-            )
+            //DB에서 item들 불러오기
+            menuDB.menuDataDao().getAll()
         )
     }
 
@@ -315,80 +430,87 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun initEditText(){
-        binding.etHomeSuggestion.setOnEditorActionListener{textView,i,keyEvent->
-            if(i == EditorInfo.IME_ACTION_SEARCH){
-                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(binding.etHomeSuggestion.windowToken,0)
+    private fun initEditText() {
+        binding.etHomeSuggestion.setOnEditorActionListener { textView, i, keyEvent ->
+            if (i == EditorInfo.IME_ACTION_SEARCH) {
+                val imm =
+                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etHomeSuggestion.windowToken, 0)
 
                 binding.etHomeSuggestion.clearFocus()
 
                 true
-            }else{
+            } else {
                 false
             }
         }
     }
 
-    private fun swipePage(){
-        with(binding.vpHome){
-            if(currentPosition > 4)
+
+    /*
+    * 밑으로는 thread, coroutine 연습에 사용한 코드들, 위에서 쓰이지는 않음
+    * */
+
+    private fun swipePage() {
+        with(binding.vpHome) {
+            if (currentPosition > 4)
                 currentPosition = 0
-            setCurrentItem(currentPosition,true)
+            setCurrentItem(currentPosition, true)
             currentPosition++
         }
     }
 
-    private fun initVPSwipe1(){
+    private fun initVPSwipe1() {
         //이렇게 해서 onviewcreated에서 사용하면 UI 생성이 완료되지 않음
-        while(true){
+        while (true) {
             Thread.sleep(3000)
             swipePage()
         }
     }
 
-    private fun initVPSwipe2(){
+    private fun initVPSwipe2() {
         //이렇게 backgroundThread에서 UI를 건드리면 안됨
         var swipeThread = SwipeThread()
         swipeThread.start()
     }
 
-    inner class SwipeThread:Thread(){
+    inner class SwipeThread : Thread() {
         override fun run() {
-            while(true){
+            while (true) {
                 sleep(3000)
                 swipePage()
             }
         }
     }
 
-    private fun initVPSwipe3(){
+    //정상 작동
+    private fun initVPSwipe3() {
         Thread(swipeRunnable()).start()
     }
 
-    inner class mainHandler : Handler(Looper.getMainLooper()){
+    inner class mainHandler : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             swipePage()
             super.handleMessage(msg)
         }
     }
 
-    inner class swipeRunnable: Runnable{
+    inner class swipeRunnable : Runnable {
         override fun run() {
-            while(true){
+            while (true) {
                 sleep(3000)
                 mainHandler().sendEmptyMessage(0)
             }
         }
     }
 
-    private fun initVPSwipe4(){
+    private fun initVPSwipe4() {
         //mainHandler2가 sleep되기 때문에 UI 처리 자체가 block 되어버림
         mainHandler2().sendEmptyMessage(0)
 
     }
 
-    inner class mainHandler2: Handler(Looper.getMainLooper()){
+    inner class mainHandler2 : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             swipePage()
             sleep(3000)
@@ -397,14 +519,15 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun initVPSwipe5(){
+    //정상 작동
+    private fun initVPSwipe5() {
         //swipe4를 해결하기 위한 방법, postDelayed로 비동기 처리를 사용
         mHandler.postDelayed(object : Runnable {
             override fun run() {
                 swipePage()
-                mHandler.postDelayed(this,3000)
+                mHandler.postDelayed(this, 3000)
             }
-        },3000)
+        }, 3000)
 
         binding.ivHomeVpOrder.setOnClickListener {
             //보낸 message, runnable을 다 없애 버림 -> 넘어가던 동작이 멈춤
@@ -412,62 +535,65 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun initVPSwipe6(){
+    //정상 작동
+    private fun initVPSwipe6() {
         //initVPSwipe5와 비슷한 방식, 재귀
         mHandler.postDelayed({
             swipePage()
             initVPSwipe6()
-        },3000)
+        }, 3000)
     }
 
-    private fun initVPSwipe7(){
+    private fun initVPSwipe7() {
         //UI작업은 main thread에서만 해야하는데 Default는 main이 아니기 때문에 오류 발생
         CoroutineScope(Dispatchers.Default).launch {
-            while(true){
+            while (true) {
                 delay(3000)
                 swipePage()
             }
         }
     }
 
-    private fun initVPSwipe8(){
+    //정상 작동
+    private fun initVPSwipe8() {
         //coroutinescope는 job을 반환
         var job = CoroutineScope(Dispatchers.Default).launch {
-            while (true){
+            while (true) {
                 delay(3000)
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     swipePage()
                 }
             }
         }
 
-        binding.ivHomeVpOrder.setOnClickListener{
+        binding.ivHomeVpOrder.setOnClickListener {
             //coroutine을 종료시킴
             job.cancel()
         }
     }
 
-    private fun CoroutineTest1(){
+    //정상 작동
+    private fun CoroutineTest1() {
         CoroutineScope(Dispatchers.Default).launch {
-            while(true){
+            while (true) {
                 //coroutine 안에서 생성한 새로운 coroutine
                 launch {
                     delay(3000)
                 }.join() //join()이 없으면 이 블록이 실행되고 나서 아래 블록이 실행되는게 아니라 그냥 계속 실행됨
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     swipePage()
                 }
             }
         }
     }
 
-    private fun CoroutineTest2(){
+    private fun CoroutineTest2() {
     }
 
-    private fun CoroutineTest3(){
+    private fun CoroutineTest3() {
         var count = 0
         CoroutineScope(Dispatchers.Default).launch {
-            while(true){
+            while (true) {
                 launch {
                     runBlocking {
                         //이 블록이 끝날때까지 기다림, 잘 쓰지는 않음
@@ -475,35 +601,34 @@ class HomeFragment : Fragment() {
                         count += 10
                     }
                 }
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     swipePage()
                 }
-                Log.d("test","$count")
+                Log.d("test", "$count")
             }
         }
     }
 
-    private fun CoroutineTest4(){
+    private fun CoroutineTest4() {
         var count = 0
         CoroutineScope(Dispatchers.Default).launch {
-            while(true){
+            while (true) {
                 //이 부분을 CoroutineDelay 안에 넣을 수도 있음
                 count = CoroutineDelay(count)
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     swipePage()
                 }
 
-                Log.d("test","$count")
+                Log.d("test", "$count")
             }
         }
     }
 
     //suspend로 사용해야한다 (coroutine에서 사용한다는 표시)
-    suspend fun CoroutineDelay(count: Int): Int{
+    suspend fun CoroutineDelay(count: Int): Int {
         delay(3000)
         return count + 10
     }
-
 
 
 }
