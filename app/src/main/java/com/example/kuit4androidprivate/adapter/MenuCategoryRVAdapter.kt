@@ -3,6 +3,7 @@ package com.example.kuit4androidprivate.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.CategoryShowMoreBinding
 import com.example.kuit4androidprivate.databinding.MenuCategoryItemBinding
 import com.example.kuit4androidprivate.home.HomeFragment
@@ -29,8 +30,7 @@ class MenuCategoryRVAdapter(
     inner class ShowMoreViewHolder(val binding: CategoryShowMoreBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.root.setOnClickListener() {
-            }
+
         }
     }
 
