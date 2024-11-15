@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kuit4androidprivate.R
+import com.example.kuit4androidprivate.model.MenuCategoryData
 
 class MenuCategoryDataAdapter(private val menuCategoryDataList: List<MenuCategoryData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
