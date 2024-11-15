@@ -2,27 +2,36 @@ package com.example.kuit4androidprivate.home
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
+import androidx.room.Room
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.FavoriteActivity
 import com.example.kuit4androidprivate.adapter.GridRVAdapter
 import com.example.kuit4androidprivate.adapter.HomeImageRVAdapter
 import com.example.kuit4androidprivate.adapter.HorizontalRVAdapter
+import com.example.kuit4androidprivate.data.MenuCategoryDB
 import com.example.kuit4androidprivate.data.MenuCategoryData
+import com.example.kuit4androidprivate.data.MenuDB
 import com.example.kuit4androidprivate.data.MenuData
 import com.example.kuit4androidprivate.data.ScrollImageData
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class HomeFragment : Fragment() {
@@ -34,6 +43,9 @@ class HomeFragment : Fragment() {
     private var menuCategoryData: ArrayList<MenuCategoryData> = ArrayList()
     private var menuData: ArrayList<MenuData> = ArrayList()
     private var homeImageData: ArrayList<ScrollImageData> = ArrayList()
+
+    private lateinit var menuCategoryDB: MenuCategoryDB
+    private lateinit var menuDB: MenuDB
 
 
     override fun onCreateView(
@@ -85,47 +97,102 @@ class HomeFragment : Fragment() {
     }
 
     private fun addMenuData() {
-        menuData.addAll(
-            arrayListOf(
-                MenuData(image=R.drawable.img_tteokbokki, name="아워떡볶이", score="4.9",
-                    review="3,849", minute="30분"),
-                MenuData(image=R.drawable.img_bagel, name="니커버커베이글", score="4.9",
-                    review="7,079", minute="40분"),
-                MenuData(image=R.drawable.img_bbq, name="BBQ", score="4.4",
-                    review="5,093", minute="40분"),
-                MenuData(image=R.drawable.img_donut, name="크리스피크림도넛", score="4.6",
-                    review="983", minute="20분"),
-                MenuData(image=R.drawable.img_burger, name="맥도날드", score="4.7",
-                    review="6,849", minute="25분"),
-                MenuData(image=R.drawable.img_gukbap, name="정담옥", score="4.5",
-                    review="849", minute="50분"),
-                MenuData(image=R.drawable.img_jjimdalk, name="두마리찜닭", score="4.9",
-                    review="9,849", minute="50분"),
-                MenuData(image=R.drawable.img_rice_noodle, name="미스사이공", score="4.8",
-                    review="3,583", minute="30분"),
-                MenuData(image=R.drawable.img_taco, name="꼰미고", score="4.9",
-                    review="829", minute="30분"),
-                MenuData(image=R.drawable.img_korean_meal, name="주막례고등어구이", score="4.4",
-                    review="9,836", minute="40분")
-            )
-        )
+
+        val spf_menuData: SharedPreferences = requireContext().getSharedPreferences("menu", Context.MODE_PRIVATE)
+
+        menuDB = Room.databaseBuilder(requireContext(), MenuDB::class.java, "menu_database").build()
+
+       if(!spf_menuData.getBoolean("isInit", false)) {
+            lifecycleScope.launch(Dispatchers.IO) {
+                menuDB.MenuDao().apply {
+                    insert(MenuData(image=R.drawable.img_tteokbokki, name="아워떡볶이", score="4.9",
+                            review="3,849", minute="30분"))
+                    insert(MenuData(image=R.drawable.img_bagel, name="니커버커베이글", score="4.9",
+                            review="7,079", minute="40분"))
+                    insert(MenuData(image=R.drawable.img_bbq, name="BBQ", score="4.4",
+                            review="5,093", minute="40분"))
+                    insert(MenuData(image=R.drawable.img_donut, name="크리스피크림도넛", score="4.6",
+                            review="983", minute="20분"))
+                    insert(MenuData(image=R.drawable.img_burger, name="맥도날드", score="4.7",
+                            review="6,849", minute="25분"))
+                    insert(MenuData(image=R.drawable.img_gukbap, name="정담옥", score="4.5",
+                            review="849", minute="50분"))
+                    insert(MenuData(image=R.drawable.img_jjimdalk, name="두마리찜닭", score="4.9",
+                            review="9,849", minute="50분"))
+                    insert(MenuData(image=R.drawable.img_rice_noodle, name="미스사이공", score="4.8",
+                            review="3,583", minute="30분"))
+                    insert(MenuData(image=R.drawable.img_taco, name="꼰미고", score="4.9",
+                            review="829", minute="30분"))
+                    insert(MenuData(image=R.drawable.img_korean_meal, name="주막례고등어구이", score="4.4",
+                            review="9,836", minute="40분"))
+                }
+                val data = menuDB.MenuDao().getAll()
+                withContext(Dispatchers.Main) {
+                    menuData.addAll(data)
+                    horizontalRVAdapter.notifyDataSetChanged()
+                }
+            }
+            with(spf_menuData.edit()){
+                putBoolean("isInit", true)
+                apply()
+            }
+        }
+        else {
+            lifecycleScope.launch(Dispatchers.IO) {
+                val data = menuDB.MenuDao().getAll()
+                withContext(Dispatchers.Main){
+                    menuData.addAll(data)
+                    horizontalRVAdapter.notifyDataSetChanged()
+                }
+            }
+        }
+
     }
 
     private fun addMenuCategoryData() {
-        menuCategoryData.addAll(
-            arrayListOf(
-                MenuCategoryData(image = R.drawable.img_pork_cutlet , name = "돈가스"),
-                MenuCategoryData(image = R.drawable.img_japanese_food , name = "일식"),
-                MenuCategoryData(image = R.drawable.img_korean_food, name = "한식"),
-                MenuCategoryData(image = R.drawable.img_bbq , name = "치킨"),
-                MenuCategoryData(image = R.drawable.img_snack_food , name = "분식"),
-                MenuCategoryData(image = R.drawable.img_jokbal_bossam , name = "족발/보쌈"),
-                MenuCategoryData(image = R.drawable.img_soup , name = "찜/탕"),
-                MenuCategoryData(image = R.drawable.img_roast , name = "구이"),
-                MenuCategoryData(image = R.drawable.img_pizza , name = "피자"),
-                MenuCategoryData(image = R.drawable.img_pizza, name = "더보기")
-            )
-        )
+        val spf_menuCategory: SharedPreferences = requireContext().getSharedPreferences("menu_category", Context.MODE_PRIVATE)
+
+        menuCategoryDB = Room.databaseBuilder(
+            requireContext(),
+            MenuCategoryDB::class.java,
+            "menu_category_database"
+        ).build()
+
+        if(!spf_menuCategory.getBoolean("isInit", false)) {
+            lifecycleScope.launch(Dispatchers.IO) {
+                Log.d("ThreadCheck", "Current Thread: ${Thread.currentThread().name}")
+                menuCategoryDB.MenuCategoryDao().apply{
+                    insert(MenuCategoryData(image = R.drawable.img_pork_cutlet , name = "돈가스"))
+                    insert(MenuCategoryData(image = R.drawable.img_japanese_food , name = "일식"))
+                    insert(MenuCategoryData(image = R.drawable.img_korean_food, name = "한식"))
+                    insert(MenuCategoryData(image = R.drawable.img_bbq , name = "치킨"))
+                    insert(MenuCategoryData(image = R.drawable.img_snack_food , name = "분식"))
+                    insert(MenuCategoryData(image = R.drawable.img_jokbal_bossam , name = "족발/보쌈"))
+                    insert(MenuCategoryData(image = R.drawable.img_soup , name = "찜/탕"))
+                    insert(MenuCategoryData(image = R.drawable.img_roast , name = "구이"))
+                    insert(MenuCategoryData(image = R.drawable.img_pizza , name = "피자"))
+                    insert(MenuCategoryData(image = R.drawable.img_pizza, name = "더보기"))
+                }
+                val data = menuCategoryDB.MenuCategoryDao().getAll()
+                withContext(Dispatchers.Main) {
+                    menuCategoryData.addAll(data)
+                    gridRVAdapter.notifyDataSetChanged()
+                }
+            }
+            with(spf_menuCategory.edit()){
+                putBoolean("isInit", true)
+                apply()
+            }
+        }
+        else {
+            lifecycleScope.launch(Dispatchers.IO) {
+                val data = menuCategoryDB.MenuCategoryDao().getAll()
+                withContext(Dispatchers.Main){
+                    menuCategoryData.addAll(data)
+                    gridRVAdapter.notifyDataSetChanged()
+                }
+            }
+        }
     }
 
     private fun initHorizontalRVAdapter() {

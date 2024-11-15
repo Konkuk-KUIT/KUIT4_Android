@@ -43,10 +43,15 @@ class DetailActivity : AppCompatActivity() {
             finish()
         }
 
-        val menuData: MenuData = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getSerializableExtra("menuData", MenuData::class.java)!!
+        val menuData: MenuData? = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getSerializableExtra("menuData", MenuData::class.java)
         }else {
-            intent.getSerializableExtra("menuData") as MenuData
+            intent.getSerializableExtra("menuData") as? MenuData
+        }
+
+        if(menuData == null){
+            finish()
+            return
         }
 
 
