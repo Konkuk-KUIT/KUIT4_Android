@@ -19,6 +19,10 @@ import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
+import com.example.kuit4androidprivate.model.MenuCategoryDB
+import com.example.kuit4androidprivate.model.MenuCategoryData
+import com.example.kuit4androidprivate.model.MenuDB
+import com.example.kuit4androidprivate.model.MenuData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -40,6 +44,114 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
+        val sharedPreferences = requireContext().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val isFirst = sharedPreferences.getBoolean("is_first", true)
+
+        val menuCategoryDb = MenuCategoryDB.getDatabase(requireContext())
+        val menuCategoryDao = menuCategoryDb.menuCategoryDao()
+
+        val menuDb = MenuDB.getDatabase(requireContext())
+        val menuDataDao = menuDb.menuDataDao()
+
+        if (isFirst) {
+            CoroutineScope(Dispatchers.IO).launch {
+                val menuCategoryDataList = listOf(
+                    MenuCategoryData(name = "돈까스", imageRes = R.drawable.img_home_porkcutlet),
+                    MenuCategoryData(name = "일식", imageRes = R.drawable.img_home_japanesefood),
+                    MenuCategoryData(name = "한식", imageRes = R.drawable.img_home_koreanfood),
+                    MenuCategoryData(name = "치킨", imageRes = R.drawable.img_home_chicken),
+                    MenuCategoryData(name = "분식", imageRes = R.drawable.img_home_snackfood),
+                    MenuCategoryData(name = "족발/보쌈", imageRes = R.drawable.img_home_jokbal),
+                    MenuCategoryData(name = "찜/탕", imageRes = R.drawable.img_home_steampot),
+                    MenuCategoryData(name = "구이", imageRes = R.drawable.img_home_grill),
+                    MenuCategoryData(name = "피자", imageRes = R.drawable.img_home_pizza),
+                    MenuCategoryData(name = "더보기", imageRes = R.drawable.ic_more)
+                )
+                for (category in menuCategoryDataList) {
+                    menuCategoryDao.insert(category)
+                }
+
+                val menuDataList = listOf(
+                    MenuData("굽네치킨", "5.0", "3,949", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
+                    MenuData("BHC", "4.8", "1,200", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
+                    MenuData("BBQ", "4.5", "1,700", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
+                    MenuData("처갓집양념치킨", "4.6", "800", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
+                    MenuData("지코바", "4.9", "920", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
+                    MenuData("네네치킨", "5.0", "704", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
+                    MenuData("신통치킨", "4.5", "2,434", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
+                    MenuData("순살만공격", "4.1", "799", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
+                    MenuData("페리카나", "4.7", "2,414", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
+                    MenuData("BBQ", "4.7", "999", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg")
+                )
+                for (menu in menuDataList) {
+                    menuDataDao.insert(menu)
+                }
+
+                sharedPreferences.edit().putBoolean("is_first", false).apply()
+
+                val menuCategory = menuCategoryDao.getAllCategories()
+                withContext(Dispatchers.Main) {
+                    foodAdapter = MenuCategoryDataAdapter(menuCategory)
+                    binding.rvHomeFood.apply {
+                        layoutManager = GridLayoutManager(context, 5)
+                        adapter = foodAdapter
+                        addItemDecoration(GridSpacingItemDecoration(5, 30, true))
+                    }
+                }
+
+                val menu = menuDataDao.getAllMenus()
+                withContext(Dispatchers.Main) {
+                    menuAdapter = MenuDataAdapter(menu) { menuData ->
+                        val intent = Intent(requireContext(), DetailActivity::class.java).apply {
+                            putExtra("name", menuData.name)
+                            putExtra("score", menuData.score)
+                            putExtra("reviewCount", menuData.reviewCount)
+                            putExtra("imageUrl", menuData.imageUrl)
+                        }
+                        startActivity(intent)
+                    }
+                    binding.rvHomeSee.apply {
+                        layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                        adapter = menuAdapter
+                        addItemDecoration(HorizontalSpacingItemDecoration(50))
+                    }
+                }
+            }
+        } else {
+            CoroutineScope(Dispatchers.IO).launch {
+                val menuCategories = menuCategoryDao.getAllCategories()
+                withContext(Dispatchers.Main) {
+                    foodAdapter = MenuCategoryDataAdapter(menuCategories)
+                    binding.rvHomeFood.apply {
+                        layoutManager = GridLayoutManager(context, 5)
+                        adapter = foodAdapter
+                        addItemDecoration(GridSpacingItemDecoration(5, 30, true))
+                    }
+                }
+            }
+
+            // MenuData 읽기
+            CoroutineScope(Dispatchers.IO).launch {
+                val menus = menuDataDao.getAllMenus()
+                withContext(Dispatchers.Main) {
+                    menuAdapter = MenuDataAdapter(menus) { menuData ->
+                        val intent = Intent(requireContext(), DetailActivity::class.java).apply {
+                            putExtra("name", menuData.name)
+                            putExtra("score", menuData.score)
+                            putExtra("reviewCount", menuData.reviewCount)
+                            putExtra("imageUrl", menuData.imageUrl)
+                        }
+                        startActivity(intent)
+                    }
+                    binding.rvHomeSee.apply {
+                        layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                        adapter = menuAdapter
+                        addItemDecoration(HorizontalSpacingItemDecoration(50))
+                    }
+                }
+            }
+        }
+
         initEditText()
 
         binding.rvHomeSee.setOnClickListener {
@@ -50,56 +162,6 @@ class HomeFragment : Fragment() {
         binding.btnHomeGo.setOnClickListener {
             val intent = Intent(requireContext(), FavoriteActivity::class.java)
             startActivity(intent)
-        }
-
-        val menuCategoryDataList = listOf(
-            MenuCategoryData("돈까스", R.drawable.img_home_porkcutlet),
-            MenuCategoryData("일식", R.drawable.img_home_japanesefood),
-            MenuCategoryData("한식", R.drawable.img_home_koreanfood),
-            MenuCategoryData("치킨", R.drawable.img_home_chicken),
-            MenuCategoryData("분식", R.drawable.img_home_snackfood),
-            MenuCategoryData("족발/보쌈", R.drawable.img_home_jokbal),
-            MenuCategoryData("찜/탕", R.drawable.img_home_steampot),
-            MenuCategoryData("구이", R.drawable.img_home_grill),
-            MenuCategoryData("피자", R.drawable.img_home_pizza),
-            MenuCategoryData("더보기", R.drawable.ic_more)
-        )
-
-        foodAdapter = MenuCategoryDataAdapter(menuCategoryDataList)
-
-        binding.rvHomeFood.apply {
-            layoutManager = GridLayoutManager(context, 5)
-            adapter = foodAdapter
-            addItemDecoration(GridSpacingItemDecoration(5, 30, true))
-        }
-
-        val menuCategoryList = listOf(
-            MenuData("굽네치킨", "5.0", "3,949", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-            MenuData("BHC", "4.8", "1,200", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-            MenuData("BBQ", "4.5", "1,700", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-            MenuData("처갓집양념치킨", "4.6", "800", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-            MenuData("지코바", "4.9", "920", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-            MenuData("네네치킨", "5.0", "704", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-            MenuData("신통치킨", "4.5", "2,434", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-            MenuData("순살만공격", "4.1", "799", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-            MenuData("페리카나", "4.7", "2,414", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-            MenuData("BBQ", "4.7", "999", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696_1280.jpg"),
-        )
-
-        menuAdapter = MenuDataAdapter(menuCategoryList) { menuData ->
-            val intent = Intent(requireContext(), DetailActivity::class.java).apply {
-                putExtra("name", menuData.name)
-                putExtra("score", menuData.score)
-                putExtra("reviewCount", menuData.reviewCount)
-                putExtra("imageUrl", menuData.imageUrl)
-            }
-            startActivity(intent)
-        }
-
-        binding.rvHomeSee.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = menuAdapter
-            addItemDecoration(HorizontalSpacingItemDecoration(50))
         }
 
         val images = intArrayOf(
